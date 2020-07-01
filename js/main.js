@@ -1,10 +1,5 @@
 console.log(`main.js loaded`)
-document.onreadystatechange = function () {
-  if (document.readyState === "complete") {
-    main()
-    console.log('Ready')
-  }
-}
+
 
 
 
@@ -33,8 +28,27 @@ var cartListHeader = `<thead>
   <th></th>
 </tr>
 </thead>
-<tbody style="height: 10px !important; overflow: scroll; ">`
-document.getElementById("cart-table").innerHTML = cartListHeader
+<tbody style="height: 10px !important; overflow: scroll; ">
+`
+
+
+var cartListFooter = `</tbody>`
+
+
+
+
+document.onreadystatechange = function () {
+  if (document.readyState === "complete") {
+    main()
+    console.log('Ready')
+  }
+}
+
+
+document.getElementById("cart-table").getElementsByTagName('tbody')[0].innerHTML = ""
+
+//document.getElementById("cart-table").innerHTML = cartListHeader
+//
 function main() {
 
 
@@ -118,7 +132,7 @@ function filterList() {
   filter = input.value.toUpperCase()
   table = document.querySelector("#item-table")
   tr = table.querySelectorAll("tr")
-  console.log(tr)
+
 
 
 
@@ -168,7 +182,7 @@ function addToCart(event) {
 <td class="filterable-cell">${rowSelected.children[0].innerText}</td>
 <td class="filterable-cell">${rowSelected.children[1].innerText}</td>
 <td class="filterable-cell">${rowSelected.children[2].innerText}</td>
-<td class="filterable-cell col-2"><input type="number" min="1" max="50" value="1" class="form-control-sm col-12 input-sm" placeholder="1"></td>
+<td class="filterable-cell col-2"><input type="number" min="1" max="50" value="1" class="form-control-sm col-12 input-sm" placeholder="1" onchange="updateRowTotal()"></td>
 
 <td class="filterable-cell">${rowTotal} </td>
 <td class="filterable-cell"><button type="button" class="btn btn-danger btn-sm" onclick="removeFromCart()">
@@ -178,21 +192,38 @@ function addToCart(event) {
 
 
 
-  document.getElementById("cart-table").innerHTML += rowToAdd
-
+  document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
+  updateCart()
 }
 
-function removeFromCart()
-{
-  var removeRow =window.event.target.parentElement.parentElement.rowIndex
+function removeFromCart() {
+  var removeRow = window.event.target.parentElement.parentElement.rowIndex
   document.getElementById("cart-table").deleteRow(removeRow)
   console.log(removeRow)
+  updateCart()
 }
 
+function updateRowTotal() {
 
-function updateCart(){
-  var cartTable = document.getElementById("cart-table")
-  for (var i=1;i<cartTable.length;i++){
+  var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
+  var cartRows = cartBody.getElementsByTagName('tr')
+  for (i = 0; i < cartRows.length; i++) {
+    tr=cartRows[i]
+    td= tr.children
+    console.log(td[3].innerText)
     
+    console.log(td[4])
+    
+    console.log(td[4].value)
+    
+    var rowTotal = td[3].innerText * td[4].innerText
+    td[5].innerText = rowTotal
   }
+}
+
+function updateCart() {
+  var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
+  var cartRows = cartBody.getElementsByTagName('tr')
+  //console.log(cartRows)
+
 }
