@@ -22,6 +22,18 @@ var itemListHeader = `<thead>
 <tbody style="height: 10px !important; overflow: scroll; ">`
 
 
+var cartListHeader = `<thead>
+<tr>
+  <th>Index No.</th>
+  <th>Name</th>
+  <th>Rate</th>
+  <th>Quantity</th>
+  <th>Change Quantity</th>
+  <th>Total</th>
+</tr>
+</thead>
+<tbody style="height: 10px !important; overflow: scroll; ">`
+
 function main() {
 
 
@@ -45,8 +57,9 @@ function main() {
 
 
 
-
-
+var cartTable = document.querySelector("#cart-table")
+var cartTableData = cartTable.innerHTML
+console.log(cartTableData)
 
 
 
@@ -92,7 +105,7 @@ function objectToRow(obj) {
       <td id="col2" class="filterable-cell">${obj[i].Name}</td>
       <td id="col3" class="filterable-cell">${obj[i].Rate}</td>
       <td id="col4" class="filterable-cell">${obj[i].ImageURL}</td>
-      <td id="col5" class="filterable-cell btn btn-outline-primary" onclick="addToCart()">Add to cart</td>
+      <td id="col5" class="filterable-cell"><button class="btn btn-sm btn-primary" onclick="addToCart()">Add to cart</button></td>
       </tr>`
   }
   return (row)
