@@ -210,13 +210,13 @@ function updateRowTotal() {
   for (i = 0; i < cartRows.length; i++) {
     tr=cartRows[i]
     td= tr.children
-    console.log(td[3].innerText)
+    console.log(td[2].innerHTML)
     
-    console.log(td[4])
+    console.log(td[3].children.innerText)
     
-    console.log(td[4].value)
-    
-    var rowTotal = td[3].innerText * td[4].innerText
+    console.log(td[3].children.innerHTML)
+
+    var rowTotal = td[2].innerText * td[3].firstChild.value
     td[5].innerText = rowTotal
   }
 }
