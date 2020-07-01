@@ -1,33 +1,278 @@
-{
-    "group1":[
-        {
-          "itemindex":"1",
-          "name":"vat69",
-          "price":"2999",
-          "imageurl":""
-        },
-        {
-            "itemindex":"2",
-            "name":"9pm",
-            "price":"999",
-            "imageurl":""
-        }
-
-    ],
-
-    "group2":[
-        {
-          "itemindex":"1",
-          "name":"vat69",
-          "price":"2999",
-          "imageurl":""
-        },
-        {
-            "itemindex":"2",
-            "name":"9pm",
-            "price":"999",
-            "imageurl":""
-        }
-
-    ]
-}
+[
+    {
+        "IndexNo": "76001",
+        "Name": "S/W 100 Piper 750 Ml",
+        "Rate": "791.07",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76003",
+        "Name": "S/W Ballentines 750 Ml",
+        "Rate": "1135.67",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76005",
+        "Name": "S/W chivas Regal 12 750 Ml",
+        "Rate": "2439.95",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76009",
+        "Name": "S/W J/W Double Blk/Lab 750 Ml",
+        "Rate": "3006.41",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76010",
+        "Name": "S/W Teacher Highland 750 Ml",
+        "Rate": "830.70",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76011",
+        "Name": "S/W Old Smuggler 750 Ml",
+        "Rate": "819.49",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76012",
+        "Name": "S/W Teacher 50  750 Ml",
+        "Rate": "1186.01",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76021",
+        "Name": "S/W Black Dog Centeray 750 Ml",
+        "Rate": "852.36",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76023",
+        "Name": "S/W J/W Gold Label Reserve 750 Ml",
+        "Rate": "4742.73",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76025",
+        "Name": "S/W J/W Black Label 750 Ml",
+        "Rate": "2353.58",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76028",
+        "Name": "S/W Glenfiddich 12 Year 750 Ml",
+        "Rate": "3242.86",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76029",
+        "Name": "S/W Glenfiddich 15 Year 750 Ml",
+        "Rate": "4613.39",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76033",
+        "Name": "S/W Amrut Fusion 750 Ml",
+        "Rate": "1786.44",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "76041",
+        "Name": "S/W 100 Piper 12 Years 750 Ml",
+        "Rate": "1146.71",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "78152",
+        "Name": "Rum Contessa 750 Ml",
+        "Rate": "154.97",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "78155",
+        "Name": "Rum Old Smuggler 750 Ml",
+        "Rate": "143.07",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "78178",
+        "Name": "Rum Old Port Deluxe 750 Ml",
+        "Rate": "143.46",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "78185",
+        "Name": "Rum Bacardi Carta 750 Ml",
+        "Rate": "310.48",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "78195",
+        "Name": "Rum Marida xxx 750 Ml",
+        "Rate": "134.35",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79014",
+        "Name": "Beer Kingfisher Can 330 Ml",
+        "Rate": "34.98",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79015",
+        "Name": "Beer Kingfisher Can 330 Ml Bottle",
+        "Rate": "22.25",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79016",
+        "Name": "Beer Kingfisher 650 Ml",
+        "Rate": "44.32",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79026",
+        "Name": "Beer Hunter Can 500 Ml",
+        "Rate": "56.51",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79153",
+        "Name": "Vodka MM Orange",
+        "Rate": "263.54",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79162",
+        "Name": "Vodka Magic Moment 750 Ml",
+        "Rate": "235.70",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79164",
+        "Name": "Vodka Absolute NRC 750 Ml",
+        "Rate": "1121.99",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79169",
+        "Name": "Vodka Verve M2 750 Ml",
+        "Rate": "345.16",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79182",
+        "Name": "Whisky Peterscot 750 Ml",
+        "Rate": "394.74",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79194",
+        "Name": "Whis Royal Challenge 750 Ml",
+        "Rate": "224.03",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79198",
+        "Name": "Whisky MC Dowel No 1 750 Ml",
+        "Rate": "188.97",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79200",
+        "Name": "Whisky MCD Signature 750 Ml",
+        "Rate": "373.46",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79209",
+        "Name": "Whisky Premium Maquintosh 750 Ml",
+        "Rate": "223.88",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79230",
+        "Name": "Whisky Blenderpride 750 Ml",
+        "Rate": "387.33",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79247",
+        "Name": "Whisky 8PM Rare 750 Ml",
+        "Rate": "173.71",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79262",
+        "Name": "Red Wine Sula 375 Ml",
+        "Rate": "220.48",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79274",
+        "Name": "Champagne Brut Sula 750 Ml Spar",
+        "Rate": "520.54",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79275",
+        "Name": "Red Wine Sula 750 ML",
+        "Rate": "429.11",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79277",
+        "Name": "Breezer Bacardi Orange 275 Ml",
+        "Rate": "47.99",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79278",
+        "Name": "Breezer Bacardi Lemon 275 Ml",
+        "Rate": "47.99",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79283",
+        "Name": "Wine Fratelli Shiraz Classic ",
+        "Rate": "380.99",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79311",
+        "Name": "Whisky Red Knight 750 Ml Malt",
+        "Rate": "213.65",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79312",
+        "Name": "Whisky White & Blue 750 Ml",
+        "Rate": "254.13",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79313",
+        "Name": "Whisky Amrut S/M Amalgam 750 Ml",
+        "Rate": "1804.65",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79323",
+        "Name": "Whisky Golfershot 750 Ml",
+        "Rate": "436.60",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79324",
+        "Name": "Whisky Dennis Spl 750 Ml",
+        "Rate": "202.05",
+        "ImageUrl": " "
+    },
+    {
+        "IndexNo": "79352",
+        "Name": "Wine Cabernet Sauvignon 375 Ml",
+        "Rate": "279.48",
+        "ImageUrl": " "
+    }
+]

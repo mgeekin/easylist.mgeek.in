@@ -1,80 +1,154 @@
 console.log(`main.js loaded`)
-var D = ""
-var g1 = ""
-var g2 = ""
-var g2 = ""
+document.onreadystatechange = function () {
+  if (document.readyState === "complete") {
+    main()
+    console.log('Ready')
+  }
+}
 
 
 
 
 
+var itemListHeader = `<thead>
+<tr>
+  <th>Index No.</th>
+  <th>Name</th>
+  <th>Rate</th>
+  <th>Image</th>
+  <th>Select</th>
+</tr>
+</thead>
+<tbody style="height: 10px !important; overflow: scroll; ">`
+
+
+function main() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var D = ""
+  var g1 = ""
+  var g2 = ""
+  var g2 = ""
+  var itemList = ""
+  
+
+
+
+
+
+
+
+
+
+
+
+}
 
 //load group1
-function loadgroup1() {
+function loadgroup(event) {
+
+  var obj = window.event.target.id
+  //document.querySelector(`#${obj}`).style.display = "none"
+  var groupIndex = obj[obj.length - 1]
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
-      g1 = JSON.parse(this.responseText);
-      console.log(g1)
-
+      var G = JSON.parse(this.responseText);
+      
+      var row = objectToRow(G)
+      
       var table = document.getElementById("item-table")
-      console.log(table)
       table.innerHTML = ""
       var list = ""
-      list += `<thead>
-    <tr>
-      <th>S. No.</th>
-      <th>Item Index</th>
-      <th>Name</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody style="height: 10px !important; overflow: scroll; ">`
 
-var row= ""
-    for (i = 0; i < g1.length; i++) {
-row += `<tr>
-<td class="filterable-cell">${g1[i].itemindex}</td>
-<td class="filterable-cell">${g1[i].name}</td>
-<td class="filterable-cell">${g1[i].price}</td>
-<td class="filterable-cell">${g1[i].imageurl}</td>
+
+
+      list += row
+      table.innerHTML = itemListHeader+list
+    }
+  };
+  xmlhttp.open("GET", `data/group${groupIndex}.json`, true);
+  xmlhttp.send();
+
+}
+
+
+function objectToRow(obj) {
+  var row = ""
+  for (i = 0; i < obj.length; i++) {
+    row += `<tr id="row${i}">
+      <td id="col1" class="filterable-cell">${obj[i].IndexNo}</td>
+      <td id="col2" class="filterable-cell">${obj[i].Name}</td>
+      <td id="col3" class="filterable-cell">${obj[i].Rate}</td>
+      <td id="col4" class="filterable-cell">${obj[i].ImageURL}</td>
+      <td id="col5" class="filterable-cell btn btn-outline-primary" onclick="addToCart()">Add to cart</td>
+      </tr>`
+  }
+  return (row)
+}
+
+function filterList(){
+  var input, filter, table, tr, i, txtValue
+  input = document.querySelector("#searchInput")
+  filter = input.value.toUpperCase()
+  table=document.querySelector("#item-table")
+  tr = table.querySelectorAll("tr")
+  console.log(tr)
+
+
+
+  for(i=1;i<tr.length;i++){
+    td = tr[i].getElementsByTagName("td")[1]
+    if(td){
+      txtValue = td.textCOntent || td.innerText
+      if (txtValue.toUpperCase().indexOf(filter) > -1){
+        tr[i].style.display=""
+      }else{
+        tr[i].style.display="none"
+      }
+    }
+  }
+}
+
+
+function addToCart(event){
+  var clickedItemRow=window.event.target.parentElement.id
+  //var cols=clickedItemRow.children.innerText
+  
+  var rowSelected = document.querySelector(`#${clickedItemRow}`)
+  console.log(rowSelected.children[1].innerText)
+
+
+var rowTotal =rowSelected.children[2].innerText
+var rowToAdd=`<tr>
+<td class="filterable-cell">${rowSelected.children[0].innerText}</td>
+<td class="filterable-cell">${rowSelected.children[1].innerText}</td>
+<td class="filterable-cell">${rowSelected.children[2].innerText}</td>
+<td class="filterable-cell col-2"><input class="form-control-sm col-12 input-sm" placeholder="1"></td>
+<td class="filterable-cell">
+  <button type="button" class="btn btn-success btn-sm">
+    <span class="glyphicon glyphicon-plus"></span> Add 1
+  </button>
+  <button type="button" class="btn btn-primary btn-sm">
+    <span class="glyphicon glyphicon-minus"></span> Remove 1
+  </button>
+  <button type="button" class="btn btn-danger btn-sm">
+  <span class="glyphicon glyphicon-remove"></span> Remove Item
+</button></td>
+<td class="filterable-cell">${rowTotal}</td>
 </tr>`
 
+
+
 }
-list += row
-    table.innerHTML=list
-    }
-  };
-  xmlhttp.open("GET", "data/group1.json", true);
-  xmlhttp.send();
-}
-
-//load group1
-function loadgroup2() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
-      g2 = JSON.parse(this.responseText);
-      console.log(g2)
-    }
-  };
-  xmlhttp.open("GET", "data/group1.json", true);
-  xmlhttp.send();
-}
-
-//load group1
-function loadgroup3() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
-      g3 = JSON.parse(this.responseText);
-      console.log(g3)
-    }
-  };
-  xmlhttp.open("GET", "data/group1.json", true);
-  xmlhttp.send();
-}
-
-
-
-

@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="/js/main.js" async></script>
+  <script src="js/main.js" async type="text/javascript"></script>
 </head>
 
 <body>
@@ -23,16 +23,16 @@
 
         <div id="loadlist" class="col-lg-6 col-sm-6">
 
-          <div id="group1" class="btn btn-primary" onclick="loadgroup1()">
-            Load Group 1
+          <div id="grocery1" class="loadbtn btn btn-primary" onclick="loadgroup(event)">
+            Show Grocery
           </div>
 
-          <div id="group2" class="btn-primary btn" onclick="loadgroup2()">
-            Load Group 2
+          <div id="liquor2" class="btn-primary btn loadbtn" onclick="loadgroup(event)">
+            Show Liquor
           </div>
 
-          <div id="group3" class="btn-primary btn" onclick="loadgroup3()">
-            Load Group 3
+          <div id="suitcaseAndElectrical3" class="btn-primary btn loadbtn" onclick="loadgroup(event)">
+            Show Suitcase and Electrical
           </div>
         </div>
       </div>
@@ -42,6 +42,7 @@
     <div class="row">
       <div id="list" class="col-12 col-sm-12 col-lg-6 col-xs-6">
         <h1>Item list</h1>
+        <input type="text" id="searchInput" class="form-control mb-3" onkeyup="filterList()" placeholder="Search for items">
         <table id="item-table" class="table table-hover">
           <thead>
             <tr>
@@ -69,18 +70,31 @@
         <table id="cart-table" class="table table-hover">
           <thead>
             <tr>
-              <th>S. No.</th>
               <th>Item Index</th>
               <th>Name</th>
-              <th>Price</th>
+              <th>Rate</th>
+              <th>Quantity</th>
+              <th>Change Quantity</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody style="height: 10px !important; overflow: scroll; ">
             <tr>
-              <td class="filterable-cell">111 Ford</td>
+              <td class="filterable-cell">111</td>
               <td class="filterable-cell">Escort</td>
-              <td class="filterable-cell">Blue</td>
               <td class="filterable-cell">2000</td>
+              <td class="filterable-cell col-2"><input class="form-control-sm col-12 input-sm" placeholder="1"></td>
+              <td class="filterable-cell">
+                <button type="button" class="btn btn-success btn-sm">
+                  <span class="glyphicon glyphicon-plus"></span> Add 1
+                </button>
+                <button type="button" class="btn btn-primary btn-sm">
+                  <span class="glyphicon glyphicon-minus"></span> Remove 1
+                </button>
+                <button type="button" class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-remove"></span> Remove Item
+              </button></td>
+              <td class="filterable-cell">rowTotal</td>
             </tr>
 
         </table>
