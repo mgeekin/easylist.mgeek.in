@@ -216,14 +216,25 @@ function updateRowTotal() {
     
     console.log(td[3].children.innerHTML)
 
-    var rowTotal = td[2].innerText * td[3].firstChild.value
+    var rowTotal = Math.round((td[2].innerText * td[3].firstChild.value)*100)/100
     td[5].innerText = rowTotal
   }
+  updateCartTotal()
 }
 
-function updateCart() {
+function updateCartTotal() {
   var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
   var cartRows = cartBody.getElementsByTagName('tr')
-  //console.log(cartRows)
+  var cartTotal=0
+  for (i = 0; i < cartRows.length; i++) {
+    tr=cartRows[i]
+    td= tr.children
+    cartTotal+= td[5]
+    document.getElementById('cartTotal').innerHTML = `Cart Total = ${cartTotal}`
+
+
+
+
+  }
 
 }
