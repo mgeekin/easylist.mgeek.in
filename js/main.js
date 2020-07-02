@@ -193,14 +193,14 @@ function addToCart(event) {
 
 
   document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
-  updateCart()
+  updateCartTotal()
 }
 
 function removeFromCart() {
   var removeRow = window.event.target.parentElement.parentElement.rowIndex
   document.getElementById("cart-table").deleteRow(removeRow)
   console.log(removeRow)
-  updateCart()
+  updateCartTotal()
 }
 
 function updateRowTotal() {
@@ -217,7 +217,7 @@ function updateRowTotal() {
     console.log(td[3].children.innerHTML)
 
     var rowTotal = Math.round((td[2].innerText * td[3].firstChild.value)*100)/100
-    td[5].innerText = rowTotal
+    td[4].innerText = rowTotal
   }
   updateCartTotal()
 }
@@ -229,12 +229,13 @@ function updateCartTotal() {
   for (i = 0; i < cartRows.length; i++) {
     tr=cartRows[i]
     td= tr.children
-    cartTotal+= td[5]
-    document.getElementById('cartTotal').innerHTML = `Cart Total = ${cartTotal}`
+
+    cartTotal += parseFloat(td[4].innerText)
 
 
 
 
   }
-
+  cartTotal=Math.round(cartTotal*100)/100
+  document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal}`
 }
