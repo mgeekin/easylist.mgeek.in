@@ -50,28 +50,14 @@ document.getElementById("cart-table").getElementsByTagName('tbody')[0].innerHTML
 //document.getElementById("cart-table").innerHTML = cartListHeader
 //
 function main() {
-
-
-
-
-
-
-
-
-
-
-
-
-
+  var key = "85528aslgkjag[23-4slfjk003rjslf049073"
   var D = ""
   var g1 = ""
   var g2 = ""
   var g2 = ""
   var itemList = ""
-
-
-
-
+  var order = ""
+  var encryptedOrder = ""
   var cartTable = document.querySelector("#cart-table")
   var cartTableData = cartTable.innerHTML
   console.log(cartTableData)
@@ -93,15 +79,10 @@ function loadgroup(event) {
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
       var G = JSON.parse(this.responseText);
-
       var row = objectToRow(G)
-
       var table = document.getElementById("item-table")
       table.innerHTML = ""
       var list = ""
-
-
-
       list += row
       table.innerHTML = itemListHeader + list
     }
@@ -126,16 +107,15 @@ function objectToRow(obj) {
   return (row)
 }
 
+
+
+
 function filterList() {
   var input, filter, table, tr, i, txtValue
   input = document.querySelector("#searchInput")
   filter = input.value.toUpperCase()
   table = document.querySelector("#item-table")
   tr = table.querySelectorAll("tr")
-
-
-
-
   for (i = 1; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1]
     if (td) {
@@ -179,19 +159,16 @@ function addToCart(event) {
 
   var rowTotal = rowSelected.children[2].innerText
   var rowToAdd = `<tr>
-<td class="filterable-cell">${rowSelected.children[0].innerText}</td>
-<td class="filterable-cell">${rowSelected.children[1].innerText}</td>
-<td class="filterable-cell">${rowSelected.children[2].innerText}</td>
-<td class="filterable-cell col-2"><input type="number" min="1" max="50" value="1" class="form-control-sm col-12 input-sm" placeholder="1" onchange="updateRowTotal()"></td>
+    <td class="filterable-cell">${rowSelected.children[0].innerText}</td>
+    <td class="filterable-cell">${rowSelected.children[1].innerText}</td>
+    <td class="filterable-cell">${rowSelected.children[2].innerText}</td>
+    <td class="filterable-cell col-2"><input type="number" min="1" max="50" value="1" class="form-control-sm col-12 input-sm" placeholder="1" onchange="updateRowTotal()"></td>
 
-<td class="filterable-cell">${rowTotal} </td>
-<td class="filterable-cell"><button type="button" class="btn btn-danger btn-sm" onclick="removeFromCart()">
-<span class="glyphicon glyphicon-remove"></span> Remove
-</button></td>
-</tr>`
-
-
-
+    <td class="filterable-cell">${rowTotal} </td>
+    <td class="filterable-cell"><button type="button" class="btn btn-danger btn-sm" onclick="removeFromCart()">
+    <span class="glyphicon glyphicon-remove"></span> Remove
+    </button></td>
+    </tr>`
   document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
   updateCartTotal()
 }
@@ -204,38 +181,52 @@ function removeFromCart() {
 }
 
 function updateRowTotal() {
-
   var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
   var cartRows = cartBody.getElementsByTagName('tr')
   for (i = 0; i < cartRows.length; i++) {
-    tr=cartRows[i]
-    td= tr.children
-    console.log(td[2].innerHTML)
-    
-    console.log(td[3].children.innerText)
-    
-    console.log(td[3].children.innerHTML)
-
-    var rowTotal = Math.round((td[2].innerText * td[3].firstChild.value)*100)/100
+    tr = cartRows[i]
+    td = tr.children
+    var rowTotal = Math.round((td[2].innerText * td[3].firstChild.value) * 100) / 100
     td[4].innerText = rowTotal
   }
   updateCartTotal()
 }
 
+
 function updateCartTotal() {
   var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
   var cartRows = cartBody.getElementsByTagName('tr')
-  var cartTotal=0
+  var cartTotal = 0
   for (i = 0; i < cartRows.length; i++) {
-    tr=cartRows[i]
-    td= tr.children
-
+    tr = cartRows[i]
+    td = tr.children
     cartTotal += parseFloat(td[4].innerText)
-
-
-
-
   }
-  cartTotal=Math.round(cartTotal*100)/100
+  cartTotal = Math.round(cartTotal * 100) / 100
   document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal}`
+}
+
+function cartToJson(){
+  var cartJson
+  var cartTable = document.getElementById('cart-table')
+  var cartBody = cartTable.getElementsByTagName('tbody')
+  var cartRows = cartBody.getElementsByTagName('tr')
+  var cartJson =""
+  for(i=0;i<cartRows.length;i++){
+    tr= cartRow[i]
+    td=tr.children
+    cartJson[i].Index=td[0]
+    cartJson[i].Name=td[1]
+    cartJson[i].Rate=td[2]
+    cartJson[i].Quantity=td[3].firstChild.value
+    cartJson[i].Total=Math.round(cartJson[i].Rate*cartJson[i].Quantity*100)/100
+  }
+  return cartJson
+}
+
+function sendOrder(){
+  var cartJson= cartToJson()
+  var customer =""
+  var order = {customer,cartJson}
+  var encryptedOrder = cryptoJS.AES.encrypt(key,JSON.stringify(order))
 }
