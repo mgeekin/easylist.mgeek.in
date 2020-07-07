@@ -50,6 +50,7 @@ document.getElementById("cart-table").getElementsByTagName('tbody')[0].innerHTML
 //document.getElementById("cart-table").innerHTML = cartListHeader
 //
 function main() {
+  console.log('main')
   var key = "85528aslgkjag[23-4slfjk003rjslf049073"
   var D = ""
   var g1 = ""
@@ -71,6 +72,7 @@ function main() {
 
 //load group1
 function loadgroup(event) {
+  console.log('loadgroup')
 
   var obj = window.event.target.id
   //document.querySelector(`#${obj}`).style.display = "none"
@@ -94,6 +96,7 @@ function loadgroup(event) {
 
 
 function objectToRow(obj) {
+  console.log('objectToRow')
   var row = ""
   for (i = 0; i < obj.length; i++) {
     row += `<tr id="row${i}">
@@ -111,6 +114,7 @@ function objectToRow(obj) {
 
 
 function filterList() {
+  console.log('filterList')
   var input, filter, table, tr, i, txtValue
   input = document.querySelector("#searchInput")
   filter = input.value.toUpperCase()
@@ -131,6 +135,7 @@ function filterList() {
 
 
 function addToCart(event) {
+  console.log('addToCart')
   var clickedItemRow = window.event.target.parentElement.parentElement.id
   //var cols=clickedItemRow.children.innerText
 
@@ -174,6 +179,7 @@ function addToCart(event) {
 }
 
 function removeFromCart() {
+  console.log('removeFromCart')
   var removeRow = window.event.target.parentElement.parentElement.rowIndex
   document.getElementById("cart-table").deleteRow(removeRow)
   console.log(removeRow)
@@ -181,6 +187,7 @@ function removeFromCart() {
 }
 
 function updateRowTotal() {
+  console.log('updateRowTotal')
   var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
   var cartRows = cartBody.getElementsByTagName('tr')
   for (i = 0; i < cartRows.length; i++) {
@@ -194,6 +201,8 @@ function updateRowTotal() {
 
 
 function updateCartTotal() {
+  console.log('updateCartTotal')
+
   var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
   var cartRows = cartBody.getElementsByTagName('tr')
   var cartTotal = 0
@@ -203,30 +212,124 @@ function updateCartTotal() {
     cartTotal += parseFloat(td[4].innerText)
   }
   cartTotal = Math.round(cartTotal * 100) / 100
-  document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal}`
+  document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="sendOrder()"> Finalize order</button>`
 }
 
-function cartToJson(){
-  var cartJson
+function cartToJson() {
+  console.log('cartToJson')
   var cartTable = document.getElementById('cart-table')
-  var cartBody = cartTable.getElementsByTagName('tbody')
+  var cartBody = cartTable.getElementsByTagName('tbody')[0]
+  //console.log(cartBody)
   var cartRows = cartBody.getElementsByTagName('tr')
-  var cartJson =""
-  for(i=0;i<cartRows.length;i++){
-    tr= cartRow[i]
-    td=tr.children
-    cartJson[i].Index=td[0]
-    cartJson[i].Name=td[1]
-    cartJson[i].Rate=td[2]
-    cartJson[i].Quantity=td[3].firstChild.value
-    cartJson[i].Total=Math.round(cartJson[i].Rate*cartJson[i].Quantity*100)/100
+  //console.log(cartRows)
+  var cartJson = ""
+  for (i = 0; i < cartRows.length; i++) {
+    //  var cartJson =""
+    tr = cartRows[i]
+    td = tr.children
+    //var rowTotal = Math.round(td[2] * td[3].firstChild.value * 100) / 100
+    //console.log(rowTotal)
+    if (i === 0) {
+      var objarray = `{
+    "Index":${td[0].innerText},
+    "Name":"${td[1].innerText}",
+    "Rate":${td[2].innerText},
+    "Quantity":${td[3].firstChild.value},
+    "Total":${td[4].innerText}
+    }`
+    }
+
+    else {
+      objarray += `,
+    {
+    "Index":${td[0].innerText},
+    "Name":"${td[1].innerText}",
+    "Rate":${td[2].innerText},
+    "Quantity":${td[3].firstChild.value},
+    "Total":${td[4].innerText}
+    }`
+    }
+    //console.log(`objarray= ${objarray}`)
+    //cartJson.Index=td[0]
+    //cartJson[i].Name=td[1]
+    //cartJson[i].Rate=td[2]
+    //cartJson[i].Quantity=td[3].firstChild.value
+    //cartJson[i].Total=Math.round(cartJson[i].Rate*cartJson[i].Quantity*100)/100
   }
-  return cartJson
+  cartJson = `[${objarray}]`
+
+  return [JSON.parse(cartJson), cartTable]
 }
 
-function sendOrder(){
-  var cartJson= cartToJson()
-  var customer =""
-  var order = {customer,cartJson}
-  var encryptedOrder = cryptoJS.AES.encrypt(key,JSON.stringify(order))
+function sendOrder() {
+  console.log('sendOrder')
+  var [cartJson, cartTable] = cartToJson()
+  var [finalTable, cartTotal] = finalOrderOnjectToTable(cartJson)
+ 
+  var main = document.getElementById("main")
+  main.innerHTML=""
+  var h = document.createElement("h2")
+  h.innerText= "customerDetailsTable"
+  main.append(h)
+
+  main.append(finalTable)
+
+
+  var h = document.createElement("h2")
+  h.innerText= `Net amount is INR ${cartTotal}`
+  main.append(h)
+  
+
+  
+
+  var customer = ""
+  var order = { customer, cartJson }
+  var encryptedOrder = cryptoJS.AES.encrypt(key, JSON.stringify(order))
+}
+
+
+
+function finalOrderOnjectToTable(obj) {
+  console.log('finalOrderOnjectToTable')
+  finalTable = document.createElement("TABLE")
+  finalTable.classList.add("table")
+  finalTable.classList.add("table-striped")
+
+  var A =
+    `
+      <thead>
+        <tr>
+          <th>Index No.</th>
+          <th>Name</th>
+          <th>Rate</th>
+          <th style="height:40px">Quantity</th>
+          <th>Total</th>
+                  </tr>
+      </thead>
+      <tbody style="height: 10px !important; overflow: scroll; ">
+
+      </tbody>
+    `
+
+  finalTable.innerHTML = A
+
+
+
+  var row = ""
+  var cartTotal=0
+  for (i = 0; i < obj.length; i++) {
+    row += `
+    <tr id="row${i}">
+      <td id="list-col1" class="filterable-cell">${obj[i].Index}</td>
+      <td id="list-col2" class="filterable-cell">${obj[i].Name}</td>
+      <td id="list-col3" class="filterable-cell">${obj[i].Rate}</td>
+      <td id="list-col3" class="filterable-cell">${obj[i].Quantity}</td>
+      <td id="list-col3" class="filterable-cell">${obj[i].Total}</td>
+      </tr>
+      `
+      cartTotal+=obj[i].Total
+  }
+  finalTable.getElementsByTagName("tbody")[0].innerHTML = row
+  cartTotal=Math.round(cartTotal*100)/100
+  return [finalTable,cartTotal]
 }
