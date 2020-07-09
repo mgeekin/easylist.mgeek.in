@@ -1,6 +1,9 @@
 console.log(`main.js loaded`)
 var cartObject = []
 var cartHTML
+var mobile = "9403275606"
+var key = mobile+"fadflkasdfj234lkf98asdf345dsflkj23m407sdf" 
+var ensStr =""
 var customerObject = {
   "Name": "name",
   "Rank": "rank",
@@ -343,17 +346,7 @@ function updateRowTotal(target) {
 
 
 
-  /*
-    var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
-    var cartRows = cartBody.getElementsByTagName('tr')
-    for (i = 0; i < cartRows.length; i++) {
-      tr = cartRows[i]
-      td = tr.children
-      var rowTotal = Math.round((td[2].innerText * td[3].firstChild.value) * 100) / 100
-      td[4].innerText = rowTotal
-    }
-    updateCartTotal()
-    */
+
   showCart()
 }
 
@@ -379,16 +372,11 @@ function cartToJson() {
   console.log('cartToJson')
   var cartTable = document.getElementById('cart-table')
   var cartBody = cartTable.getElementsByTagName('tbody')[0]
-  //console.log(cartBody)
   var cartRows = cartBody.getElementsByTagName('tr')
-  //console.log(cartRows)
   var cartJson = ""
   for (i = 0; i < cartRows.length; i++) {
-    //  var cartJson =""
     tr = cartRows[i]
     td = tr.children
-    //var rowTotal = Math.round(td[2] * td[3].firstChild.value * 100) / 100
-    //console.log(rowTotal)
     if (i === 0) {
       var objarray = `{
     "Index":${td[0].innerText},
@@ -398,7 +386,6 @@ function cartToJson() {
     "Total":${td[4].innerText}
     }`
     }
-
     else {
       objarray += `,
     {
@@ -409,12 +396,7 @@ function cartToJson() {
     "Total":${td[4].innerText}
     }`
     }
-    //console.log(`objarray= ${objarray}`)
-    //cartJson.Index=td[0]
-    //cartJson[i].Name=td[1]
-    //cartJson[i].Rate=td[2]
-    //cartJson[i].Quantity=td[3].firstChild.value
-    //cartJson[i].Total=Math.round(cartJson[i].Rate*cartJson[i].Quantity*100)/100
+
   }
   cartJson = `[${objarray}]`
 
@@ -424,34 +406,29 @@ function cartToJson() {
 function sendOrder() {
   console.log('sendOrder')
   var [cartJson, cartTable] = cartToJson()
-  var [finalTable, cartTotal] = finalOrderOnjectToTable(cartJson)
+  var [cartHTML, cartTotal] = finalOrderOnjectToTable(cartJson)
 
   var main = document.getElementById("main")
   main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
-
-
-  main.append(finalTable)
-
-
+  main.append(cartHTML)
   var h = document.createElement("h2")
   h.innerText = `Net amount is INR ${cartTotal}`
   main.append(h)
-
-
-
-
+  if (cartObject.length > 0) {
+    document.getElementById('main').innerHTML += ` <button type="button" class="btn btn-danger" onclick="showCart()">Edit</button>`
+  }
   var customer = ""
   var order = { customer, cartJson }
-  var encryptedOrder = cryptoJS.AES.encrypt(key, JSON.stringify(order))
+  var encryptedOrder = CryptoJS.AES.encrypt(key, JSON.stringify(order))
 }
 
 
 
 function finalOrderOnjectToTable() {
   console.log('finalOrderOnjectToTable')
-  finalTable = document.createElement("TABLE")
-  finalTable.classList.add("table")
-  finalTable.classList.add("table-striped")
+  cartHTML = document.createElement("TABLE")
+  cartHTML.classList.add("table")
+  cartHTML.classList.add("table-striped")
 
   var A =
     `
@@ -469,7 +446,7 @@ function finalOrderOnjectToTable() {
       </tbody>
     `
 
-  finalTable.innerHTML = A
+  cartHTML.innerHTML = A
 
 
 
@@ -487,9 +464,10 @@ function finalOrderOnjectToTable() {
       `
     cartTotal += cartObject[i].Total
   }
-  finalTable.getElementsByTagName("tbody")[0].innerHTML = row
+  
+  cartHTML.getElementsByTagName("tbody")[0].innerHTML = row
   cartTotal = Math.round(cartTotal * 100) / 100
-  return [finalTable, cartTotal]
+  return [cartHTML, cartTotal]
 }
 
 
@@ -499,22 +477,16 @@ function finalOrderOnjectToTable() {
 function showCustomerForm() {
   //var customerForm
   console.log(customerForm)
-  document.getElementById('main').innerHTML = "<h2>Customer Details </h2>"
-
-  if (customerObject.filled === 1) {
-    document.getElementById('main').innerHTML=""
-    var buttonTemp =`<button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
-    document.getElementById('main').innerHTML = buttonTemp
-  }
-  document.getElementById('main').innerHTML+=customerForm
-  if (customerObject.filled === 1) {
+  document.getElementById('main').innerHTML = "<h2>Customer Details </h2>" 
+  document.getElementById('main').innerHTML += customerForm
+  if (customerObject.Filled === 1) {
     document.getElementById("customer-rank").value = customerObject.Rank
     document.getElementById("customer-name").value = customerObject.Name
     document.getElementById("customer-email").value = customerObject.Email
     document.getElementById("customer-number").value = customerObject.Number
     document.getElementById("customer-address").value = customerObject.Address
 
-    document.getElementById('main').innerHTML+=` <button type="button" class="btn btn-danger" onclick="showCustomerForm()">Edit</button>`
+    
   }
   //document.getElementById('main').append()
 }
@@ -550,13 +522,11 @@ function showCart() {
     console.log()
     document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += tr
   }
-  if(cartObject.length>0){
-  document.getElementById('main').innerHTML+=` <button type="button" class="btn btn-danger" onclick="showCart()">Edit</button>`
-  }
+  
   //document.getElementById('main').append()
   updateCartTotal()
-  var cartHTML = document.getElementById('main').innerHTM
-  return cartHTML
+  var cartHTML = document.getElementById('main').getElementsByTagName("table")
+    return cartHTML
 }
 
 
@@ -568,7 +538,37 @@ function saveCustomerInfo() {
   customerObject.Number = document.getElementById("customer-number").value
   customerObject.Email = document.getElementById("customer-email").value
   customerObject.Address = document.getElementById("customer-address").value
-  customerObject.filled = 1
+  customerObject.Filled = 1
+  customerJsonToHTML()
+  
+  document.getElementById("main").innerHTML =""
+  if (customerObject.Filled === 1) {
+    document.getElementById('main').innerHTML = ""
+    var buttonTemp = `<button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
+    document.getElementById('main').innerHTML = buttonTemp
+  } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  document.getElementById("main").innerHTML += customerTable
+  if(customerObject.Filled===1){
+    document.getElementById('main').innerHTML += ` <button type="button" class="btn btn-danger" onclick="showCustomerForm()">Edit</button>`
+  }
+  return customerObject
+}
+
+function customerJsonToHTML(){
   customerTable = `
   <table id="customer-info-table" class="table">
   <tr>
@@ -612,61 +612,80 @@ function saveCustomerInfo() {
             </td>
           </tr>
           </table>`
-  document.getElementById("customer").innerHTML = customerTable
-  return customerObject
+  
+  return customerTable
 }
 
-
-
-function showCheckout(){
+function showCheckout() {
   var checkoutHTML = `
 <h2>Customer Details</h2>
-<table id="customer-info-table" class="table">
-  <tr>
-  <td scope="row">
-    Rank
-  </td>
-  <td>
-    ${customerObject.Rank}
-  </td>
-</tr>
-<tr>
-<td scope="row">
-        Name
-      </td>
-      <td>
-        ${customerObject.Name}
-      </td>
-    </tr>
-    <tr>
-    <td scope="row">
-          Email
-        </td>
-        <td>
-          ${customerObject.Email}
-        </td>
-      </tr>
-      <tr>
-      <td scope="row">
-            Number
-          </td>
-          <td>
-            ${customerObject.Number}
-          </td>
-        </tr>
-        <tr>
-        <td scope="row">
-              Address
-            </td>
-            <td>
-              ${customerObject.Address}
-            </td>
-          </tr>
-          </table>
+${customerTable}
 <h2>Order</h2>
-${cartHTML}
+${cartHTML.outerHTML}`
 
-  `
+  document.getElementById("main").innerHTML = checkoutHTML
 
-  document.getElementById("customer").innerHTML=checkoutHTML
+  document.getElementById("main").innerHTML += `<button type="button" class="btn btn-primary" onclick="downloadPDF"> Download PDF</button>`
+  var savedData = [customerObject,cartObject]
+  console.log(savedData)
+  var savedDataString = JSON.stringify(savedData)
+  console.log(savedDataString)
+  var savedDataEncrypted = CryptoJS.AES.encrypt(savedDataString,key)
+  console.log(savedDataEncrypted)
+  encStr = savedDataEncrypted.toString()
+  console.log(encStr)
+
+  var dec = CryptoJS.AES.decrypt(encStr,key)
+  console.log(dec)
+
+
+var orderNumber = sendToGoogleSheet(savedDataEncryptedString)
+
+savePDF()
+
+
 }
+
+
+
+
+
+
+function sendToGoogleSheet(encString){
+var orderNumber=0
+//get google sheet row and append insert order
+
+
+
+
+
+  return orderNumber
+}
+
+function savePDF(){
+  
+}
+
+
+  /*
+  jsonStr = '{"something":"else"}';
+var encrypted = CryptoJS.AES.encrypt(jsonStr, 'youngunicornsrunfree');
+console.log("We send this: "+encrypted.toString());
+
+Now say we sent something earlier and we are getting it back. We can do something like this:
+
+var messageFromServer = "U2FsdGVkX19kyHo1s8+EwNuo/LQdL3RnSoDHU2ovA88RtyOs+PvpQ1UZssMNfflTemaMAwHDbnWagA8lQki5kQ==";
+var decrypted = CryptoJS.AES.decrypt(messageFromServer, "youngunicornsrunfree");
+console.log(decrypted.toString(CryptoJS.enc.Utf8));
+
+  
+  
+function downloadPDF() {
+  var pdf = new jsPDF('p', 'pt', 'letter');
+  pdf.canvas.height = 72 * 11;
+  pdf.canvas.width = 72 * 8.5;
+
+  pdf.fromHTML(document.getElementById("main").innerHTML);
+
+  pdf.save('test.pdf');
+};*/
