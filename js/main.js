@@ -1,6 +1,104 @@
 console.log(`main.js loaded`)
 
+var cartList=`
+<div id="cart" class="col-12 col-sm-12 col-lg-6 col-xs-6">
+<h1>Cart Items </h1>
+<h2 id="cartTotal">Total = INR 0.00</h2>
+<table id="cart-table" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Index No.</th>
+      <th>Name</th>
+      <th>Rate</th>
+      <th style="height:40px">Quantity</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody style="height: 10px !important; overflow: scroll; ">
 
+  </tbody>
+
+</table>
+
+</div>
+`
+
+document.getElementById('main').innerHTML=cartList
+
+document.getElementById("cart").style.display = "none"
+
+
+var menuList=`
+<div class="row mb-4 ">
+          <div class="col-12 col-lg-12 mb-12">
+
+
+            <div id="loadlist" class="col-lg-12 col-sm-12">
+
+              <div id="grocery1" class="loadbtn btn btn-primary" onclick="loadgroup(event)">
+                Show Grocery
+              </div>
+
+              <div id="liquor2" class="btn-primary btn loadbtn" onclick="loadgroup(event)">
+                Show Liquor
+              </div>
+
+              <div id="suitcaseAndElectrical3" class="btn-primary btn loadbtn" onclick="loadgroup(event)">
+                Show Suitcase and Electrical
+              </div>
+              <div id="goToCart" class="btn-primary btn loadbtn">
+                <a href="#cart" style="color:white">Go to cart</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div id="list" class="col-12 col-sm-12 col-lg-6 col-xs-6">
+            <h1>Item list</h1>
+            <input type="text" id="searchInput" class="form-control mb-3" onkeyup="filterList()"
+              placeholder="Search for items">
+            <table id="item-table" class="table table-hover">
+              <thead>
+                <tr>
+                  <th>S. No.</th>
+                  <th>Item Index</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody style="height: 10px !important; overflow: scroll; ">
+              </tbody>
+
+            </table>
+
+          </div>
+`
+
+var customerForm=`
+<div id="customer-form" class="row container col-lg-12">
+<form class="sm">
+  <label>Rank</label>
+  <select class="form-control" id="customer-rank">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  <input type="text" class="form-control" id="customer-name" placeholder="name">
+  <input type="email" class="form-control" id="customer-email" placeholder="name@example.com">
+  <input type="number" min=10000000000 max=9999999999 class="form-control" id="customer-number" placeholder="number">
+
+  <textarea class="form-control" id="customer-address" rows="3"></textarea>
+  <div class="g-recaptcha" data-sitekey="6Lds0K4ZAAAAAOM-h7WV1K-zVkfTnhN0hzBJE-rE"></div>
+
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+</form>
+</div>
+`
 
 
 
@@ -332,4 +430,27 @@ function finalOrderOnjectToTable(obj) {
   finalTable.getElementsByTagName("tbody")[0].innerHTML = row
   cartTotal=Math.round(cartTotal*100)/100
   return [finalTable,cartTotal]
+}
+
+
+
+function showCustomerForm(){
+  //var customerForm
+  console.log(customerForm)
+  document.getElementById('main').innerHTML=customerForm
+  //document.getElementById('main').append()
+}
+
+function showList(){
+  //var customerForm
+  console.log(menuList)
+  document.getElementById('main').innerHTML=menuList
+  //document.getElementById('main').append()
+}
+
+function showCart(){
+  //var customerForm
+  console.log(cartList)
+  document.getElementById('main').innerHTML=cartList
+  //document.getElementById('main').append()
 }
