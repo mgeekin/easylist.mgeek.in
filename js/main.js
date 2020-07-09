@@ -1,6 +1,6 @@
 console.log(`main.js loaded`)
-
-var cartList=`
+var cartObject = []
+var cartList = `
 <div id="cart" class="col-12 col-sm-12 col-lg-6 col-xs-6">
 <h1>Cart Items </h1>
 <h2 id="cartTotal">Total = INR 0.00</h2>
@@ -24,12 +24,12 @@ var cartList=`
 </div>
 `
 
-document.getElementById('main').innerHTML=cartList
+document.getElementById('main').innerHTML = cartList
 
 document.getElementById("cart").style.display = "none"
 
 
-var menuList=`
+var menuList = `
 <div class="row mb-4 ">
           <div class="col-12 col-lg-12 mb-12">
 
@@ -77,7 +77,7 @@ var menuList=`
           </div>
 `
 
-var customerForm=`
+var customerForm = `
 <div id="customer-form" class="row container col-lg-12">
 <form class="sm">
   <label>Rank</label>
@@ -116,7 +116,9 @@ var itemListHeader = `<thead>
 <tbody style="height: 10px !important; overflow: scroll; ">`
 
 
-var cartListHeader = `<thead>
+var cartListTable = `
+<h2 id="cartTotal">Cart Total</h2>
+<table id="cart-table" class="table"><thead>
 <tr>
   <th>Index No.</th>
   <th>Name</th>
@@ -127,10 +129,12 @@ var cartListHeader = `<thead>
 </tr>
 </thead>
 <tbody style="height: 10px !important; overflow: scroll; ">
+
+</tbody></table>
 `
 
 
-var cartListFooter = `</tbody>`
+var cartListFooter = ``
 
 
 
@@ -232,7 +236,7 @@ function filterList() {
 }
 
 
-function addToCart(event) {
+function addToCart() {
   console.log('addToCart')
   var clickedItemRow = window.event.target.parentElement.parentElement.id
   //var cols=clickedItemRow.children.innerText
@@ -259,19 +263,42 @@ function addToCart(event) {
     <td class="filterable-cell">rowTotal</td>
           </tr>`
 
+  var obj = {
+    "Index": selectedRowArray[0],
+    "Name": selectedRowArray[1],
+    "Rate": selectedRowArray[2],
+    "Quantity": 1,
+    "Total": null
+  }
+  obj.Total = Math.round(obj.Rate * obj.Quantity * 100) / 100
+  var itemExist = 0
+  for (i = 0; i < cartObject.length; i++) {
+    if (obj.Index === cartObject[i].Index) {
+      itemExist = 1
+      cartObject[i].Quantity += 1
+      cartObject[i].Total = Math.round(cartObject[i].Rate * cartObject[i].Quantity * 100) / 100
+    }
+  }
+  if (itemExist === 0) {
+    cartObject.push(obj)
+  }
+
 
   var rowTotal = rowSelected.children[2].innerText
   var rowToAdd = `<tr>
     <td class="filterable-cell">${rowSelected.children[0].innerText}</td>
     <td class="filterable-cell">${rowSelected.children[1].innerText}</td>
     <td class="filterable-cell">${rowSelected.children[2].innerText}</td>
-    <td class="filterable-cell col-2"><input type="number" min="1" max="50" value="1" class="form-control-sm col-12 input-sm" placeholder="1" onchange="updateRowTotal()"></td>
+    <td class="filterable-cell col-2" ><input type="number" min="1" max="50" value="1" class="form-control-sm col-12 input-sm" placeholder="1" onchange="updateRowTotal(this)"></td>
 
     <td class="filterable-cell">${rowTotal} </td>
     <td class="filterable-cell"><button type="button" class="btn btn-danger btn-sm" onclick="removeFromCart()">
     <span class="glyphicon glyphicon-remove"></span> Remove
     </button></td>
     </tr>`
+
+
+  return cartObject
   document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
   updateCartTotal()
 }
@@ -279,13 +306,40 @@ function addToCart(event) {
 function removeFromCart() {
   console.log('removeFromCart')
   var removeRow = window.event.target.parentElement.parentElement.rowIndex
+  //delete cartObject[removeRow]
+  cartObject.splice(removeRow - 1, 1)
   document.getElementById("cart-table").deleteRow(removeRow)
-  console.log(removeRow)
+  console.log(cartObject)
   updateCartTotal()
+  showCart()
 }
 
-function updateRowTotal() {
+function updateRowTotal(target) {
+
   console.log('updateRowTotal')
+
+  var indexno = target.parentElement.parentElement.firstElementChild.innerText
+  var quantity = Number(target.value)
+  if (quantity < target.min) {
+    quantity = target.min
+    target.value= quantity
+  }
+  if (quantity > target.max) {
+    console.log('overlimit')
+    quantity = target.max
+    target.value= quantity
+  }
+
+  for (i = 0; i < cartObject.length; i++) {
+    if (indexno === cartObject[i].Index) {
+      cartObject[i].Quantity = Number(quantity)
+      cartObject[i].Total = Math.round(cartObject[i].Rate * cartObject[i].Quantity * 100) / 100
+    }
+  }
+
+
+
+/*
   var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
   var cartRows = cartBody.getElementsByTagName('tr')
   for (i = 0; i < cartRows.length; i++) {
@@ -295,6 +349,8 @@ function updateRowTotal() {
     td[4].innerText = rowTotal
   }
   updateCartTotal()
+  */
+ showCart()
 }
 
 
@@ -363,22 +419,22 @@ function sendOrder() {
   console.log('sendOrder')
   var [cartJson, cartTable] = cartToJson()
   var [finalTable, cartTotal] = finalOrderOnjectToTable(cartJson)
- 
+
   var main = document.getElementById("main")
-  main.innerHTML=""
+  main.innerHTML = ""
   var h = document.createElement("h2")
-  h.innerText= "customerDetailsTable"
+  h.innerText = "customerDetailsTable"
   main.append(h)
 
   main.append(finalTable)
 
 
   var h = document.createElement("h2")
-  h.innerText= `Net amount is INR ${cartTotal}`
+  h.innerText = `Net amount is INR ${cartTotal}`
   main.append(h)
-  
 
-  
+
+
 
   var customer = ""
   var order = { customer, cartJson }
@@ -387,7 +443,7 @@ function sendOrder() {
 
 
 
-function finalOrderOnjectToTable(obj) {
+function finalOrderOnjectToTable() {
   console.log('finalOrderOnjectToTable')
   finalTable = document.createElement("TABLE")
   finalTable.classList.add("table")
@@ -414,43 +470,66 @@ function finalOrderOnjectToTable(obj) {
 
 
   var row = ""
-  var cartTotal=0
-  for (i = 0; i < obj.length; i++) {
+  var cartTotal = 0
+  for (i = 0; i < cartObject.length; i++) {
     row += `
     <tr id="row${i}">
-      <td id="list-col1" class="filterable-cell">${obj[i].Index}</td>
-      <td id="list-col2" class="filterable-cell">${obj[i].Name}</td>
-      <td id="list-col3" class="filterable-cell">${obj[i].Rate}</td>
-      <td id="list-col3" class="filterable-cell">${obj[i].Quantity}</td>
-      <td id="list-col3" class="filterable-cell">${obj[i].Total}</td>
+      <td id="list-col1" class="filterable-cell">${cartObject[i].Index}</td>
+      <td id="list-col2" class="filterable-cell">${cartObject[i].Name}</td>
+      <td id="list-col3" class="filterable-cell">${cartObject[i].Rate}</td>
+      <td id="list-col3" class="filterable-cell">${cartObject[i].Quantity}</td>
+      <td id="list-col3" class="filterable-cell">${cartObject[i].Total}</td>
       </tr>
       `
-      cartTotal+=obj[i].Total
+    cartTotal += cartObject[i].Total
   }
   finalTable.getElementsByTagName("tbody")[0].innerHTML = row
-  cartTotal=Math.round(cartTotal*100)/100
-  return [finalTable,cartTotal]
+  cartTotal = Math.round(cartTotal * 100) / 100
+  return [finalTable, cartTotal]
 }
 
 
 
-function showCustomerForm(){
+
+
+function showCustomerForm() {
   //var customerForm
   console.log(customerForm)
-  document.getElementById('main').innerHTML=customerForm
+  document.getElementById('main').innerHTML = customerForm
   //document.getElementById('main').append()
 }
 
-function showList(){
+
+
+function showList() {
   //var customerForm
   console.log(menuList)
-  document.getElementById('main').innerHTML=menuList
+  document.getElementById('main').innerHTML = menuList
   //document.getElementById('main').append()
 }
 
-function showCart(){
+
+
+
+function showCart() {
   //var customerForm
   console.log(cartList)
-  document.getElementById('main').innerHTML=cartList
+  document.getElementById('main').innerHTML = cartListTable
+  for (i = 0; i < cartObject.length; i++) {
+    var tr = `
+  <tr>
+    <td class="filterable-cell">${cartObject[i].Index}</td>
+    <td class="filterable-cell">${cartObject[i].Name}</td>
+    <td class="filterable-cell">${cartObject[i].Rate}</td>
+    <td class="filterable-cell col-2" id="cart-quantity-${i}"><input type="number" min="1" max="50" value="${cartObject[i].Quantity}" class="form-control-sm col-12 input-sm" placeholder="1" onchange="updateRowTotal(this)"></td>
+    <td class="filterable-cell">${cartObject[i].Total} </td>
+    <td class="filterable-cell"><button type="button" class="btn btn-danger btn-sm" onclick="removeFromCart()">
+    <span class="glyphicon glyphicon-remove"></span> Remove
+    </button></td>
+    </tr>`
+    console.log()
+    document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += tr
+  }
   //document.getElementById('main').append()
+  updateCartTotal()
 }
