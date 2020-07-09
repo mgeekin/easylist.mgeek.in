@@ -1,5 +1,14 @@
 console.log(`main.js loaded`)
 var cartObject = []
+var cartHTML
+var customerObject = {
+  "Name": "name",
+  "Rank": "rank",
+  "Number": "91 xxxx xxxx",
+  "Email": "abc@domain.com",
+  "Address": "Address",
+  "Filled": 0
+}
 var cartList = `
 <div id="cart" class="col-12 col-sm-12 col-lg-6 col-xs-6">
 <h1>Cart Items </h1>
@@ -47,8 +56,9 @@ var menuList = `
               <div id="suitcaseAndElectrical3" class="btn-primary btn loadbtn" onclick="loadgroup(event)">
                 Show Suitcase and Electrical
               </div>
-              <div id="goToCart" class="btn-primary btn loadbtn">
-                <a href="#cart" style="color:white">Go to cart</a>
+
+              <div id="goToCart" class="btn-success btn loadbtn" onclick="showCart()">
+                Go to cart
               </div>
             </div>
           </div>
@@ -77,27 +87,20 @@ var menuList = `
           </div>
 `
 
-var customerForm = `
+var customerForm = `<div id="customer">
 <div id="customer-form" class="row container col-lg-12">
 <form class="sm">
-  <label>Rank</label>
-  <select class="form-control" id="customer-rank">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
-  <input type="text" class="form-control" id="customer-name" placeholder="name">
-  <input type="email" class="form-control" id="customer-email" placeholder="name@example.com">
-  <input type="number" min=10000000000 max=9999999999 class="form-control" id="customer-number" placeholder="number">
+<input type="text" class="form-control" id="customer-rank" placeholder="${customerObject.Rank}">
+  <input type="text" class="form-control" id="customer-name" placeholder="${customerObject.Name}">
+  <input type="email" class="form-control" id="customer-email" placeholder="${customerObject.Email}">
+  <input type="number" class="form-control" id="customer-number" placeholder="${customerObject.Number}">
 
-  <textarea class="form-control" id="customer-address" rows="3"></textarea>
+  <textarea class="form-control" id="customer-address" rows="3" placeholder="${customerObject.Address}"></textarea>
   <div class="g-recaptcha" data-sitekey="6Lds0K4ZAAAAAOM-h7WV1K-zVkfTnhN0hzBJE-rE"></div>
 
-  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  <button type="submit" class="btn btn-primary mb-2" onclick="saveCustomerInfo()">Save</button>
 </form>
-</div>
+</div></div>
 `
 
 
@@ -282,7 +285,7 @@ function addToCart() {
   if (itemExist === 0) {
     cartObject.push(obj)
   }
-
+  document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
 
   var rowTotal = rowSelected.children[2].innerText
   var rowToAdd = `<tr>
@@ -310,6 +313,7 @@ function removeFromCart() {
   cartObject.splice(removeRow - 1, 1)
   document.getElementById("cart-table").deleteRow(removeRow)
   console.log(cartObject)
+  document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
   updateCartTotal()
   showCart()
 }
@@ -322,12 +326,12 @@ function updateRowTotal(target) {
   var quantity = Number(target.value)
   if (quantity < target.min) {
     quantity = target.min
-    target.value= quantity
+    target.value = quantity
   }
   if (quantity > target.max) {
     console.log('overlimit')
     quantity = target.max
-    target.value= quantity
+    target.value = quantity
   }
 
   for (i = 0; i < cartObject.length; i++) {
@@ -339,18 +343,18 @@ function updateRowTotal(target) {
 
 
 
-/*
-  var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
-  var cartRows = cartBody.getElementsByTagName('tr')
-  for (i = 0; i < cartRows.length; i++) {
-    tr = cartRows[i]
-    td = tr.children
-    var rowTotal = Math.round((td[2].innerText * td[3].firstChild.value) * 100) / 100
-    td[4].innerText = rowTotal
-  }
-  updateCartTotal()
-  */
- showCart()
+  /*
+    var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
+    var cartRows = cartBody.getElementsByTagName('tr')
+    for (i = 0; i < cartRows.length; i++) {
+      tr = cartRows[i]
+      td = tr.children
+      var rowTotal = Math.round((td[2].innerText * td[3].firstChild.value) * 100) / 100
+      td[4].innerText = rowTotal
+    }
+    updateCartTotal()
+    */
+  showCart()
 }
 
 
@@ -367,6 +371,8 @@ function updateCartTotal() {
   }
   cartTotal = Math.round(cartTotal * 100) / 100
   document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="sendOrder()"> Finalize order</button>`
+  document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
+
 }
 
 function cartToJson() {
@@ -421,10 +427,8 @@ function sendOrder() {
   var [finalTable, cartTotal] = finalOrderOnjectToTable(cartJson)
 
   var main = document.getElementById("main")
-  main.innerHTML = ""
-  var h = document.createElement("h2")
-  h.innerText = "customerDetailsTable"
-  main.append(h)
+  main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
+
 
   main.append(finalTable)
 
@@ -495,7 +499,23 @@ function finalOrderOnjectToTable() {
 function showCustomerForm() {
   //var customerForm
   console.log(customerForm)
-  document.getElementById('main').innerHTML = customerForm
+  document.getElementById('main').innerHTML = "<h2>Customer Details </h2>"
+
+  if (customerObject.filled === 1) {
+    document.getElementById('main').innerHTML=""
+    var buttonTemp =`<button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
+    document.getElementById('main').innerHTML = buttonTemp
+  }
+  document.getElementById('main').innerHTML+=customerForm
+  if (customerObject.filled === 1) {
+    document.getElementById("customer-rank").value = customerObject.Rank
+    document.getElementById("customer-name").value = customerObject.Name
+    document.getElementById("customer-email").value = customerObject.Email
+    document.getElementById("customer-number").value = customerObject.Number
+    document.getElementById("customer-address").value = customerObject.Address
+
+    document.getElementById('main').innerHTML+=` <button type="button" class="btn btn-danger" onclick="showCustomerForm()">Edit</button>`
+  }
   //document.getElementById('main').append()
 }
 
@@ -530,6 +550,123 @@ function showCart() {
     console.log()
     document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += tr
   }
+  if(cartObject.length>0){
+  document.getElementById('main').innerHTML+=` <button type="button" class="btn btn-danger" onclick="showCart()">Edit</button>`
+  }
   //document.getElementById('main').append()
   updateCartTotal()
+  var cartHTML = document.getElementById('main').innerHTM
+  return cartHTML
+}
+
+
+
+function saveCustomerInfo() {
+  var customerForm = document.getElementById("customer-rank").value
+  customerObject.Name = document.getElementById("customer-name").value
+  customerObject.Rank = document.getElementById("customer-rank").value
+  customerObject.Number = document.getElementById("customer-number").value
+  customerObject.Email = document.getElementById("customer-email").value
+  customerObject.Address = document.getElementById("customer-address").value
+  customerObject.filled = 1
+  customerTable = `
+  <table id="customer-info-table" class="table">
+  <tr>
+  <td scope="row">
+    Rank
+  </td>
+  <td>
+    ${customerObject.Rank}
+  </td>
+</tr>
+<tr>
+<td scope="row">
+        Name
+      </td>
+      <td>
+        ${customerObject.Name}
+      </td>
+    </tr>
+    <tr>
+    <td scope="row">
+          Email
+        </td>
+        <td>
+          ${customerObject.Email}
+        </td>
+      </tr>
+      <tr>
+      <td scope="row">
+            Number
+          </td>
+          <td>
+            ${customerObject.Number}
+          </td>
+        </tr>
+        <tr>
+        <td scope="row">
+              Address
+            </td>
+            <td>
+              ${customerObject.Address}
+            </td>
+          </tr>
+          </table>`
+  document.getElementById("customer").innerHTML = customerTable
+  return customerObject
+}
+
+
+
+function showCheckout(){
+  var checkoutHTML = `
+<h2>Customer Details</h2>
+<table id="customer-info-table" class="table">
+  <tr>
+  <td scope="row">
+    Rank
+  </td>
+  <td>
+    ${customerObject.Rank}
+  </td>
+</tr>
+<tr>
+<td scope="row">
+        Name
+      </td>
+      <td>
+        ${customerObject.Name}
+      </td>
+    </tr>
+    <tr>
+    <td scope="row">
+          Email
+        </td>
+        <td>
+          ${customerObject.Email}
+        </td>
+      </tr>
+      <tr>
+      <td scope="row">
+            Number
+          </td>
+          <td>
+            ${customerObject.Number}
+          </td>
+        </tr>
+        <tr>
+        <td scope="row">
+              Address
+            </td>
+            <td>
+              ${customerObject.Address}
+            </td>
+          </tr>
+          </table>
+<h2>Order</h2>
+${cartHTML}
+
+  `
+
+  document.getElementById("customer").innerHTML=checkoutHTML
 }
