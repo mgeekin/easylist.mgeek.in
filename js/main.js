@@ -1,6 +1,7 @@
 console.log(`main.js loaded`)
+
 var cartObject = []
-var cartHTML
+var cartHTML=`<div><button type="button" class="btn btn-primary onclick="showCart()><table class="table"></table></div>`
 var mobile = "9403275606"
 var key = mobile+"fadflkasdfj234lkf98asdf345dsflkj23m407sdf" 
 var ensStr =""
@@ -12,6 +13,8 @@ var customerObject = {
   "Address": "Address",
   "Filled": 0
 }
+var cartTable= ""
+var customerTable =""
 var cartList = `
 <div id="cart" class="col-12 col-sm-12 col-lg-6 col-xs-6">
 <h1>Cart Items </h1>
@@ -36,9 +39,9 @@ var cartList = `
 </div>
 `
 
-document.getElementById('main').innerHTML = cartList
+//document.getElementById('main').innerHTML = cartList
 
-document.getElementById("cart").style.display = "none"
+//document.getElementById("cart").style.display = "none"
 
 
 var menuList = `
@@ -91,6 +94,7 @@ var menuList = `
 `
 
 var customerForm = `<div id="customer">
+<h2><button type="submit" class="btn btn-success mb-2" onclick="saveCustomerInfo()">Save</button><h2>
 <div id="customer-form" class="row container col-lg-12">
 <form class="sm">
 <input type="text" class="form-control" id="customer-rank" placeholder="${customerObject.Rank}">
@@ -99,9 +103,10 @@ var customerForm = `<div id="customer">
   <input type="number" class="form-control" id="customer-number" placeholder="${customerObject.Number}">
 
   <textarea class="form-control" id="customer-address" rows="3" placeholder="${customerObject.Address}"></textarea>
-  <div class="g-recaptcha" data-sitekey="6Lds0K4ZAAAAAOM-h7WV1K-zVkfTnhN0hzBJE-rE"></div>
+  <div class="row g-recaptcha" data-sitekey="6Lds0K4ZAAAAAOM-h7WV1K-zVkfTnhN0hzBJE-rE"></div>
 
-  <button type="submit" class="btn btn-primary mb-2" onclick="saveCustomerInfo()">Save</button>
+
+
 </form>
 </div></div>
 `
@@ -153,12 +158,13 @@ document.onreadystatechange = function () {
 }
 
 
-document.getElementById("cart-table").getElementsByTagName('tbody')[0].innerHTML = ""
+//document.getElementById("cart-table").getElementsByTagName('tbody')[0].innerHTML = ""
 
 //document.getElementById("cart-table").innerHTML = cartListHeader
 //
 function main() {
   console.log('main')
+  showList()
   var key = "85528aslgkjag[23-4slfjk003rjslf049073"
   var D = ""
   var g1 = ""
@@ -167,9 +173,9 @@ function main() {
   var itemList = ""
   var order = ""
   var encryptedOrder = ""
-  var cartTable = document.querySelector("#cart-table")
-  var cartTableData = cartTable.innerHTML
-  console.log(cartTableData)
+  //var cartTable = document.querySelector("#cart-table")
+  //var cartTableData = cartTable.innerHTML
+  //console.log(cartTableData)
 
 
 
@@ -305,8 +311,8 @@ function addToCart() {
 
 
   return cartObject
-  document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
-  updateCartTotal()
+ // document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
+  //updateCartTotal()
 }
 
 function removeFromCart() {
@@ -363,9 +369,10 @@ function updateCartTotal() {
     cartTotal += parseFloat(td[4].innerText)
   }
   cartTotal = Math.round(cartTotal * 100) / 100
+  if(cartObject.length>0){
   document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="sendOrder()"> Finalize order</button>`
   document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
-
+  }
 }
 
 function cartToJson() {
@@ -410,7 +417,8 @@ function sendOrder() {
 
   var main = document.getElementById("main")
   main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
-  main.append(cartHTML)
+  //main.append(cartHTML)
+  main.innerHTML+=cartHTML
   var h = document.createElement("h2")
   h.innerText = `Net amount is INR ${cartTotal}`
   main.append(h)
@@ -466,6 +474,7 @@ function finalOrderOnjectToTable() {
   }
   
   cartHTML.getElementsByTagName("tbody")[0].innerHTML = row
+  cartHTML=cartHTML.outerHTML
   cartTotal = Math.round(cartTotal * 100) / 100
   return [cartHTML, cartTotal]
 }
@@ -506,6 +515,7 @@ function showList() {
 function showCart() {
   //var customerForm
   console.log(cartList)
+  
   document.getElementById('main').innerHTML = cartListTable
   for (i = 0; i < cartObject.length; i++) {
     var tr = `
@@ -526,6 +536,7 @@ function showCart() {
   //document.getElementById('main').append()
   updateCartTotal()
   var cartHTML = document.getElementById('main').getElementsByTagName("table")
+  cartTable=finalOrderOnjectToTable()
     return cartHTML
 }
 
@@ -544,7 +555,7 @@ function saveCustomerInfo() {
   document.getElementById("main").innerHTML =""
   if (customerObject.Filled === 1) {
     document.getElementById('main').innerHTML = ""
-    var buttonTemp = `<button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
+    var buttonTemp = `<h2><button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
     document.getElementById('main').innerHTML = buttonTemp
   } 
 
@@ -617,53 +628,135 @@ function customerJsonToHTML(){
 }
 
 function showCheckout() {
-  var checkoutHTML = `
-<h2>Customer Details</h2>
-${customerTable}
-<h2>Order</h2>
-${cartHTML.outerHTML}`
+  document.getElementById("main").innerHTML=""
+  var checkoutHTML =""
 
+  if(customerObject.Filled == 1 && cartObject.length>0){
+    var checkoutHTML =    `
+    <h2 id="orderStatus"><button type="button" onclick="sendOrderToSheet()" class="btn btn-success">Send Order</button></h2>
+    <div class="g-recaptcha"
+            data-sitekey="6Le5AbAZAAAAADC7mtnDaBzApK6P8Bzmo9s6Z7-d"
+            data-callback="onSubmit"
+            data-size="invisible">
+      </div>`
+    }
+
+
+
+  if(customerObject.Filled === 0){
+     checkoutHTML+=`<h2 class="btn btn-primary" onclick="showCustomerForm()">Fill Customer details </h2>`
+  }else{
+    checkoutHTML+=`<h2>Customer Details</h2>
+    ${customerTable}`
+  }
+  if(cartObject.length===0){
+     checkoutHTML+=`<h2 class="btn btn-primary" onclick="showList()">Add items to cart </h2>`
+  }else{
+    checkoutHTML+=`<h2>Order</h2>
+    ${cartHTML}`
+  }
+  
   document.getElementById("main").innerHTML = checkoutHTML
 
-  document.getElementById("main").innerHTML += `<button type="button" class="btn btn-primary" onclick="downloadPDF"> Download PDF</button>`
-  var savedData = [customerObject,cartObject]
-  console.log(savedData)
-  var savedDataString = JSON.stringify(savedData)
-  console.log(savedDataString)
-  var savedDataEncrypted = CryptoJS.AES.encrypt(savedDataString,key)
-  console.log(savedDataEncrypted)
-  encStr = savedDataEncrypted.toString()
-  console.log(encStr)
+  
+  if(customerObject.Filled===1 && cartObject.length>0){
+  
 
-  var dec = CryptoJS.AES.decrypt(encStr,key)
-  console.log(dec)
+    document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF"> Download PDF</button></p>
 
 
-var orderNumber = sendToGoogleSheet(savedDataEncryptedString)
+    `
+    var savedData = [customerObject,cartObject]
+    var encData = encToString(savedData)
 
-savePDF()
+    var printableHTML =document.getElementById("main").innerHTML
+    var orderNumber = 0
+    orderNumber = sendToGoogleSheet(encData)
 
+    
+    
+
+  }
 
 }
 
 
-
+function encToString(savedData){
+  var savedDataString = JSON.stringify(savedData)
+  var savedDataEncrypted = CryptoJS.AES.encrypt(savedDataString,key)
+  encStr = savedDataEncrypted.toString()
+//at receiver end
+  var dec = CryptoJS.AES.decrypt(encStr,key).toString(CryptoJS.enc.Utf8)
+  console.log(dec)
+  console.log(JSON.parse(dec))
+  return encStr
+}
 
 
 
 function sendToGoogleSheet(encString){
-var orderNumber=0
+var orderNumber=1
 //get google sheet row and append insert order
 
 
+// /https://docs.google.com/spreadsheets/d/1nUh47iT5m7QOkwMJWXDfuHjSNL3t5_Rl4zLWUZxjGYY/edit?usp=drivesdk
+
+var values = [
+  [
+    encString
+  ],
+  // Additional rows ...
+];
+var body = {
+  values: values
+};
+gapi.client.sheets.spreadsheets.values.append({
+   spreadsheetId: "1nUh47iT5m7QOkwMJWXDfuHjSNL3t5_Rl4zLWUZxjGYY",
+   range: "A1",
+   valueInputOption: "RAW",
+   resource: body
+}).then((response) => {
+  var result = response.result;
+  console.log(`${result.updates.updatedCells} cells appended.`)
+});
 
 
 
+
+  if (orderNumber === 0){
+    alert("Order not Saved retry")
+    document.getElementById("orderStatus").innerHTML=`<button type="button" onclick="sendOrderToSheet()" class="btn btn-success">Send Order</button>`
+  }
+  if (orderNumber > 0){
+    document.getElementById("orderStatus").innerHTML=`Order Number : ${orderNumber}`
+    document.getElementById("downloadPdf").innerHTML=""
+    printableHTML =document.getElementById("main").innerHTML
+    savePDF(printableHTML,orderNumber)
+}
   return orderNumber
 }
 
-function savePDF(){
+
+
+
+
+
+
+
+
+
+
+function savePDF(printableHTML,orderNumber){
   
+  var pdf = new jsPDF('p', 'pt', 'letter')
+  pdf.canvas.height = 72 * 11;
+  pdf.canvas.width = 72 * 8.5;
+
+  //pdf.fromHTML(document.getElementById("main").innerHTML);
+  pdf.fromHTML(printableHTML)
+
+  pdf.save(`${orderNumber}.pdf`);
+
 }
 
 
