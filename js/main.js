@@ -751,11 +751,18 @@ function savePDF(printableHTML,orderNumber){
   var pdf = new jsPDF('p', 'pt', 'letter')
   pdf.canvas.height = 72 * 11;
   pdf.canvas.width = 72 * 8.5;
+  pdf.setFontSize(12)
 
   //pdf.fromHTML(document.getElementById("main").innerHTML);
   pdf.fromHTML(printableHTML)
 
   pdf.save(`${orderNumber}.pdf`);
+  doc.viewerPreferences({'FitWindow': true}, true)
+  pdf.viewerPreferences({
+    'HideWindowUI': true,
+    'PrintArea': 'CropBox',
+    'NumCopies': 10
+  })
 
 }
 
