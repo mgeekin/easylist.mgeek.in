@@ -6,7 +6,12 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="google-signin-client_id" content="201216020998-9m7aussf56d4kjkciqmrs01k9tq8l8qr.apps.googleusercontent.com">
+
+
+
+  <!--<meta name="google-signin-scope" content="prateekrajgautam@gmail.com">-->
+  <meta name="google-signin-client_id"
+    content="201216020998-9m7aussf56d4kjkciqmrs01k9tq8l8qr.apps.googleusercontent.com">
   <!-- Bootstrap CSS -->
   <link href='https://fonts.googleapis.com/css?family=Trade Winds&family=Advent Pro' rel='stylesheet'>
   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,6 +29,7 @@
 
   <script src="js/crypto-js.min.js"></script>
   <script src="js/jspdf.min.js"></script>
+  <script src="js/html2canvas.js"></script>
 
 
 
@@ -60,7 +66,9 @@
             <li class="navbar nav-item" onclick="showCustomerForm()">Customer Details</li>
             <li class="navbar nav-item" onclick="showCheckout()">Checkout</li>
           </ul>
-          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <div id="googleSignin">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          </div>
         </div>
       </div>
     </nav>
@@ -99,14 +107,19 @@
     <div class="container mt-5">
       <div class="col-5">
         <a href="#" onclick="signOut();">Sign out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
+        <script>
+          function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {   
+              customerObject.Nmae = ""
+              customerObject.Email = ""
+              customerObject.ImageURL = ""
+              document.getElementById("googleSignin").innerHTML=""
+              document.getElementById("googleSignin").innerHTML+=`<div class="g-signin2" data-onsuccess="onSignIn"></div>`
+              console.log('User signed out.');
+            });
+          }
+        </script>
 
       </div>
 
@@ -134,64 +147,51 @@
 
 
 
-<script>
-  var customerObject = {
-  "Name": "name",
-  "Rank": "rank",
-  "Number": "91 xxxx xxxx",
-  "Email": "abc@domain.com",
-  "Address": "Address",
-  "Filled": 0
-}
-
-
-var profile
-var googleUser
-  
-</script>
+  <script>
+    var customerObject = {
+      "Name": "name",
+      "Rank": "rank",
+      "Number": 91,
+      "Email": "abc@domain.com",
+      "Address": "Address",
+      "Filled": 0
+    }
 
 
 
-<script>
-  var googleUser =""
-  function onSignIn() {
-    console.log('onsignin')
-  const googleUser = gapi.auth2.getAuthInstance().currentUser.get();
-  console.log(googleUser)
-  const profile = googleUser.getBasicProfile();
-  console.log(profile)
-    console.log(profile)
-    customerObject.ID=profile.getId()
-    customerObject.Name=profile.getName()
-    customerObject.Email=profile.getEmail()
-    customerObject.Number=profile.getNumber()
-    customerObject.ImageURL=profile.getImageUrl()
-    customerObject.Filled=1 
 
-    window.event.clicked.id.innerHTML= `signout ${profile.getName()}`
-    window.event.clicked.id.onclick="signOut"
-    return [googleUser,profile,customerObject]
-  }
+  </script>
 
-  function onLoad() {
-    gapi.load('auth2,signin2', function() {
-      var auth2 = gapi.auth2.init();
-      auth2.then(function() {
-        // Current values
-        var isSignedIn = auth2.isSignedIn.get();
-        var currentUser = auth2.currentUser.get();
 
-        if (!isSignedIn) {
-          // Rendering g-signin2 button.
-          gapi.signin2.render('google-signin-button', {
-            'onsuccess': 'onSignIn'  
-          });
-        }
-      });
-    });
-  }
-</script>
 
+  <script>
+    function onSignIn(googleUser) {
+      // Useful data for your client-side scripts:
+      window.profile = googleUser.getBasicProfile();
+      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+      console.log("Name: " + profile.getName());
+      console.log("Image URL: " + profile.getImageUrl());
+      console.log("Email: " + profile.getEmail());
+
+      // The ID token you need to pass to your backend:
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log("ID Token: " + id_token);
+
+
+
+      customerObject.ID = profile.getId()
+      customerObject.Name = profile.getName()
+      customerObject.Email = profile.getEmail()
+      customerObject.ImageURL = profile.getImageUrl()
+      customerObject.GoogleUser = 1
+
+
+
+      document.getElementById("googleSignin").innerHTML = `<button class="btn btn-secondary btn-sm" onclick="signOut()">signout ${profile.getName()}</button>`
+      document.getElementById("googleSignin").onclick = "signOut()"
+      return customerObject
+    };
+  </script>
 
 
 
