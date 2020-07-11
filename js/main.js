@@ -94,6 +94,7 @@ var menuList = `
 `
 
 var customerForm = `<div id="customer">
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
 <h2><button type="submit" class="btn btn-success mb-2" onclick="saveCustomerInfo()">Save</button><h2>
 <div id="customer-form" class="row container col-lg-12">
 <form class="sm">
@@ -633,7 +634,7 @@ function showCheckout() {
 
   if(customerObject.Filled == 1 && cartObject.length>0){
     var checkoutHTML =    `
-    <h2 id="orderStatus"><button type="button" onclick="sendOrderToSheet()" class="btn btn-success">Send Order</button></h2>
+    <h2 id="orderStatus"><button type="button" onclick="sendToGoogleSheet(encData)" class="btn btn-success">Send Order</button></h2>
     <div class="g-recaptcha"
             data-sitekey="6Le5AbAZAAAAADC7mtnDaBzApK6P8Bzmo9s6Z7-d"
             data-callback="onSubmit"
