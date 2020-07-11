@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>v202 Easylist by mgeek.in</title>
+  <title>v203 Easylist by mgeek.in</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -145,6 +145,14 @@
   "Filled": 0
 }
 
+
+
+  
+</script>
+
+
+
+<script>
   function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log(profile)
@@ -158,18 +166,6 @@
     window.event.clicked.id.innerHTML= `signout ${profile.getName()}`
     window.event.clicked.id.onclick="signOut"
     return [profile,customerObject]
-  }
-  console.log(customerObject)
-  
-</script>
-
-
-
-<script>
-  function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    var user_name = profile.getName();
-    alert(user_name);
   }
 
   function onLoad() {
