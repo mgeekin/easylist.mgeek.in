@@ -369,6 +369,7 @@ function updateCartTotal() {
     document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="sendOrder()"> Finalize order</button>`
     document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
   }
+  cartObject.Total=cartTotal
 }
 
 function cartToJson() {
@@ -635,7 +636,7 @@ function showCheckout() {
 
   if (customerObject.Filled == 1 && cartObject.length > 0) {
     var checkoutHTML = `
-    <h2 id="orderStatus"><button type="button" onclick="sendEmail()" class="btn btn-success">Send Email</button></h2>
+    <h2 id="orderStatusEmail"><button type="button" onclick="sendEmail()" class="btn btn-success">Send Email</button></h2>
     <h2 id="orderStatus"><button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order</button></h2>
     <div class="g-recaptcha"
             data-sitekey="6Le5AbAZAAAAADC7mtnDaBzApK6P8Bzmo9s6Z7-d"
@@ -684,7 +685,7 @@ ${customerTable}</div>
   if (customerObject.Filled === 1 && cartObject.length > 0) {
 
 
-    document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF()"> Download PDF</button></p>
+    document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF()"> Download PDF(beta)</button></p>
 
 
     `
@@ -752,7 +753,7 @@ function sendToGoogleSheet(encDataStr) {
 
   if (orderNumber === 0) {
     alert("Order not Saved retry")
-    document.getElementById("orderStatus").innerHTML = `<button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order</button>`
+    document.getElementById("orderStatus").innerHTML = `<button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order(beta)</button>`
   }
   if (orderNumber > 0) {
     document.getElementById("orderStatus").innerHTML = `Order Number : ${orderNumber}`
@@ -836,19 +837,51 @@ function downloadPDF(){
     
   
 		function sendEmail() {
-      var emailBody = document.getElementById("main").innerHTML
+      var emailBody = ""
+      emailBody+=`<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
+      <body>
+      <div class="row">
+      easylist order from:${customerObject.Name}, mob:${customerObject.Number} Total:INR${cartObject.Total}
+        <div class="container">
+          <h2>
+          Customer Details
+          </h2>
+          <p>
+          <img src="${customerObject.ImageURL}" alt="profile">
+          ${customerTable}
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+      <div class="container">
+        <h2>
+        Order List
+        </h2>
+        <p>
+        ${cartHTML}
+        </p>
+      </div>
+      <h2>${cartObject.Total}</h2>
+    </div>
+    
+    </body>
+      </html>`
+
+
 			Email.send({
         Host : "smtp.gmail.com",
         Username : "easylist.mgeek.in@gmail.com",
         Password : "Prateek9151404899",
-        To : 'them@website.com',
         //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
         
-				To : "easylist.mgeek.in@gmail.com",
+				To : `easylist.mgeek.in@gmail.com,${customerObject.Email}`,
 				From : "easylist.mgeek.in@gmail.com",
-				Subject : "Order Details",
+				Subject : `easylist order from:${customerObject.Name}, mob:${customerObject.Number} Total:INR${cartObject.Total}`,
 				Body : emailBody,
 			}).then(function(message){
-				alert("mail sent successfully")
+        document.getElementById("orderStatusEmail").innerHTML= "mail sent successfully"
+        document.getElementById("orderStatusEmail").classList.add('success')
 			})
 		}
