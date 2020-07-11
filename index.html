@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>v201 Easylist by mgeek.in</title>
+  <title>v202 Easylist by mgeek.in</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -135,6 +135,7 @@
 
 
 <script>
+  var profile=""
   var customerObject = {
   "Name": "name",
   "Rank": "rank",
@@ -156,7 +157,7 @@
 
     window.event.clicked.id.innerHTML= `signout ${profile.getName()}`
     window.event.clicked.id.onclick="signOut"
-    return customerObject
+    return [profile,customerObject]
   }
   console.log(customerObject)
   
