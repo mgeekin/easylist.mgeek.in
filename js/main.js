@@ -5,7 +5,7 @@ var cartHTML = `<div><button type="button" class="btn btn-primary onclick="showC
 var mobile = "9403275606"
 var key = mobile + "fadflkasdfj234lkf98asdf345dsflkj23m407sdf"
 var encDataStr = ""
-
+//var emailBody = ""
 var cartTable = ""
 var customerTable = ""
 var cartList = `
@@ -369,7 +369,7 @@ function updateCartTotal() {
     document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="sendOrder()"> Finalize order</button>`
     document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
   }
-  cartObject.Total=cartTotal
+  cartObject.Total = cartTotal
 }
 
 function cartToJson() {
@@ -673,6 +673,12 @@ ${customerTable}</div>
       checkoutHTML += `<h2>Order</h2>
     ${cartHTML}`
     }
+
+
+
+    //var emailText=emailBody()
+
+      
   }
 
 
@@ -700,13 +706,45 @@ ${customerTable}</div>
 
 
   }
-
+  //return emailBody
 }
 
 
 
 
+function emailBody(){
+ var obj=  `<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
+  <body>
+  <div class="row">
+  <h1>easylist order from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}</h1>
+    <div class="container">
+      <h2>
+      Customer Details
+      </h2>
+      <p>
+      <img src="${customerObject.ImageURL}" alt="profile">
+      ${customerTable}
+      </p>
+    </div>
+  </div>
 
+  <div class="row">
+  <div class="container">
+    <h2>
+    Order List
+    </h2>
+    <p>
+    ${cartHTML}
+    </p>
+  </div>
+  <h2>Net amount: INR ${cartObject.Total}</h2>
+</div>
+
+</body>
+  </html>`
+  return obj
+}
 
 
 function encToString(savedData) {
@@ -798,90 +836,131 @@ function savePDF(printableHTML, orderNumber) {
 
 
 
-function downloadPDF(){
+function downloadPDFbeta() {
 
   var HTML_Width = $("#main").width();
   var HTML_Height = $("#main").height();
   var top_left_margin = 15;
-  var PDF_Width = HTML_Width+(top_left_margin*2);
-  var PDF_Height = (PDF_Width*1.5)+(top_left_margin*2);
+  var PDF_Width = HTML_Width + (top_left_margin * 2);
+  var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
   var canvas_image_width = HTML_Width;
   var canvas_image_height = HTML_Height;
-  
-  var totalPDFPages = Math.ceil(HTML_Height/PDF_Height)-1;
-  
 
-  html2canvas($("#main")[0],{allowTaint:true}).then(function(canvas) {
+  var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+
+  html2canvas($("#main")[0], { allowTaint: true }).then(function (canvas) {
     canvas.getContext('2d');
-    
-    console.log(canvas.height+"  "+canvas.width);
-    
-    
+
+    console.log(canvas.height + "  " + canvas.width);
+
+
     var imgData = canvas.toDataURL("image/jpeg", 1.0);
-    var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
-      pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
-    
-    
-    for (var i = 1; i <= totalPDFPages; i++) { 
+    var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+    pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+
+
+    for (var i = 1; i <= totalPDFPages; i++) {
       pdf.addPage(PDF_Width, PDF_Height);
-      pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+      pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
     }
-    
-      pdf.save("easylist.mgeek.in.pdf");
-      });
+
+    pdf.save("easylist.mgeek.in.pdf");
+  });
 };
 
+/*
+function downloadPDF() {
+  const filename = 'ThisIsYourPDFFilename.pdf';
+
+  html2canvas(document.querySelector('#nodeToRenderAsPDF')).then(canvas => {
+    let pdf = new jsPDF('p', 'mm', 'a4');
+    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
+    pdf.save(filename);
+  });
+}
+
+// Variant
+// This one lets you improve the PDF sharpness by scaling up the HTML node tree to render as an image before getting pasted on the PDF.
+function print(quality = 1) {
+  const filename = 'ThisIsYourPDFFilename.pdf';
+
+  html2canvas(document.querySelector('#nodeToRenderAsPDF'),
+    { scale: quality }
+  ).then(canvas => {
+    let pdf = new jsPDF('p', 'mm', 'a4');
+    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
+    pdf.save("easylist.mgeek.in.pdf");
+  });
+}
+*/
 
 
 
-    
+function downloadPDF() {
+  let doc = new jsPDF('p', 'mm', 'a4')
+  let pdfConf = {
+    pagesplit: false, //Adding page breaks manually using pdf.addPage();
+    background: '#ddd' //White Background.
+    };
+  doc.setProperties({
+    title: 'Order',
+    subject: `from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
+    author: 'easylist',
+    keywords: '',
+    creator: 'mgeek.in'
+  });
+  doc.setFont("helvetica");
+  doc.setTextColor(100, 100, 150);
+  doc.setFontSize(10)
+  /*
+  doc.text(10, 10, `${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`)
+
+  doc.text(10, 20, `${customerTable}`)
+  doc.setFontSize(12)
+  doc.setTextColor(100, 100, 150);
+  doc.text(10, 60, "Order")
+  doc.setTextColor(100);
+  doc.setFontSize(10)
+  doc.text(10, 70, `${cartHTML}`)
   
-		function sendEmail() {
-      var emailBody = ""
-      emailBody+=`<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
-      <body>
-      <div class="row">
-      <h1>easylist order from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}</h1>
-        <div class="container">
-          <h2>
-          Customer Details
-          </h2>
-          <p>
-          <img src="${customerObject.ImageURL}" alt="profile">
-          ${customerTable}
-          </p>
-        </div>
-      </div>
 
-      <div class="row">
-      <div class="container">
-        <h2>
-        Order List
-        </h2>
-        <p>
-        ${cartHTML}
-        </p>
-      </div>
-      <h2>Net amount: INR ${cartObject.Total}</h2>
-    </div>
-    
-    </body>
-      </html>`
+*/
+var emailText=emailBody()
+doc.setFontSize(10)
+doc.fromHTML(document.getElementById("main"),20,20,{
+  width:500
+  })
 
 
-			Email.send({
-        Host : "smtp.gmail.com",
-        Username : "easylist.mgeek.in@gmail.com",
-        Password : "Prateek9151404899",
-        //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
-        
-				To : `easylist.mgeek.in@gmail.com,${customerObject.Email}`,
-				From : "easylist.mgeek.in@gmail.com",
-				Subject : `easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
-				Body : emailBody,
-			}).then(function(message){
-        document.getElementById("orderStatusEmail").innerHTML= "mail sent successfully"
-        document.getElementById("orderStatusEmail").classList.add('success')
-			})
-		}
+
+
+
+  doc.output('/order.pdf')
+  doc.save("easylist.mgeek.in.pdf");
+}
+
+
+
+function sendEmail() {
+  
+  var emailText=emailBody()
+
+  Email.send({
+    Host: "smtp.gmail.com",
+    Username: "easylist.mgeek.in@gmail.com",
+    Password: "Prateek9151404899",
+    //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
+
+    To: `easylist.mgeek.in@gmail.com,${customerObject.Email}`,
+    From: "easylist.mgeek.in@gmail.com",
+    Subject: `easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
+    Body: emailText,
+  }).then(function (message) {
+    document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
+    document.getElementById("orderStatusEmail").classList.add('success')
+  })
+  return emailBody
+}
+
+
