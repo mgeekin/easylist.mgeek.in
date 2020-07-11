@@ -135,6 +135,15 @@
 
 
 <script>
+  var customerObject = {
+  "Name": "name",
+  "Rank": "rank",
+  "Number": "91 xxxx xxxx",
+  "Email": "abc@domain.com",
+  "Address": "Address",
+  "Filled": 0
+}
+
   function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     customerObject.ID=profile.getId()
