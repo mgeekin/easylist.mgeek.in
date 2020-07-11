@@ -82,18 +82,8 @@
 
 
 
-
-  <section>
-    <div class="row">
-      <div class="container">
-        <div class="" id="main">
-
-        </div>
-
-      </div>
-    </div>
-
-  </section>
+  <button id="authorize_button" style="display: none;">Authorize</button>
+    <button id="signout_button" style="display: none;">Sign Out</button>
 
 
 
@@ -103,29 +93,9 @@
 
 
 
-  <section id="footer" class="mt-5" style="background-color:grey;color:white">
-    <div class="container mt-5">
-      <div class="col-5">
-        <a href="#" onclick="signOut();">Sign out</a>
-        <script>
-          function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {   
-              customerObject.Nmae = ""
-              customerObject.Email = ""
-              customerObject.ImageURL = ""
-              document.getElementById("googleSignin").innerHTML=""
-              document.getElementById("googleSignin").innerHTML+=`<div class="g-signin2" data-onsuccess="onSignIn"></div>`
-              console.log('User signed out.');
-            });
-          }
-        </script>
 
-      </div>
 
-      <p>Designed by <a href="http://mgeek.in"><a>mGeek.in</a></p>
-    </div>
-  </section>
+
 
 
   
@@ -207,8 +177,8 @@
 
 
   <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="/js/main.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS 
+  <script src="/js/main.js"></script>-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -219,7 +189,6 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>-->
   <script src="bootstrap4/js/bootstrap.min.js"></script>
-  <script src="https://smtpjs.com/v3/smtp.js"></script>  
 
 
 
@@ -232,8 +201,7 @@
 
 
 
-  <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 

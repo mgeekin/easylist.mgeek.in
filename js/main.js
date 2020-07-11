@@ -635,6 +635,7 @@ function showCheckout() {
 
   if (customerObject.Filled == 1 && cartObject.length > 0) {
     var checkoutHTML = `
+    <h2 id="orderStatus"><button type="button" onclick="sendEmail()" class="btn btn-success">Send Email</button></h2>
     <h2 id="orderStatus"><button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order</button></h2>
     <div class="g-recaptcha"
             data-sitekey="6Le5AbAZAAAAADC7mtnDaBzApK6P8Bzmo9s6Z7-d"
@@ -825,6 +826,25 @@ function downloadPDF(){
       pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
     }
     
-      pdf.save("HTML-Document.pdf");
+      pdf.save("easylist.mgeek.in.pdf");
       });
 };
+
+
+
+
+    
+  
+		function sendEmail() {
+      var emailBody = document.getElementById("main").innerHTML
+			Email.send({
+
+        SecureToken : "7bb86fc8-03c3-40af-aaca-3461af56c732",
+				To : `,easylist.mgeek.in@gmail.com,${customerObject.Email}`,
+				From : "easylist.mgeek.in@gmail.com",
+				Subject : "Order Details",
+				Body : emailBody,
+			}).then(function(message){
+				alert("mail sent successfully")
+			})
+		}
