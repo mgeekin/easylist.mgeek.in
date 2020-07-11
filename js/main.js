@@ -838,9 +838,13 @@ function downloadPDF(){
 		function sendEmail() {
       var emailBody = document.getElementById("main").innerHTML
 			Email.send({
-
-        SecureToken : "7bb86fc8-03c3-40af-aaca-3461af56c732",
-				To : `,easylist.mgeek.in@gmail.com,${customerObject.Email}`,
+        Host : "smtp.gmail.com",
+        Username : "easylist.mgeek.in@gmail.com",
+        Password : "Prateek9151404899",
+        To : 'them@website.com',
+        //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
+        
+				To : "easylist.mgeek.in@gmail.com",
 				From : "easylist.mgeek.in@gmail.com",
 				Subject : "Order Details",
 				Body : emailBody,
