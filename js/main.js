@@ -637,7 +637,7 @@ function showCheckout() {
   if (customerObject.Filled == 1 && cartObject.length > 0) {
     var checkoutHTML = `
     <h2 id="orderStatusEmail"><button type="button" onclick="sendEmail()" class="btn btn-success">Send Email</button></h2>
-    <h2 id="orderStatus"><button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order</button></h2>
+    <h2 id="orderStatus"><button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order (beta)</button></h2>
     <div class="g-recaptcha"
             data-sitekey="6Le5AbAZAAAAADC7mtnDaBzApK6P8Bzmo9s6Z7-d"
             data-callback="onSubmit"
@@ -685,7 +685,7 @@ ${customerTable}</div>
   if (customerObject.Filled === 1 && cartObject.length > 0) {
 
 
-    document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF()"> Download PDF(beta)</button></p>
+    document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF()"> Download PDF (beta)</button></p>
 
 
     `
@@ -842,7 +842,7 @@ function downloadPDF(){
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
       <body>
       <div class="row">
-      easylist order from:${customerObject.Name}, mob:${customerObject.Number} Total:INR${cartObject.Total}
+      <h1>easylist order from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}</h1>
         <div class="container">
           <h2>
           Customer Details
@@ -878,7 +878,7 @@ function downloadPDF(){
         
 				To : `easylist.mgeek.in@gmail.com,${customerObject.Email}`,
 				From : "easylist.mgeek.in@gmail.com",
-				Subject : `easylist order from:${customerObject.Name}, mob:${customerObject.Number} Total:INR${cartObject.Total}`,
+				Subject : `easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
 				Body : emailBody,
 			}).then(function(message){
         document.getElementById("orderStatusEmail").innerHTML= "mail sent successfully"
