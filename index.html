@@ -145,7 +145,8 @@
 }
 
 
-
+var profile
+var googleUser
   
 </script>
 
@@ -153,7 +154,8 @@
 
 <script>
   var googleUser =""
-  function onSignIn(googleUser) {
+  function onSignIn() {
+    console.log('onsignin')
   const googleUser = gapi.auth2.getAuthInstance().currentUser.get();
   console.log(googleUser)
   const profile = googleUser.getBasicProfile();
