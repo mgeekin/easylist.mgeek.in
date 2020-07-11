@@ -148,10 +148,14 @@
     var profile = googleUser.getBasicProfile();
     console.log(profile)
     customerObject.ID=profile.getId()
+    customerObject.Name=profile.getName()
     customerObject.Email=profile.getEmail()
     customerObject.Number=profile.getNumber()
     customerObject.ImageURL=profile.getImageUrl()
     customerObject.Filled=1 
+
+    window.event.clicked.id.innerHTML= `signout ${profile.getName()}`
+    window.event.clicked.id.onclick="signOut"
   }
   console.log(customerObject)
 </script>
