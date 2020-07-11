@@ -5,14 +5,7 @@ var cartHTML=`<div><button type="button" class="btn btn-primary onclick="showCar
 var mobile = "9403275606"
 var key = mobile+"fadflkasdfj234lkf98asdf345dsflkj23m407sdf" 
 var ensStr =""
-var customerObject = {
-  "Name": "name",
-  "Rank": "rank",
-  "Number": "91 xxxx xxxx",
-  "Email": "abc@domain.com",
-  "Address": "Address",
-  "Filled": 0
-}
+
 var cartTable= ""
 var customerTable =""
 var cartList = `
@@ -491,6 +484,11 @@ function showCustomerForm() {
   console.log(customerForm)
   document.getElementById('main').innerHTML = "<h2>Customer Details </h2>" 
   document.getElementById('main').innerHTML += customerForm
+  var profile = googleUser.getBasicProfile();
+    customerObject.ID=profile.getId()
+    customerObject.Email=profile.getEmail()
+    customerObject.Number=profile.getNumber()
+    customerObject.ImageURL=profile.getImageUrl()
   if (customerObject.Filled === 1) {
     document.getElementById("customer-rank").value = customerObject.Rank
     document.getElementById("customer-name").value = customerObject.Name
