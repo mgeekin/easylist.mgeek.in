@@ -135,7 +135,6 @@
 
 
 <script>
-  var profile=""
   var customerObject = {
   "Name": "name",
   "Rank": "rank",
@@ -154,11 +153,11 @@
 
 <script>
   var googleUser =""
-  function onSignIn() {
+  function onSignIn(googleUser) {
   const googleUser = gapi.auth2.getAuthInstance().currentUser.get();
+  console.log(googleUser)
   const profile = googleUser.getBasicProfile();
-
-    var profile = googleUser.getBasicProfile();
+  console.log(profile)
     console.log(profile)
     customerObject.ID=profile.getId()
     customerObject.Name=profile.getName()
