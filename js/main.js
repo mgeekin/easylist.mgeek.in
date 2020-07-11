@@ -863,7 +863,7 @@ function downloadPDF(){
         ${cartHTML}
         </p>
       </div>
-      <h2>${cartObject.Total}</h2>
+      <h2>Net amount: INR ${cartObject.Total}</h2>
     </div>
     
     </body>
