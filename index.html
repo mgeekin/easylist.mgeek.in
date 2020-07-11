@@ -146,18 +146,43 @@
 
   function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
+    console.log(profile)
     customerObject.ID=profile.getId()
     customerObject.Email=profile.getEmail()
     customerObject.Number=profile.getNumber()
     customerObject.ImageURL=profile.getImageUrl()
     customerObject.Filled=1 
-  return customerObject
   }
+  console.log(customerObject)
 </script>
 
 
 
+<script>
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    var user_name = profile.getName();
+    alert(user_name);
+  }
 
+  function onLoad() {
+    gapi.load('auth2,signin2', function() {
+      var auth2 = gapi.auth2.init();
+      auth2.then(function() {
+        // Current values
+        var isSignedIn = auth2.isSignedIn.get();
+        var currentUser = auth2.currentUser.get();
+
+        if (!isSignedIn) {
+          // Rendering g-signin2 button.
+          gapi.signin2.render('google-signin-button', {
+            'onsuccess': 'onSignIn'  
+          });
+        }
+      });
+    });
+  }
+</script>
 
 
 
