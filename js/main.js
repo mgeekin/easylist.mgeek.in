@@ -94,10 +94,12 @@ var menuList = `
 `
 
 var customerForm = `<div id="customer">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
 <h2><button type="submit" class="btn btn-success mb-2" onclick="saveCustomerInfo()">Save</button><h2>
 <div id="customer-form" class="row container col-lg-12">
 <form class="sm">
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<img id="customer-image" src="${customerObject.ImageURL}"></img>
 <input type="text" class="form-control" id="customer-rank" placeholder="${customerObject.Rank}">
   <input type="text" class="form-control" id="customer-name" placeholder="${customerObject.Name}">
   <input type="email" class="form-control" id="customer-email" placeholder="${customerObject.Email}">
@@ -498,6 +500,8 @@ function showCustomerForm() {
 
     
   }
+
+  
   //document.getElementById('main').append()
 }
 
@@ -544,7 +548,7 @@ function showCart() {
 
 
 function saveCustomerInfo() {
-  var customerForm = document.getElementById("customer-rank").value
+  //var customerForm = document.getElementById("customer-rank").value
   customerObject.Name = document.getElementById("customer-name").value
   customerObject.Rank = document.getElementById("customer-rank").value
   customerObject.Number = document.getElementById("customer-number").value
