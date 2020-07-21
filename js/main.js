@@ -160,7 +160,7 @@ document.onreadystatechange = function () {
 //
 function main() {
   console.log('main')
-  showList()
+  showCu()
   var key = "85528aslgkjag[23-4slfjk003rjslf049073"
   var D = ""
   var g1 = ""
@@ -187,6 +187,9 @@ function loadgroup(event) {
   var obj = window.event.target.id
   //document.querySelector(`#${obj}`).style.display = "none"
   var groupIndex = obj[obj.length - 1]
+
+
+
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
@@ -199,7 +202,7 @@ function loadgroup(event) {
       table.innerHTML = itemListHeader + list
     }
   };
-  xmlhttp.open("GET", `data/group${groupIndex}.json`, true);
+  xmlhttp.open("GET", `data/g${groupIndex}.json`, true);
   xmlhttp.send();
 
 }
