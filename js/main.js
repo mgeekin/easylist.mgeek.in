@@ -1,5 +1,15 @@
 console.log(`main.js loaded`)
 
+var gInfo = [
+  {"group":1,"label":"Grocery"},
+  {"group":2,"label":"Electrical"},
+  {"group":3,"label":"Suitcase"},
+  {"group":4,"label":"Watches and stationary"},
+  {"group":5,"label":"Liquor"},
+  {"group":6,"label":"Biscuit"},
+  {"group":7,"label":"AFD items"}
+]
+var G = []
 var cartObject = []
 var cartHTML = `<div><button type="button" class="btn btn-primary onclick="showCart()><table class="table"></table></div>`
 var mobile = "9403275606"
@@ -38,34 +48,18 @@ var cartList = `
 
 
 var menuList = `
-<div class="row mb-4 ">
-          <div class="col-12 col-lg-12 mb-12">
+<div  class="row mb-6 ">
 
 
             <div id="loadlist" class="col-lg-12 col-sm-12">
 
-              <div id="grocery1" class="loadbtn btn btn-primary" onclick="loadgroup(event)">
-                Show Grocery
-              </div>
 
-              <div id="liquor2" class="btn-primary btn loadbtn" onclick="loadgroup(event)">
-                Show Liquor
-              </div>
-
-              <div id="suitcaseAndElectrical3" class="btn-primary btn loadbtn" onclick="loadgroup(event)">
-                Show Suitcase and Electrical
-              </div>
-
-              <div id="goToCart" class="btn-success btn loadbtn" onclick="showCart()">
-                Go to cart
-              </div>
             </div>
-          </div>
 
         </div>
 
         <div class="row">
-          <div id="list" class="col-12 col-sm-12 col-lg-6 col-xs-6">
+          <div id="list" class="col-12 col-sm-12 ">
             <h1>Item list</h1>
             <input type="text" id="searchInput" class="form-control mb-3" onkeyup="filterList()"
               placeholder="Search for items">
@@ -160,9 +154,10 @@ document.onreadystatechange = function () {
 //
 function main() {
   console.log('main')
-  showCu()
+  //showCart()
   var key = "85528aslgkjag[23-4slfjk003rjslf049073"
   var D = ""
+ 
   var g1 = ""
   var g2 = ""
   var g2 = ""
@@ -187,24 +182,24 @@ function loadgroup(event) {
   var obj = window.event.target.id
   //document.querySelector(`#${obj}`).style.display = "none"
   var groupIndex = obj[obj.length - 1]
+  console.log(groupIndex)
+  if (!G[groupIndex]) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
+        G[groupIndex] = JSON.parse(this.responseText);
+      }
+    };
+    xmlhttp.open("GET", `data/g${groupIndex}.json`, true);
+    xmlhttp.send();
+  }
 
-
-
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
-      var G = JSON.parse(this.responseText);
-      var row = objectToRow(G)
-      var table = document.getElementById("item-table")
-      table.innerHTML = ""
-      var list = ""
-      list += row
-      table.innerHTML = itemListHeader + list
-    }
-  };
-  xmlhttp.open("GET", `data/g${groupIndex}.json`, true);
-  xmlhttp.send();
-
+  var row = objectToRow(G[groupIndex])
+  var table = document.getElementById("item-table")
+  table.innerHTML = ""
+  var list = ""
+  list += row
+  table.innerHTML = itemListHeader + list
 }
 
 
@@ -308,8 +303,8 @@ function addToCart() {
     </button></td>
     </tr>`
 
-
-  return cartObject
+    
+    return cartObject
   // document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
   //updateCartTotal()
 }
@@ -368,11 +363,13 @@ function updateCartTotal() {
     cartTotal += parseFloat(td[4].innerText)
   }
   cartTotal = Math.round(cartTotal * 100) / 100
-  if (cartObject.length > 0) {
-    document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="sendOrder()"> Finalize order</button>`
-    document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
-  }
+
   cartObject.Total = cartTotal
+  if (cartObject.length > 0) {
+    document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="saveOrderToObject()"> Finalize cart</button>`
+    document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
+    document.querySelector("#goToCart").innerHTML=`Cart (${cartObject.length}) INR ${cartObject.Total}`
+  }
 }
 
 function cartToJson() {
@@ -410,13 +407,15 @@ function cartToJson() {
   return [JSON.parse(cartJson), cartTable]
 }
 
-function sendOrder() {
-  console.log('sendOrder')
+function saveOrderToObject() {
+  console.log('saveOrderToObject')
   var [cartJson, cartTable] = cartToJson()
   var [cartHTML, cartTotal] = finalOrderOnjectToTable(cartJson)
 
   var main = document.getElementById("main")
-  main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
+  //main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
+  
+  main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCheckout()">Go to checkout</h2>`
   //main.append(cartHTML)
   main.innerHTML += cartHTML
   var h = document.createElement("h2")
@@ -512,6 +511,12 @@ function showList() {
   //var customerForm
   console.log(menuList)
   document.getElementById('main').innerHTML = menuList
+
+  for(i=0;i<gInfo.length;i++){
+    document.querySelector("#loadlist").innerHTML+=` <span id="group${gInfo[i].group}" type="button" class="btn showlistButton" onclick="loadgroup(event)">${gInfo[i].label}</span> `
+  }
+  document.querySelector("#loadlist").innerHTML+= ` <span id="goToCart" type="button" class="btn btn-success" onclick="showCart()"> Go to cart </span>`
+
   //document.getElementById('main').append()
 }
 
@@ -681,7 +686,7 @@ ${customerTable}</div>
 
     //var emailText=emailBody()
 
-      
+
   }
 
 
@@ -715,8 +720,8 @@ ${customerTable}</div>
 
 
 
-function emailBody(){
- var obj=  `<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+function emailBody() {
+  var obj = `<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
   <body>
   <div class="row">
@@ -905,7 +910,7 @@ function downloadPDF() {
   let pdfConf = {
     pagesplit: false, //Adding page breaks manually using pdf.addPage();
     background: '#ddd' //White Background.
-    };
+  };
   doc.setProperties({
     title: 'Order',
     subject: `from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
@@ -929,10 +934,10 @@ function downloadPDF() {
   
 
 */
-var emailText=emailBody()
-doc.setFontSize(10)
-doc.fromHTML(document.getElementById("main"),20,20,{
-  width:500
+  var emailText = emailBody()
+  doc.setFontSize(10)
+  doc.fromHTML(document.getElementById("main"), 20, 20, {
+    width: 500
   })
 
 
@@ -946,8 +951,8 @@ doc.fromHTML(document.getElementById("main"),20,20,{
 
 
 function sendEmail() {
-  
-  var emailText=emailBody()
+
+  var emailText = emailBody()
 
   Email.send({
     Host: "smtp.gmail.com",
@@ -967,3 +972,21 @@ function sendEmail() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+// styling
+
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('#header')      
+
+  navbar.classList[window.scrollY > 100 ? 'add' : 'remove']('hide')
+
+});

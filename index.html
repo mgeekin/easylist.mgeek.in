@@ -62,34 +62,8 @@
 </head>
 
 <body>
-<myheader>
-  <div id="mysitename"></div>
-  <div id="mynav">
-    <ul class="">
-      <li class="" onclick="showList()">Select Items</li>
-      <li id="cart-nav" class="" onclick="showCart()">Cart</li>
-      <li class="" onclick="showCheckout()">Checkout</li>
-    </ul>
-  </div>
 
-  <div id="myuser"></div>
-</myheader>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div id="header" class="row container-fluid">
+  <div id="header" class="row container-fluid ">
     <nav class="navbar navbar-expand-lg navbar-light container">
       <div class="container-fluid">
         <a class="navbar-brand" href="http://easylist.mgeek.in">Easylist </a>
@@ -101,7 +75,7 @@
           <ul class="navbar-nav">
             <li class="navbar nav-item" onclick="showList()">Select Items</li>
             <li id="cart-nav" class="navbar nav-item" onclick="showCart()">Cart</li>
-            <li class="navbar nav-item" onclick="showCustomerForm()">Customer Details</li>
+            <!--<li class="navbar nav-item" onclick="showCustomerForm()">Customer Details</li>-->
             <li class="navbar nav-item" onclick="showCheckout()">Checkout</li>
           </ul>
           <div id="googleSignin">
@@ -113,60 +87,84 @@
 
   </div>
   <div class="row mt-5"></div>
-  <div class="container mt-5">
-    <h3>Preorder shoping list so we prepare your order ready for pickup</h3>
+
+<section id="welcome">
+  <div class="container">
+
+    <h1>
+      Welcome to URC Tughlacabad
+    </h1>
+    <h2>
+      In view of COVID-19 pandamic, kindly preorder your URC shopping list to help us serve you better
+    </h2>
   </div>
+</section>
 
 
+  <section>
+    <div class="container">
 
-<section>
 
-  <main class="mdl-layout__content mdl-color--grey-100">
-    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
-      <!-- Container for the demo -->
-      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
-          <h2 class="mdl-card__title-text">Firebase Email &amp; Password Authentication</h2>
-        </div>
-        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-          <p>Enter an email and password below and either sign in to an existing account or sign up</p>
+          <!-- Container for the demo -->
+          <div
+            class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
+              <h2 class="mdl-card__title-text">Firebase Email &amp; Password Authentication</h2>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+              <p>Enter an email and password below and either sign in to an existing account or sign up</p>
 
-          <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
-          &nbsp;&nbsp;&nbsp;
-          <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
-          <br/><br/>
-          <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button>
-          &nbsp;&nbsp;&nbsp;
-          <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
-          &nbsp;&nbsp;&nbsp;
-          <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-          &nbsp;&nbsp;&nbsp;
-          <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
+              <input class="mdl-textfield__input" style="display:inline;" type="text" id="email" name="email"
+                placeholder="Email" />
+              &nbsp;&nbsp;&nbsp;
+              <input class="mdl-textfield__input" style="display:inline;" type="password" id="password" name="password"
+                placeholder="Password" />
+              <br /><br />
+              <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in"
+                name="signin">Sign In</button>
+              &nbsp;&nbsp;&nbsp;
+              <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign
+                Up</button>
+              &nbsp;&nbsp;&nbsp;
+              <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email"
+                name="verify-email">Send Email Verification</button>
+              &nbsp;&nbsp;&nbsp;
+              <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset"
+                name="verify-email">Send Password Reset Email</button>
 
-          <!-- Container where we'll display the user details -->
-          <div class="quickstart-user-details-container">
-            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-            <div>Firebase auth <code>currentUser</code> object value:</div>
-            <pre><code id="quickstart-account-details">null</code></pre>
+              <!-- Container where we'll display the user details -->
+              <div class="quickstart-user-details-container">
+                Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                <div>Firebase auth <code>currentUser</code> object value:</div>
+                <pre><code id="quickstart-account-details">null</code></pre>
+              </div>
+            </div>
           </div>
+
         </div>
+      </main>
+      <div>
+        <p> <button id="authorize_button" style="display: none;">Authorize</button>
+          <button id="signout_button" style="display: none;">Sign Out</button>
+
+        <pre id="content" style="white-space: pre-wrap;"></pre>
+        </p>
       </div>
 
+
+
     </div>
-  </main>
-</section>
+  </section>
 
   <section>
     <div class="row">
       <div class="container">
         <div class="" id="main">
 
-          <p> <button id="authorize_button" style="display: none;">Authorize</button>
-            <button id="signout_button" style="display: none;">Sign Out</button>
 
-          <pre id="content" style="white-space: pre-wrap;"></pre>
-          </p>
 
         </div>
 
@@ -201,7 +199,7 @@
       <!--<div class="col-5">
         <a href="#" onclick="signOut();">Sign out</a>
       </div>-->
-      <p>Designed by <a href="http://mgeek.in"><a>mGeek.in</a></p>
+      <p>Designed by <a href="http://mgeek.in">mGeek.in</a></p>
     </div>
 
 
@@ -228,7 +226,7 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
