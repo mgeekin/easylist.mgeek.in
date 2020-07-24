@@ -579,7 +579,7 @@ function saveCustomerInfo() {
     document.getElementById("main").innerHTML = ""
     if (customerObject.Filled === 1) {
         document.getElementById('main').innerHTML = ""
-        var buttonTemp = `<h2><button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
+        var buttonTemp = `<h2><button type="button" class="btn btn-success" onclick="showList()">Select items</button></h2>`
         document.getElementById('main').innerHTML = buttonTemp
     }
 

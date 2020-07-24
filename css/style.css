@@ -219,8 +219,9 @@ table,
 
 .shrinkmargin,
 #main {
-    margin-bottom: 0px;
+    margin-bottom: 200px;
     height: 30px;
+    padding: 30px;
 }
 
 #log {
