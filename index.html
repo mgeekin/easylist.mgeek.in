@@ -33,17 +33,17 @@
 
 
 
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
 
     <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
 
     <script src="js/firebaseConf.js"></script>
     <script src="js/googleSignin.js"></script>
@@ -99,6 +99,30 @@
     </section>
 
 
+    <section id="user">
+
+        <div id="userLogin">
+            <div class="center">
+                <h3>Login or Signup to continue</h3>
+                <input class="loginInput" type="text" id="userEmail" placeholder="Email">
+                <input class="loginInput" type="password" id="userPassword" placeholder="Password">
+                <div class="loginButtons">
+                    <button class="loginButton" id="signinButton" onclick="signin()"> Sign in </button>
+                    <button class="loginButton" id="signupButton" onclick="signup()"> Sign up </button>
+                    <br />
+                    <button class="loginButton" id="resetButton" onclick="reset()"> Reset Password </button>
+
+                </div>
+            </div>
+        </div>
+        <div id="userEdit">
+
+        </div>
+
+
+
+    </section>
+    <!--
     <section>
         <div class="container">
 
@@ -106,47 +130,47 @@
             <main class="mdl-layout__content mdl-color--grey-100">
                 <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
-                    <!-- Container for the demo -->
-                    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-                        <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
-                            <h2 class="mdl-card__title-text">Firebase Email &amp; Password Authentication</h2>
-                        </div>
-                        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                            <p>Enter an email and password below and either sign in to an existing account or sign up</p>
-
-                            <input class="mdl-textfield__input" style="display:inline;" type="text" id="email" name="email" placeholder="Email" /> &nbsp;&nbsp;&nbsp;
-                            <input class="mdl-textfield__input" style="display:inline;" type="password" id="password" name="password" placeholder="Password" />
-                            <br /><br />
-                            <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button> &nbsp;&nbsp;&nbsp;
-                            <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign
-                Up</button> &nbsp;&nbsp;&nbsp;
-                            <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button> &nbsp;&nbsp;&nbsp;
-                            <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-
-                            <!-- Container where we'll display the user details -->
-                            <div class="quickstart-user-details-container">
-                                Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-                                <div>Firebase auth <code>currentUser</code> object value:</div>
-                                <pre><code id="quickstart-account-details">null</code></pre>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </main>
-            <div>
-                <p> <button id="authorize_button" style="display: none;">Authorize</button>
-                    <button id="signout_button" style="display: none;">Sign Out</button>
-
-                    <pre id="content" style="white-space: pre-wrap;"></pre>
-                </p>
-            </div>
-
-
-
+                    <!-- Container for the demo -- >
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+        <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
+            <h2 class="mdl-card__title-text">Login or Signup to continue</h2>
         </div>
-    </section>
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+            <p>Enter an email and password below and either sign in to an existing account or sign up</p>
 
+            <input class="mdl-textfield__input" style="display:inline;" type="text" id="email" name="email" placeholder="Email" /> &nbsp;&nbsp;&nbsp;
+            <input class="mdl-textfield__input" style="display:inline;" type="password" id="password" name="password" placeholder="Password" />
+            <br /><br />
+            <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button> &nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign
+                Up</button> &nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button> &nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
+
+            <!-- Container where we'll display the user details -- >
+            <div class="quickstart-user-details-container">
+                Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                <div>Firebase auth <code>currentUser</code> object value:</div>
+                <pre><code id="quickstart-account-details">null</code></pre>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </main>
+    <div>
+        <p> <button id="authorize_button" style="display: none;">Authorize</button>
+            <button id="signout_button" style="display: none;">Sign Out</button>
+
+            <pre id="content" style="white-space: pre-wrap;"></pre>
+        </p>
+    </div>
+
+
+
+    </div>
+    </section>
+    -->
     <section>
         <div class="row">
             <div class="container">

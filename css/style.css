@@ -104,11 +104,15 @@ h1 {
     color: white;
 }
 
-h2,
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
 h3,
 h4 {
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 table {
@@ -130,4 +134,77 @@ table {
 
 #footer:hover {
     top: 80vh;
+}
+
+.loginInput,
+.loginButton {
+    border-radius: 3px;
+    padding: 5px;
+    border: 0px;
+    font-family: 'Roboto', 'Courier New', Courier, monospace;
+    font-size: 60x;
+    font-style: bold;
+}
+
+.loginInput {
+    text-align: left;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    color: hsl(234, 78%, 20%);
+    background-color: hsl(0, 0%, 65%);
+    margin-bottom: 20px;
+}
+
+.loginInput:hover {
+    background-color: hsl(0, 0%, 98%);
+}
+
+.loginButton {
+    width: 60%;
+    max-width: 150px;
+    color: white;
+    background-color: hsl(143, 100%, 29%);
+    margin: 0;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+
+.loginButton:hover {
+    background-color: hsl(143, 100%, 35%);
+}
+
+.loginButtons {
+    margin: 0 auto;
+    text-align: left;
+}
+
+#user {
+    width: 80vw;
+    display: block;
+    text-align: center;
+    padding: 50px;
+    margin: 30px auto;
+    border-radius: 4px;
+}
+
+#resetButton {
+    width: 90%;
+    max-width: 200px;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+    max-width: 500px;
+}
+
+.center>h3 {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+table,
+.mygrad {
+    background: linear-gradient(160deg, rgba(30, 36, 92, 0.2) 0%, rgba(15, 30, 165, 0.3) 35%, hsla(234, 70%, 30%, .6) 42%, hsla(234, 70%, 30%, .6) 59%, hsla(234, 60%, 40%, .1) 100%);
 }
