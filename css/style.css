@@ -208,3 +208,8 @@ table,
 .mygrad {
     background: linear-gradient(160deg, rgba(30, 36, 92, 0.2) 0%, rgba(15, 30, 165, 0.3) 35%, hsla(234, 70%, 30%, .6) 42%, hsla(234, 70%, 30%, .6) 59%, hsla(234, 60%, 40%, .1) 100%);
 }
+
+#userLogin,
+#userSignOut {
+    display: none;
+}

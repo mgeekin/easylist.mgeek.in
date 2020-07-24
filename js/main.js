@@ -1,13 +1,13 @@
 console.log(`main.js loaded`)
-
+customerObject = {}
 var gInfo = [
-  {"group":1,"label":"Grocery"},
-  {"group":2,"label":"Electrical"},
-  {"group":3,"label":"Suitcase"},
-  {"group":4,"label":"Watches and stationary"},
-  {"group":5,"label":"Liquor"},
-  {"group":6,"label":"Biscuit"},
-  {"group":7,"label":"AFD items"}
+    { "group": 1, "label": "Grocery" },
+    { "group": 2, "label": "Electrical" },
+    { "group": 3, "label": "Suitcase" },
+    { "group": 4, "label": "Watches and stationary" },
+    { "group": 5, "label": "Liquor" },
+    { "group": 6, "label": "Biscuit" },
+    { "group": 7, "label": "AFD items" }
 ]
 var G = []
 var cartObject = []
@@ -15,7 +15,7 @@ var cartHTML = `<div><button type="button" class="btn btn-primary onclick="showC
 var mobile = "9403275606"
 var key = mobile + "fadflkasdfj234lkf98asdf345dsflkj23m407sdf"
 var encDataStr = ""
-//var emailBody = ""
+    //var emailBody = ""
 var cartTable = ""
 var customerTable = ""
 var cartList = `
@@ -140,11 +140,11 @@ var cartListFooter = ``
 
 
 
-document.onreadystatechange = function () {
-  if (document.readyState === "complete") {
-    main()
-    console.log('Ready')
-  }
+document.onreadystatechange = function() {
+    if (document.readyState === "complete") {
+        main()
+        console.log('Ready')
+    }
 }
 
 
@@ -153,20 +153,20 @@ document.onreadystatechange = function () {
 //document.getElementById("cart-table").innerHTML = cartListHeader
 //
 function main() {
-  console.log('main')
-  //showCart()
-  var key = "85528aslgkjag[23-4slfjk003rjslf049073"
-  var D = ""
- 
-  var g1 = ""
-  var g2 = ""
-  var g2 = ""
-  var itemList = ""
-  var order = ""
-  var encryptedOrder = ""
-  //var cartTable = document.querySelector("#cart-table")
-  //var cartTableData = cartTable.innerHTML
-  //console.log(cartTableData)
+    console.log('main')
+        //showCart()
+    var key = "85528aslgkjag[23-4slfjk003rjslf049073"
+    var D = ""
+
+    var g1 = ""
+    var g2 = ""
+    var g2 = ""
+    var itemList = ""
+    var order = ""
+    var encryptedOrder = ""
+        //var cartTable = document.querySelector("#cart-table")
+        //var cartTableData = cartTable.innerHTML
+        //console.log(cartTableData)
 
 
 
@@ -177,80 +177,80 @@ function main() {
 
 //load group1
 function loadgroup(event) {
-  console.log('loadgroup')
+    console.log('loadgroup')
 
-  var obj = window.event.target.id
-  //document.querySelector(`#${obj}`).style.display = "none"
-  var groupIndex = obj[obj.length - 1]
-  console.log(groupIndex)
-  if (!G[groupIndex]) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
-        G[groupIndex] = JSON.parse(this.responseText);
-      }
-    };
-    xmlhttp.open("GET", `data/g${groupIndex}.json`, true);
-    xmlhttp.send();
-  }
+    var obj = window.event.target.id
+        //document.querySelector(`#${obj}`).style.display = "none"
+    var groupIndex = obj[obj.length - 1]
+    console.log(groupIndex)
+    if (!G[groupIndex]) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
+                G[groupIndex] = JSON.parse(this.responseText);
+            }
+        };
+        xmlhttp.open("GET", `data/g${groupIndex}.json`, true);
+        xmlhttp.send();
+    }
 
-  var row = objectToRow(G[groupIndex])
-  var table = document.getElementById("item-table")
-  table.innerHTML = ""
-  var list = ""
-  list += row
-  table.innerHTML = itemListHeader + list
+    var row = objectToRow(G[groupIndex])
+    var table = document.getElementById("item-table")
+    table.innerHTML = ""
+    var list = ""
+    list += row
+    table.innerHTML = itemListHeader + list
 }
 
 
 function objectToRow(obj) {
-  console.log('objectToRow')
-  var row = ""
-  for (i = 0; i < obj.length; i++) {
-    row += `<tr id="row${i}">
+    console.log('objectToRow')
+    var row = ""
+    for (i = 0; i < obj.length; i++) {
+        row += `<tr id="row${i}">
       <td id="list-col1" class="filterable-cell">${obj[i].IndexNo}</td>
       <td id="list-col2" class="filterable-cell">${obj[i].Name}</td>
       <td id="list-col3" class="filterable-cell">${obj[i].Rate}</td>
       <td id="list-col4" class="filterable-cell"><!-- <img width="100" height="30" src="image/${obj[i].IndexNo}.jpg">--></td>
       <td id="list-col5" class="filterable-cell"><button type="button" class="btn btn-sm btn-primary" onclick="addToCart()">Add to cart</button></td>
       </tr>`
-  }
-  return (row)
+    }
+    return (row)
 }
 
 
 
 
 function filterList() {
-  console.log('filterList')
-  var input, filter, table, tr, i, txtValue
-  input = document.querySelector("#searchInput")
-  filter = input.value.toUpperCase()
-  table = document.querySelector("#item-table")
-  tr = table.querySelectorAll("tr")
-  for (i = 1; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1]
-    if (td) {
-      txtValue = td.textCOntent || td.innerText
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = ""
-      } else {
-        tr[i].style.display = "none"
-      }
+    console.log('filterList')
+    var input, filter, table, tr, i, txtValue
+    input = document.querySelector("#searchInput")
+    filter = input.value.toUpperCase()
+    table = document.querySelector("#item-table")
+    tr = table.querySelectorAll("tr")
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]
+        if (td) {
+            txtValue = td.textCOntent || td.innerText
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = ""
+            } else {
+                tr[i].style.display = "none"
+            }
+        }
     }
-  }
 }
 
 
 function addToCart() {
-  console.log('addToCart')
-  var clickedItemRow = window.event.target.parentElement.parentElement.id
-  //var cols=clickedItemRow.children.innerText
+    console.log('addToCart')
+    var clickedItemRow = window.event.target.parentElement.parentElement.id
+        //var cols=clickedItemRow.children.innerText
 
-  var rowSelected = document.querySelector(`#${clickedItemRow}`)
-  rowSelected.style.display = "none"
-  var selectedRowArray = [rowSelected.children[0].innerText, rowSelected.children[1].innerText, rowSelected.children[2].innerText]
-  var htmlTableRow = `< tr >
+    var rowSelected = document.querySelector(`#${clickedItemRow}`)
+    rowSelected.style.display = "none"
+    var selectedRowArray = [rowSelected.children[0].innerText, rowSelected.children[1].innerText, rowSelected.children[2].innerText]
+    var htmlTableRow = `< tr >
   <td class="filterable-cell">${selectedRowArray[0]}</td>
   <td class="filterable-cell">${selectedRowArray[1]}</td>
   <td class="filterable-cell">${selectedRowArray[2]}</td>
@@ -269,29 +269,29 @@ function addToCart() {
     <td class="filterable-cell">rowTotal</td>
           </tr>`
 
-  var obj = {
-    "Index": selectedRowArray[0],
-    "Name": selectedRowArray[1],
-    "Rate": selectedRowArray[2],
-    "Quantity": 1,
-    "Total": null
-  }
-  obj.Total = Math.round(obj.Rate * obj.Quantity * 100) / 100
-  var itemExist = 0
-  for (i = 0; i < cartObject.length; i++) {
-    if (obj.Index === cartObject[i].Index) {
-      itemExist = 1
-      cartObject[i].Quantity += 1
-      cartObject[i].Total = Math.round(cartObject[i].Rate * cartObject[i].Quantity * 100) / 100
+    var obj = {
+        "Index": selectedRowArray[0],
+        "Name": selectedRowArray[1],
+        "Rate": selectedRowArray[2],
+        "Quantity": 1,
+        "Total": null
     }
-  }
-  if (itemExist === 0) {
-    cartObject.push(obj)
-  }
-  document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
+    obj.Total = Math.round(obj.Rate * obj.Quantity * 100) / 100
+    var itemExist = 0
+    for (i = 0; i < cartObject.length; i++) {
+        if (obj.Index === cartObject[i].Index) {
+            itemExist = 1
+            cartObject[i].Quantity += 1
+            cartObject[i].Total = Math.round(cartObject[i].Rate * cartObject[i].Quantity * 100) / 100
+        }
+    }
+    if (itemExist === 0) {
+        cartObject.push(obj)
+    }
+    document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
 
-  var rowTotal = rowSelected.children[2].innerText
-  var rowToAdd = `<tr>
+    var rowTotal = rowSelected.children[2].innerText
+    var rowToAdd = `<tr>
     <td class="filterable-cell">${rowSelected.children[0].innerText}</td>
     <td class="filterable-cell">${rowSelected.children[1].innerText}</td>
     <td class="filterable-cell">${rowSelected.children[2].innerText}</td>
@@ -303,95 +303,94 @@ function addToCart() {
     </button></td>
     </tr>`
 
-    
+
     return cartObject
-  // document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
-  //updateCartTotal()
+        // document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
+        //updateCartTotal()
 }
 
 function removeFromCart() {
-  console.log('removeFromCart')
-  var removeRow = window.event.target.parentElement.parentElement.rowIndex
-  //delete cartObject[removeRow]
-  cartObject.splice(removeRow - 1, 1)
-  document.getElementById("cart-table").deleteRow(removeRow)
-  console.log(cartObject)
-  document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
-  updateCartTotal()
-  showCart()
+    console.log('removeFromCart')
+    var removeRow = window.event.target.parentElement.parentElement.rowIndex
+        //delete cartObject[removeRow]
+    cartObject.splice(removeRow - 1, 1)
+    document.getElementById("cart-table").deleteRow(removeRow)
+    console.log(cartObject)
+    document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
+    updateCartTotal()
+    showCart()
 }
 
 function updateRowTotal(target) {
 
-  console.log('updateRowTotal')
+    console.log('updateRowTotal')
 
-  var indexno = target.parentElement.parentElement.firstElementChild.innerText
-  var quantity = Number(target.value)
-  if (quantity < target.min) {
-    quantity = target.min
-    target.value = quantity
-  }
-  if (quantity > target.max) {
-    console.log('overlimit')
-    quantity = target.max
-    target.value = quantity
-  }
-
-  for (i = 0; i < cartObject.length; i++) {
-    if (indexno === cartObject[i].Index) {
-      cartObject[i].Quantity = Number(quantity)
-      cartObject[i].Total = Math.round(cartObject[i].Rate * cartObject[i].Quantity * 100) / 100
+    var indexno = target.parentElement.parentElement.firstElementChild.innerText
+    var quantity = Number(target.value)
+    if (quantity < target.min) {
+        quantity = target.min
+        target.value = quantity
     }
-  }
+    if (quantity > target.max) {
+        console.log('overlimit')
+        quantity = target.max
+        target.value = quantity
+    }
+
+    for (i = 0; i < cartObject.length; i++) {
+        if (indexno === cartObject[i].Index) {
+            cartObject[i].Quantity = Number(quantity)
+            cartObject[i].Total = Math.round(cartObject[i].Rate * cartObject[i].Quantity * 100) / 100
+        }
+    }
 
 
 
 
-  showCart()
+    showCart()
 }
 
 
 function updateCartTotal() {
-  console.log('updateCartTotal')
+    console.log('updateCartTotal')
 
-  var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
-  var cartRows = cartBody.getElementsByTagName('tr')
-  var cartTotal = 0
-  for (i = 0; i < cartRows.length; i++) {
-    tr = cartRows[i]
-    td = tr.children
-    cartTotal += parseFloat(td[4].innerText)
-  }
-  cartTotal = Math.round(cartTotal * 100) / 100
+    var cartBody = document.getElementById("cart-table").getElementsByTagName('tbody')[0]
+    var cartRows = cartBody.getElementsByTagName('tr')
+    var cartTotal = 0
+    for (i = 0; i < cartRows.length; i++) {
+        tr = cartRows[i]
+        td = tr.children
+        cartTotal += parseFloat(td[4].innerText)
+    }
+    cartTotal = Math.round(cartTotal * 100) / 100
 
-  cartObject.Total = cartTotal
-  if (cartObject.length > 0) {
-    document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="saveOrderToObject()"> Finalize cart</button>`
-    document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
-    document.querySelector("#goToCart").innerHTML=`Cart (${cartObject.length}) INR ${cartObject.Total}`
-  }
+    cartObject.Total = cartTotal
+    if (cartObject.length > 0) {
+        document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="saveOrderToObject()"> Finalize cart</button>`
+        document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
+        document.querySelector("#goToCart").innerHTML = `Cart (${cartObject.length}) INR ${cartObject.Total}`
+    }
 }
 
 function cartToJson() {
-  console.log('cartToJson')
-  var cartTable = document.getElementById('cart-table')
-  var cartBody = cartTable.getElementsByTagName('tbody')[0]
-  var cartRows = cartBody.getElementsByTagName('tr')
-  var cartJson = ""
-  for (i = 0; i < cartRows.length; i++) {
-    tr = cartRows[i]
-    td = tr.children
-    if (i === 0) {
-      var objarray = `{
+    console.log('cartToJson')
+    var cartTable = document.getElementById('cart-table')
+    var cartBody = cartTable.getElementsByTagName('tbody')[0]
+    var cartRows = cartBody.getElementsByTagName('tr')
+    var cartJson = ""
+    for (i = 0; i < cartRows.length; i++) {
+        tr = cartRows[i]
+        td = tr.children
+        if (i === 0) {
+            var objarray = `{
     "Index":${td[0].innerText},
     "Name":"${td[1].innerText}",
     "Rate":${td[2].innerText},
     "Quantity":${td[3].firstChild.value},
     "Total":${td[4].innerText}
     }`
-    }
-    else {
-      objarray += `,
+        } else {
+            objarray += `,
     {
     "Index":${td[0].innerText},
     "Name":"${td[1].innerText}",
@@ -399,46 +398,46 @@ function cartToJson() {
     "Quantity":${td[3].firstChild.value},
     "Total":${td[4].innerText}
     }`
+        }
+
     }
+    cartJson = `[${objarray}]`
 
-  }
-  cartJson = `[${objarray}]`
-
-  return [JSON.parse(cartJson), cartTable]
+    return [JSON.parse(cartJson), cartTable]
 }
 
 function saveOrderToObject() {
-  console.log('saveOrderToObject')
-  var [cartJson, cartTable] = cartToJson()
-  var [cartHTML, cartTotal] = finalOrderOnjectToTable(cartJson)
+    console.log('saveOrderToObject')
+    var [cartJson, cartTable] = cartToJson()
+    var [cartHTML, cartTotal] = finalOrderOnjectToTable(cartJson)
 
-  var main = document.getElementById("main")
-  //main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
-  
-  main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCheckout()">Go to checkout</h2>`
-  //main.append(cartHTML)
-  main.innerHTML += cartHTML
-  var h = document.createElement("h2")
-  h.innerText = `Net amount is INR ${cartTotal}`
-  main.append(h)
-  if (cartObject.length > 0) {
-    document.getElementById('main').innerHTML += ` <button type="button" class="btn btn-danger" onclick="showCart()">Edit</button>`
-  }
-  var customer = ""
-  var order = { customer, cartJson }
-  var encryptedOrder = CryptoJS.AES.encrypt(key, JSON.stringify(order))
+    var main = document.getElementById("main")
+        //main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
+
+    main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCheckout()">Go to checkout</h2>`
+        //main.append(cartHTML)
+    main.innerHTML += cartHTML
+    var h = document.createElement("h2")
+    h.innerText = `Net amount is INR ${cartTotal}`
+    main.append(h)
+    if (cartObject.length > 0) {
+        document.getElementById('main').innerHTML += ` <button type="button" class="btn btn-danger" onclick="showCart()">Edit</button>`
+    }
+    var customer = ""
+    var order = { customer, cartJson }
+    var encryptedOrder = CryptoJS.AES.encrypt(key, JSON.stringify(order))
 }
 
 
 
 function finalOrderOnjectToTable() {
-  console.log('finalOrderOnjectToTable')
-  cartHTML = document.createElement("TABLE")
-  cartHTML.classList.add("table")
-  cartHTML.classList.add("table-striped")
+    console.log('finalOrderOnjectToTable')
+    cartHTML = document.createElement("TABLE")
+    cartHTML.classList.add("table")
+    cartHTML.classList.add("table-striped")
 
-  var A =
-    `
+    var A =
+        `
       <thead>
         <tr>
           <th>Index No.</th>
@@ -453,14 +452,14 @@ function finalOrderOnjectToTable() {
       </tbody>
     `
 
-  cartHTML.innerHTML = A
+    cartHTML.innerHTML = A
 
 
 
-  var row = ""
-  var cartTotal = 0
-  for (i = 0; i < cartObject.length; i++) {
-    row += `
+    var row = ""
+    var cartTotal = 0
+    for (i = 0; i < cartObject.length; i++) {
+        row += `
     <tr id="row${i}">
       <td id="list-col1" class="filterable-cell">${cartObject[i].Index}</td>
       <td id="list-col2" class="filterable-cell">${cartObject[i].Name}</td>
@@ -469,13 +468,13 @@ function finalOrderOnjectToTable() {
       <td id="list-col3" class="filterable-cell">${cartObject[i].Total}</td>
       </tr>
       `
-    cartTotal += cartObject[i].Total
-  }
+        cartTotal += cartObject[i].Total
+    }
 
-  cartHTML.getElementsByTagName("tbody")[0].innerHTML = row
-  cartHTML = cartHTML.outerHTML
-  cartTotal = Math.round(cartTotal * 100) / 100
-  return [cartHTML, cartTotal]
+    cartHTML.getElementsByTagName("tbody")[0].innerHTML = row
+    cartHTML = cartHTML.outerHTML
+    cartTotal = Math.round(cartTotal * 100) / 100
+    return [cartHTML, cartTotal]
 }
 
 
@@ -483,53 +482,53 @@ function finalOrderOnjectToTable() {
 
 
 function showCustomerForm() {
-  //var customerForm
-  console.log(customerForm)
-  document.getElementById('main').innerHTML = "<h2>Customer Details </h2>"
-  document.getElementById('main').innerHTML += customerForm
+    //var customerForm
+    console.log(customerForm)
+    document.getElementById('main').innerHTML = "<h2>Customer Details </h2>"
+    document.getElementById('main').innerHTML += customerForm
 
-  if (customerObject.GoogleUser === 1) {
-    document.getElementById("customer-image").src = `${customerObject.ImageURL}`
-    document.getElementById("customer-name").value = customerObject.Name
-    document.getElementById("customer-email").value = customerObject.Email
-  }
+    if (customerObject.GoogleUser === 1) {
+        document.getElementById("customer-image").src = `${customerObject.ImageURL}`
+        document.getElementById("customer-name").value = customerObject.Name
+        document.getElementById("customer-email").value = customerObject.Email
+    }
 
-  if (customerObject.Filled === 1) {
-    document.getElementById("customer-rank").value = customerObject.Rank
-    document.getElementById("customer-number").value = customerObject.Number
-    document.getElementById("customer-address").value = customerObject.Address
+    if (customerObject.Filled === 1) {
+        document.getElementById("customer-rank").value = customerObject.Rank
+        document.getElementById("customer-number").value = customerObject.Number
+        document.getElementById("customer-address").value = customerObject.Address
 
-  }
+    }
 
 
-  //document.getElementById('main').append()
+    //document.getElementById('main').append()
 }
 
 
 
 function showList() {
-  //var customerForm
-  console.log(menuList)
-  document.getElementById('main').innerHTML = menuList
+    //var customerForm
+    console.log(menuList)
+    document.getElementById('main').innerHTML = menuList
 
-  for(i=0;i<gInfo.length;i++){
-    document.querySelector("#loadlist").innerHTML+=` <span id="group${gInfo[i].group}" type="button" class="btn showlistButton" onclick="loadgroup(event)">${gInfo[i].label}</span> `
-  }
-  document.querySelector("#loadlist").innerHTML+= ` <span id="goToCart" type="button" class="btn btn-success" onclick="showCart()"> Go to cart </span>`
+    for (i = 0; i < gInfo.length; i++) {
+        document.querySelector("#loadlist").innerHTML += ` <span id="group${gInfo[i].group}" type="button" class="btn showlistButton" onclick="loadgroup(event)">${gInfo[i].label}</span> `
+    }
+    document.querySelector("#loadlist").innerHTML += ` <span id="goToCart" type="button" class="btn btn-success" onclick="showCart()"> Go to cart </span>`
 
-  //document.getElementById('main').append()
+    //document.getElementById('main').append()
 }
 
 
 
 
 function showCart() {
-  //var customerForm
-  console.log(cartList)
+    //var customerForm
+    console.log(cartList)
 
-  document.getElementById('main').innerHTML = cartListTable
-  for (i = 0; i < cartObject.length; i++) {
-    var tr = `
+    document.getElementById('main').innerHTML = cartListTable
+    for (i = 0; i < cartObject.length; i++) {
+        var tr = `
   <tr>
     <td class="filterable-cell">${cartObject[i].Index}</td>
     <td class="filterable-cell">${cartObject[i].Name}</td>
@@ -540,37 +539,35 @@ function showCart() {
     <span class="glyphicon glyphicon-remove"></span> Remove
     </button></td>
     </tr>`
-    console.log()
-    document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += tr
-  }
+        console.log()
+        document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += tr
+    }
 
-  //document.getElementById('main').append()
-  updateCartTotal()
-  var cartHTML = document.getElementById('main').getElementsByTagName("table")
-  cartTable = finalOrderOnjectToTable()
-  return cartHTML
+    //document.getElementById('main').append()
+    updateCartTotal()
+    var cartHTML = document.getElementById('main').getElementsByTagName("table")
+    cartTable = finalOrderOnjectToTable()
+    return cartHTML
 }
 
 
 
 function saveCustomerInfo() {
-  //var customerForm = document.getElementById("customer-rank").value
-  customerObject.Name = document.getElementById("customer-name").value
-  customerObject.Rank = document.getElementById("customer-rank").value
-  customerObject.Number = document.getElementById("customer-number").value
-  customerObject.Email = document.getElementById("customer-email").value
-  customerObject.Address = document.getElementById("customer-address").value
-  customerObject.Filled = 1
-  customerJsonToHTML()
+    //var customerForm = document.getElementById("customer-rank").value
+    customerObject.Name = document.getElementById("customer-name").value
+    customerObject.Rank = document.getElementById("customer-rank").value
+    customerObject.Number = document.getElementById("customer-number").value
+    customerObject.Email = document.getElementById("customer-email").value
+    customerObject.Address = document.getElementById("customer-address").value
+    customerObject.Filled = 1
+    customerJsonToHTML()
 
-  document.getElementById("main").innerHTML = ""
-  if (customerObject.Filled === 1) {
-    document.getElementById('main').innerHTML = ""
-    var buttonTemp = `<h2><button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
-    document.getElementById('main').innerHTML = buttonTemp
-  }
-
-
+    document.getElementById("main").innerHTML = ""
+    if (customerObject.Filled === 1) {
+        document.getElementById('main').innerHTML = ""
+        var buttonTemp = `<h2><button type="button" class="btn btn-success" onclick="showCheckout()">Checkout</button></h2>`
+        document.getElementById('main').innerHTML = buttonTemp
+    }
 
 
 
@@ -583,15 +580,17 @@ function saveCustomerInfo() {
 
 
 
-  document.getElementById("main").innerHTML += customerTable
-  if (customerObject.Filled === 1) {
-    document.getElementById('main').innerHTML += ` <button type="button" class="btn btn-danger" onclick="showCustomerForm()">Edit</button>`
-  }
-  return customerObject
+
+
+    document.getElementById("main").innerHTML += customerTable
+    if (customerObject.Filled === 1) {
+        document.getElementById('main').innerHTML += ` <button type="button" class="btn btn-danger" onclick="showCustomerForm()">Edit</button>`
+    }
+    return customerObject
 }
 
 function customerJsonToHTML() {
-  customerTable = `
+    customerTable = `
   <table id="customer-info-table" class="table">
   <tr>
   <td scope="row">
@@ -635,15 +634,15 @@ function customerJsonToHTML() {
           </tr>
           </table>`
 
-  return customerTable
+    return customerTable
 }
 
 function showCheckout() {
-  document.getElementById("main").innerHTML = ""
-  var checkoutHTML = ""
+    document.getElementById("main").innerHTML = ""
+    var checkoutHTML = ""
 
-  if (customerObject.Filled == 1 && cartObject.length > 0) {
-    var checkoutHTML = `
+    if (customerObject.Filled == 1 && cartObject.length > 0) {
+        var checkoutHTML = `
     <h2 id="orderStatusEmail"><button type="button" onclick="sendEmail()" class="btn btn-success">Send Email</button></h2>
     <h2 id="orderStatus"><button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order (beta)</button></h2>
     <div class="g-recaptcha"
@@ -651,14 +650,14 @@ function showCheckout() {
             data-callback="onSubmit"
             data-size="invisible">
       </div>`
-  }
+    }
 
 
 
-  if (customerObject.Filled === 0) {
-    checkoutHTML += `<h2 class="btn btn-primary" onclick="showCustomerForm()">Fill Customer details </h2>`
-  } else {
-    checkoutHTML += `<h2>Customer Details</h2>
+    if (customerObject.Filled === 0) {
+        checkoutHTML += `<h2 class="btn btn-primary" onclick="showCustomerForm()">Fill Customer details </h2>`
+    } else {
+        checkoutHTML += `<h2>Customer Details</h2>
     
     
     <div class="row">
@@ -669,59 +668,59 @@ ${customerTable}</div>
 </div>
 </div>
     `
-  }
-  if (cartObject.length === 0) {
-    checkoutHTML += `<h2 class="btn btn-primary" onclick="showList()">Add items to cart </h2>`
-  } else {
-
-
-    if (cartHTML.length < 10) {
-      checkoutHTML += `<h2 class="btn btn-primary" onclick="showList()">Finalize list </h2>`
+    }
+    if (cartObject.length === 0) {
+        checkoutHTML += `<h2 class="btn btn-primary" onclick="showList()">Add items to cart </h2>`
     } else {
-      checkoutHTML += `<h2>Order</h2>
+
+
+        if (cartHTML.length < 10) {
+            checkoutHTML += `<h2 class="btn btn-primary" onclick="showList()">Finalize list </h2>`
+        } else {
+            checkoutHTML += `<h2>Order</h2>
     ${cartHTML}`
+        }
+
+
+
+        //var emailText=emailBody()
+
+
     }
 
 
 
-    //var emailText=emailBody()
 
 
-  }
+    document.getElementById("main").innerHTML = checkoutHTML
 
 
+    if (customerObject.Filled === 1 && cartObject.length > 0) {
 
 
-
-  document.getElementById("main").innerHTML = checkoutHTML
-
-
-  if (customerObject.Filled === 1 && cartObject.length > 0) {
-
-
-    document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF()"> Download PDF (beta)</button></p>
+        document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF()"> Download PDF (beta)</button></p>
 
 
     `
-    var savedData = [customerObject, cartObject]
-    var encDataStr = encToString(savedData)
+        var savedData = [customerObject, cartObject]
+        var encDataStr = encToString(savedData)
 
-    var printableHTML = document.getElementById("main").innerHTML
-    var orderNumber = 0
-    //orderNumber = sendToGoogleSheet(encDataStr)
-
-
+        var printableHTML = document.getElementById("main").innerHTML
+        var orderNumber = 0
+            //orderNumber = sendToGoogleSheet(encDataStr)
 
 
-  }
-  //return emailBody
+
+
+    }
+    //return emailBody
 }
 
 
 
 
 function emailBody() {
-  var obj = `<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    var obj = `<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
   <body>
   <div class="row">
@@ -751,63 +750,63 @@ function emailBody() {
 
 </body>
   </html>`
-  return obj
+    return obj
 }
 
 
 function encToString(savedData) {
-  var savedDataString = JSON.stringify(savedData)
-  var savedDataEncrypted = CryptoJS.AES.encrypt(savedDataString, key)
-  encStr = savedDataEncrypted.toString()
-  //at receiver end
-  var dec = CryptoJS.AES.decrypt(encStr, key).toString(CryptoJS.enc.Utf8)
-  console.log(dec)
-  console.log(JSON.parse(dec))
-  return encStr
+    var savedDataString = JSON.stringify(savedData)
+    var savedDataEncrypted = CryptoJS.AES.encrypt(savedDataString, key)
+    encStr = savedDataEncrypted.toString()
+        //at receiver end
+    var dec = CryptoJS.AES.decrypt(encStr, key).toString(CryptoJS.enc.Utf8)
+    console.log(dec)
+    console.log(JSON.parse(dec))
+    return encStr
 }
 
 
 
 function sendToGoogleSheet(encDataStr) {
-  var orderNumber = 1
-  //get google sheet row and append insert order
+    var orderNumber = 1
+        //get google sheet row and append insert order
 
 
-  // /https://docs.google.com/spreadsheets/d/1nUh47iT5m7QOkwMJWXDfuHjSNL3t5_Rl4zLWUZxjGYY/edit?usp=drivesdk
+    // /https://docs.google.com/spreadsheets/d/1nUh47iT5m7QOkwMJWXDfuHjSNL3t5_Rl4zLWUZxjGYY/edit?usp=drivesdk
 
-  var values = [
-    [
-      encStr
-    ],
-    // Additional rows ...
-  ];
-  var body = {
-    values: values
-  };
-  gapi.client.sheets.spreadsheets.values.append({
-    spreadsheetId: "1nUh47iT5m7QOkwMJWXDfuHjSNL3t5_Rl4zLWUZxjGYY",
-    range: "A1",
-    valueInputOption: "RAW",
-    resource: body
-  }).then((response) => {
-    var result = response.result;
-    console.log(`${result.updates.updatedCells} cells appended.`)
-  });
-
-
+    var values = [
+        [
+            encStr
+        ],
+        // Additional rows ...
+    ];
+    var body = {
+        values: values
+    };
+    gapi.client.sheets.spreadsheets.values.append({
+        spreadsheetId: "1nUh47iT5m7QOkwMJWXDfuHjSNL3t5_Rl4zLWUZxjGYY",
+        range: "A1",
+        valueInputOption: "RAW",
+        resource: body
+    }).then((response) => {
+        var result = response.result;
+        console.log(`${result.updates.updatedCells} cells appended.`)
+    });
 
 
-  if (orderNumber === 0) {
-    alert("Order not Saved retry")
-    document.getElementById("orderStatus").innerHTML = `<button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order(beta)</button>`
-  }
-  if (orderNumber > 0) {
-    document.getElementById("orderStatus").innerHTML = `Order Number : ${orderNumber}`
-    document.getElementById("downloadPdf").innerHTML = ""
-    printableHTML = document.getElementById("main").innerHTML
-    savePDF(printableHTML, orderNumber)
-  }
-  return orderNumber
+
+
+    if (orderNumber === 0) {
+        alert("Order not Saved retry")
+        document.getElementById("orderStatus").innerHTML = `<button type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order(beta)</button>`
+    }
+    if (orderNumber > 0) {
+        document.getElementById("orderStatus").innerHTML = `Order Number : ${orderNumber}`
+        document.getElementById("downloadPdf").innerHTML = ""
+        printableHTML = document.getElementById("main").innerHTML
+        savePDF(printableHTML, orderNumber)
+    }
+    return orderNumber
 }
 
 
@@ -822,21 +821,21 @@ function sendToGoogleSheet(encDataStr) {
 
 function savePDF(printableHTML, orderNumber) {
 
-  var pdf = new jsPDF('p', 'pt', 'letter')
-  pdf.canvas.height = 72 * 11;
-  pdf.canvas.width = 72 * 8.5;
-  pdf.setFontSize(12)
+    var pdf = new jsPDF('p', 'pt', 'letter')
+    pdf.canvas.height = 72 * 11;
+    pdf.canvas.width = 72 * 8.5;
+    pdf.setFontSize(12)
 
-  //pdf.fromHTML(document.getElementById("main").innerHTML);
-  pdf.fromHTML(printableHTML)
+    //pdf.fromHTML(document.getElementById("main").innerHTML);
+    pdf.fromHTML(printableHTML)
 
-  pdf.save(`${orderNumber}.pdf`);
-  doc.viewerPreferences({ 'FitWindow': true }, true)
-  pdf.viewerPreferences({
-    'HideWindowUI': true,
-    'PrintArea': 'CropBox',
-    'NumCopies': 10
-  })
+    pdf.save(`${orderNumber}.pdf`);
+    doc.viewerPreferences({ 'FitWindow': true }, true)
+    pdf.viewerPreferences({
+        'HideWindowUI': true,
+        'PrintArea': 'CropBox',
+        'NumCopies': 10
+    })
 
 }
 
@@ -846,35 +845,35 @@ function savePDF(printableHTML, orderNumber) {
 
 function downloadPDFbeta() {
 
-  var HTML_Width = $("#main").width();
-  var HTML_Height = $("#main").height();
-  var top_left_margin = 15;
-  var PDF_Width = HTML_Width + (top_left_margin * 2);
-  var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
-  var canvas_image_width = HTML_Width;
-  var canvas_image_height = HTML_Height;
+    var HTML_Width = $("#main").width();
+    var HTML_Height = $("#main").height();
+    var top_left_margin = 15;
+    var PDF_Width = HTML_Width + (top_left_margin * 2);
+    var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
 
-  var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
-
-
-  html2canvas($("#main")[0], { allowTaint: true }).then(function (canvas) {
-    canvas.getContext('2d');
-
-    console.log(canvas.height + "  " + canvas.width);
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
 
-    var imgData = canvas.toDataURL("image/jpeg", 1.0);
-    var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
-    pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+    html2canvas($("#main")[0], { allowTaint: true }).then(function(canvas) {
+        canvas.getContext('2d');
+
+        console.log(canvas.height + "  " + canvas.width);
 
 
-    for (var i = 1; i <= totalPDFPages; i++) {
-      pdf.addPage(PDF_Width, PDF_Height);
-      pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
-    }
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
 
-    pdf.save("easylist.mgeek.in.pdf");
-  });
+
+        for (var i = 1; i <= totalPDFPages; i++) {
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
+        }
+
+        pdf.save("easylist.mgeek.in.pdf");
+    });
 };
 
 /*
@@ -906,22 +905,22 @@ function print(quality = 1) {
 
 
 function downloadPDF() {
-  let doc = new jsPDF('p', 'mm', 'a4')
-  let pdfConf = {
-    pagesplit: false, //Adding page breaks manually using pdf.addPage();
-    background: '#ddd' //White Background.
-  };
-  doc.setProperties({
-    title: 'Order',
-    subject: `from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
-    author: 'easylist',
-    keywords: '',
-    creator: 'mgeek.in'
-  });
-  doc.setFont("helvetica");
-  doc.setTextColor(100, 100, 150);
-  doc.setFontSize(10)
-  /*
+    let doc = new jsPDF('p', 'mm', 'a4')
+    let pdfConf = {
+        pagesplit: false, //Adding page breaks manually using pdf.addPage();
+        background: '#ddd' //White Background.
+    };
+    doc.setProperties({
+        title: 'Order',
+        subject: `from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
+        author: 'easylist',
+        keywords: '',
+        creator: 'mgeek.in'
+    });
+    doc.setFont("helvetica");
+    doc.setTextColor(100, 100, 150);
+    doc.setFontSize(10)
+        /*
   doc.text(10, 10, `${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`)
 
   doc.text(10, 20, `${customerTable}`)
@@ -934,41 +933,41 @@ function downloadPDF() {
   
 
 */
-  var emailText = emailBody()
-  doc.setFontSize(10)
-  doc.fromHTML(document.getElementById("main"), 20, 20, {
-    width: 500
-  })
+    var emailText = emailBody()
+    doc.setFontSize(10)
+    doc.fromHTML(document.getElementById("main"), 20, 20, {
+        width: 500
+    })
 
 
 
 
 
-  doc.output('/order.pdf')
-  doc.save("easylist.mgeek.in.pdf");
+    doc.output('/order.pdf')
+    doc.save("easylist.mgeek.in.pdf");
 }
 
 
 
 function sendEmail() {
 
-  var emailText = emailBody()
+    var emailText = emailBody()
 
-  Email.send({
-    Host: "smtp.gmail.com",
-    Username: "easylist.mgeek.in@gmail.com",
-    Password: "Prateek9151404899",
-    //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "easylist.mgeek.in@gmail.com",
+        Password: "Prateek9151404899",
+        //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
 
-    To: `easylist.mgeek.in@gmail.com,${customerObject.Email}`,
-    From: "easylist.mgeek.in@gmail.com",
-    Subject: `easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
-    Body: emailText,
-  }).then(function (message) {
-    document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
-    document.getElementById("orderStatusEmail").classList.add('success')
-  })
-  return emailBody
+        To: `easylist.mgeek.in@gmail.com,${customerObject.Email}`,
+        From: "easylist.mgeek.in@gmail.com",
+        Subject: `easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
+        Body: emailText,
+    }).then(function(message) {
+        document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
+        document.getElementById("orderStatusEmail").classList.add('success')
+    })
+    return emailBody
 }
 
 
@@ -985,8 +984,8 @@ function sendEmail() {
 // styling
 
 window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('#header')      
+    const navbar = document.querySelector('#header')
 
-  navbar.classList[window.scrollY > 100 ? 'add' : 'remove']('hide')
+    navbar.classList[window.scrollY > 100 ? 'add' : 'remove']('hide')
 
 });
