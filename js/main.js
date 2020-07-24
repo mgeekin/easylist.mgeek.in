@@ -1,12 +1,20 @@
 console.log(`main.js loaded`)
-customerObject = {}
+var customerObject = {
+
+    "Filled": 0,
+    "Name": null,
+    Email: null,
+    Number: null
+}
+
+
 var gInfo = [
     { "group": 1, "label": "Grocery" },
     { "group": 2, "label": "Electrical" },
     { "group": 3, "label": "Suitcase" },
     { "group": 4, "label": "Watches and stationary" },
     { "group": 5, "label": "Liquor" },
-    { "group": 6, "label": "Biscuit" },
+    { "group": 6, "label": "Food items" },
     { "group": 7, "label": "AFD items" }
 ]
 var G = []
@@ -86,13 +94,15 @@ var customerForm = `<div id="customer">
 <div id="customer-form" class="row container col-lg-12">
 <form class="sm">
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
-<img id="customer-image" src=${customerObject.ImageURL}></img>
-<input type="text" class="form-control" id="customer-rank" placeholder="${customerObject.Rank}">
-  <input type="text" class="form-control" id="customer-name" placeholder="${customerObject.Name}">
-  <input type="email" class="form-control" id="customer-email" placeholder="${customerObject.Email}">
-  <input type="number" class="form-control" id="customer-number" placeholder="${customerObject.Number}">
+<img id="customer-image" src="" alt=""></img>
+<input type="text" class="form-control" id="customer-rank" placeholder="Rank">
+<input type="text" class="form-control" id="customer-catagory" placeholder="Serviceman/Ex-serviceman">
+  <input type="text" class="form-control" id="customer-name" placeholder="Name">
+  <input type="email" class="form-control" id="customer-email" placeholder="Email">
+  <input type="number" class="form-control" id="customer-number" placeholder="Number (Call)">
+  <input type="number" class="form-control" id="customer-whatsapp" placeholder="Number (Whatsapp)">
 
-  <textarea class="form-control" id="customer-address" rows="3" placeholder="${customerObject.Address}"></textarea>
+  <textarea class="form-control" id="customer-address" rows="3" placeholder="Address"></textarea>
   <div class="row g-recaptcha" data-sitekey="6Lds0K4ZAAAAAOM-h7WV1K-zVkfTnhN0hzBJE-rE"></div>
 
 
@@ -487,15 +497,17 @@ function showCustomerForm() {
     document.getElementById('main').innerHTML = "<h2>Customer Details </h2>"
     document.getElementById('main').innerHTML += customerForm
 
-    if (customerObject.GoogleUser === 1) {
+    if (user) {
         document.getElementById("customer-image").src = `${customerObject.ImageURL}`
-        document.getElementById("customer-name").value = customerObject.Name
-        document.getElementById("customer-email").value = customerObject.Email
+            //document.getElementById("customer-name").value = customerObject.Name
+            //document.getElementById("customer-email").value = customerObject.Email
     }
 
     if (customerObject.Filled === 1) {
+        document.getElementById("customer-catagory").value = customerObject.Catagory
         document.getElementById("customer-rank").value = customerObject.Rank
         document.getElementById("customer-number").value = customerObject.Number
+        document.getElementById("customer-whatsapp").value = customerObject.Whatsapp
         document.getElementById("customer-address").value = customerObject.Address
 
     }
@@ -557,6 +569,8 @@ function saveCustomerInfo() {
     customerObject.Name = document.getElementById("customer-name").value
     customerObject.Rank = document.getElementById("customer-rank").value
     customerObject.Number = document.getElementById("customer-number").value
+    customerObject.Whatsapp = document.getElementById("customer-whatsapp").value
+    customerObject.Catagory = document.getElementById("customer-catagory").value
     customerObject.Email = document.getElementById("customer-email").value
     customerObject.Address = document.getElementById("customer-address").value
     customerObject.Filled = 1
@@ -600,6 +614,7 @@ function customerJsonToHTML() {
     ${customerObject.Rank}
   </td>
 </tr>
+
 <tr>
 <td scope="row">
         Name
@@ -608,6 +623,7 @@ function customerJsonToHTML() {
         ${customerObject.Name}
       </td>
     </tr>
+
     <tr>
     <td scope="row">
           Email
@@ -616,6 +632,7 @@ function customerJsonToHTML() {
           ${customerObject.Email}
         </td>
       </tr>
+
       <tr>
       <td scope="row">
             Number
@@ -624,6 +641,13 @@ function customerJsonToHTML() {
             ${customerObject.Number}
           </td>
         </tr>
+        <td scope="row">
+        Whatsapp
+      </td>
+      <td>
+        ${customerObject.Whatsapp}
+      </td>
+    </tr>
         <tr>
         <td scope="row">
               Address
@@ -921,16 +945,16 @@ function downloadPDF() {
     doc.setTextColor(100, 100, 150);
     doc.setFontSize(10)
         /*
-  doc.text(10, 10, `${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`)
+doc.text(10, 10, `${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`)
 
-  doc.text(10, 20, `${customerTable}`)
-  doc.setFontSize(12)
-  doc.setTextColor(100, 100, 150);
-  doc.text(10, 60, "Order")
-  doc.setTextColor(100);
-  doc.setFontSize(10)
-  doc.text(10, 70, `${cartHTML}`)
-  
+doc.text(10, 20, `${customerTable}`)
+doc.setFontSize(12)
+doc.setTextColor(100, 100, 150);
+doc.text(10, 60, "Order")
+doc.setTextColor(100);
+doc.setFontSize(10)
+doc.text(10, 70, `${cartHTML}`)
+ 
 
 */
     var emailText = emailBody()

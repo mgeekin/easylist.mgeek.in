@@ -25,7 +25,6 @@ body {
     transition: top 0.5s ease-in-out;
     z-index: 5;
     margin-bottom: 10px;
-    ;
 }
 
 #header.hide {
@@ -186,6 +185,7 @@ table {
     padding: 50px;
     margin: 30px auto;
     border-radius: 4px;
+    display: none;
 }
 
 #resetButton {
@@ -209,7 +209,38 @@ table,
     background: linear-gradient(160deg, rgba(30, 36, 92, 0.2) 0%, rgba(15, 30, 165, 0.3) 35%, hsla(234, 70%, 30%, .6) 42%, hsla(234, 70%, 30%, .6) 59%, hsla(234, 60%, 40%, .1) 100%);
 }
 
-#userLogin,
 #userSignOut {
+    font-family: "Saira Condensed", sans-serif;
+    font-size: 25px;
+    color: white;
+    min-width: 200px;
+    display: inline-block;
+}
+
+.shrinkmargin,
+#main {
+    margin-bottom: 0px;
+    height: 30px;
+}
+
+#log {
+    color: grey;
+}
+
+#googleSignin {
+    background: hsla(150, 30%, 59%, 0.397);
+}
+
+#googleSignin:hover {
+    background: hsla(113, 93%, 34%, 0.692);
+}
+
+#editUser {
+    max-width: 40px;
+    max-height: 40;
+    border-radius: 20px;
+}
+
+.hide {
     display: none;
 }

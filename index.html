@@ -45,8 +45,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
 
-    <script src="js/firebaseConf.js"></script>
-    <script src="js/googleSignin.js"></script>
 
 
 
@@ -79,10 +77,13 @@
                         <li id="cart-nav" class="navbar nav-item" onclick="showCart()">Cart</li>
                         <!--<li class="navbar nav-item" onclick="showCustomerForm()">Customer Details</li>-->
                         <li class="navbar nav-item" onclick="showCheckout()">Checkout</li>
+                        <li id="signout" style="display:none" class="navbar nav-item" onclick="signout()">Sign out</li>
+                        <li><img id="editUser" src=""> </li>
                     </ul>
-                    <div id="googleSignin">
+
+                    <!--<div id="googleSignin">
                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </nav>
@@ -95,7 +96,7 @@
             <h3 id="hiUser"></h3>
 
             <h1>
-                Welcome to URC Tughlacabad
+                Welcome to URC Tughlakabad
             </h1>
             <h2>
                 In view of COVID-19 pandamic, kindly preorder your URC shopping list to help us serve you better
@@ -115,22 +116,26 @@
                     <button class="loginButton" id="signinButton" onclick="signin()"> Sign in </button>
                     <button class="loginButton" id="signupButton" onclick="signup()"> Sign up </button>
                     <br />
-                    <button class="loginButton" id="resetButton" onclick="reset()"> Reset Password </button>
+                    <button class="loginButton" id="resetButton" onclick="sendPasswordReset()"> Reset Password </button>
 
                 </div>
                 <div id="log">
 
                 </div>
+                <br>
+                <h3>Login or Signup to continue</h3>
+                <div id="signInWithGoogle">
+                    <div class="loginButtons">
+                        <button class="loginButton" id="googleSignin" onclick="googleSignin()"> google </button>
+                    </div>
+                </div>
 
             </div>
-        </div>
-        <div id="userEdit">
 
         </div>
-        <div id="userSignOut">
-            <button class="loginButton" id="signout" onclick="signout()"> Sign out </button>
 
-        </div>
+
+
 
 
 
@@ -224,7 +229,7 @@
             <!--<div class="col-5">
         <a href="#" onclick="signOut();">Sign out</a>
       </div>-->
-            <p>Designed by <a href="http://mgeek.in">mGeek.in</a></p>
+            <p class="hide">Designed by <a href="http://mgeek.in">mGeek.in</a></p>
         </div>
 
 
@@ -251,7 +256,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/main.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
@@ -390,6 +395,9 @@ https://docs.google.com/spreadsheets/d/1If8fRluMKtbe_ZBTeRLHfukzVJpO9QkresTS7sD1
 
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+    <script src="js/main.js"></script>
+    <script src="js/firebaseConf.js"></script>
+    <script src="js/googleSignin.js"></script>
 </body>
 
 </html>
