@@ -1110,12 +1110,15 @@ function newjspdf() {
     var lineStart = 1
     var margin = 1
         //Print Customer details
+
     pdf.setFont('courier')
     pdf.setFontType('bold')
     var text = 'Customer details';
+    [pdf, y] = pdfjsHelper(pdf, x, y, 20, fontsize * 1.5, text, 1);
 
     pdf.setFont('helvetica');
-    pdf.setFontType('normal')[pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
+    pdf.setFontType('normal');
+
 
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Name: `, 1);
     [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Name}`, 0);
@@ -1147,11 +1150,10 @@ function newjspdf() {
 
     //order
 
-    pdf.setFont('courier')
-
-    pdf.setFontType('bold')
+    pdf.setFont('courier');
+    pdf.setFontType('bold');
     var text = 'Order';
-    [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
+    [pdf, y] = pdfjsHelper(pdf, x, y, 20, fontsize * 1.5, text, 1);
     pdf.setFont('helvetica');
     pdf.setFontType('bold');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Index No: `, 1);
@@ -1160,7 +1162,8 @@ function newjspdf() {
     [pdf, y] = pdfjsHelper(pdf, x + 500, y, fontsize, margin, `Quantity: `, 0);
     [pdf, y] = pdfjsHelper(pdf, x + 600, y, fontsize, margin, `Total: `, 0);
 
-    pdf.setFontType('normal')
+    pdf.setFont('helvetica');
+    pdf.setFontType('normal');
     for (i = 0; i < cartObject.length; i++) {
         pdf.setFontType('bold');
         [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `${cartObject[i].Index}`, 1);
@@ -1196,13 +1199,14 @@ function pdfjsHelper(pdf, x, y, fontsize, margin, text, newline) {
     //required by newjspdf
     if (newline === 1) {
         y += 1.2 * fontsize + margin
+        if (y >= pdf.canvas.height - 100) {
+            pdf.addPage()
+            y = 30
+        }
     }
     pdf.setFontSize(fontsize)
     pdf.text(x, y, text)
 
-    if (y >= pdf.canvas.height) {
-        pdf.addPage()
-        y = 30
-    }
+
     return [pdf, y]
 }
