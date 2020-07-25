@@ -42,15 +42,14 @@ firebase.auth().onAuthStateChanged(function(user) {
     } else {
         // User is signed out.
         // ...
+        customerObject = {}
         document.getElementById("welcome").style.display = "block"
         document.getElementById("user").style.display = "block"
         document.getElementById("hiUser").innerHTML = ""
         document.getElementById("signout").style.display = "none"
 
-        customerObject = {}
 
         document.getElementById("customer").style.display = "none"
-
         document.getElementById("main").innerHTML = ""
     }
     var log = document.getElementById("log")

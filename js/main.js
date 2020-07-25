@@ -1029,8 +1029,10 @@ function sendEmail() {
         Body: emailText,
     }).then(function(message) {
         document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
-        document.getElementById("orderStatusEmail").classList.add('success')
+        document.getElementById("orderStatusEmail").classList.add('btn-success')
+        document.getElementById("orderStatusEmail").disabled = true
     })
+
     return emailBody
 }
 
