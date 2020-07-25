@@ -1114,11 +1114,13 @@ function newjspdf() {
     pdf.setFont('courier')
     pdf.setFontType('bold')
     var text = 'Customer details';
+    pdf.setTextColor(62, 158, 255);
+
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, fontsize * 1.5, text, 1);
 
     pdf.setFont('helvetica');
     pdf.setFontType('normal');
-
+    pdf.setTextColor(0, 20, 40);
 
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Name: `, 1);
     [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Name}`, 0);
@@ -1144,7 +1146,8 @@ function newjspdf() {
     //    pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
 
-
+    //hsl(140,240,149)
+    //rgb(62,158,255)
 
 
 
@@ -1152,10 +1155,14 @@ function newjspdf() {
 
     pdf.setFont('courier');
     pdf.setFontType('bold');
+    pdf.setTextColor(62, 158, 255);
     var text = 'Order';
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, fontsize * 1.5, text, 1);
+
+
     pdf.setFont('helvetica');
     pdf.setFontType('bold');
+    pdf.setTextColor(0, 20, 40);
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Index No: `, 1);
     [pdf, y] = pdfjsHelper(pdf, x + 60, y, fontsize, margin, `Name: `, 0);
     [pdf, y] = pdfjsHelper(pdf, x + 400, y, fontsize, margin, `Rate: `, 0);
@@ -1174,6 +1181,7 @@ function newjspdf() {
     }
     pdf.setFont('courier')
     pdf.setFontType('bold')
+    pdf.setTextColor(62, 158, 255);
     var text = `Net Payable: INR ${cartObject.Total}`;
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
 
@@ -1186,8 +1194,10 @@ function newjspdf() {
 
 
 
-    pdf.output('/order.pdf')
+    //    pdf.output('/order.pdf')
     pdf.save("easylist.mgeek.in.pdf");
+    //window.open(pdf.output('bloburl'), '_blank');
+    //pdf.output('dataurlnewwindow')
     return pdf
 }
 
