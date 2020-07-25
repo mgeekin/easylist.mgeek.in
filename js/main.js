@@ -1085,12 +1085,14 @@ function download(quality = 3) {
     document.getElementById("download").style.display = "none"
     document.getElementById("print").style.display = "none"
 
+    document.querySelector("#main").style.color = "black"
     html2canvas(document.querySelector('#main'), { scale: quality }).then(canvas => {
         let pdf = new jsPDF('p', 'mm', 'a4');
         pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
         pdf.save(filename);
     });
 
+    document.querySelector("#main").style.color = "white"
     document.getElementById("orderStatusEmail").style.display = "initial"
     document.getElementById("orderStatus").style.display = "initial"
     document.getElementById("print").style.display = "initial"

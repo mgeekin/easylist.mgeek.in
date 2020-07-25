@@ -11,9 +11,11 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
-
+var log = document.getElementById("logMessage")
+log.innerHTML = ""
 firebase.auth().onAuthStateChanged(function(user) {
+
+
     if (user) {
         customerObject.user = { user }
             // User is signed in.
@@ -31,13 +33,9 @@ firebase.auth().onAuthStateChanged(function(user) {
             //document.getElementById("hiUser").innerHTML = `Hi ${customerObject.displayName}`
         document.getElementById("signout").style.display = "initial"
         document.getElementById("welcome").classList.add('shrinkmargin')
-
-
-
         if (customerObject.ImageURL !== null) {
-            document.getElementById("editUser").src = `${customerObject.ImageURL}`
+            document.getElementById("editUser").src = customerObject.ImageURL
         }
-
         showCustomerForm()
             // ...
     } else {
@@ -46,15 +44,16 @@ firebase.auth().onAuthStateChanged(function(user) {
         customerObject = {}
         document.getElementById("welcome").style.display = "block"
         document.getElementById("user").style.display = "block"
-        document.getElementById("hiUser").innerHTML = ""
-        document.getElementById("signout").style.display = "none"
-
-
-        document.getElementById("customer").style.display = "none"
+            //        document.getElementById("customer").style.display = "none"
         document.getElementById("main").innerHTML = ""
+        document.getElementById("editUser").src = ""
+        document.getElementById("signout").style.display = "none"
+        document.getElementById("editUser").style.display = "none"
+
     }
-    var log = document.getElementById("log")
-    log.innerHTML = customerObject.displayName + customerObject.email + `<img src="${customerObject.imageURL}">`
+
+
+
 
     return customerObject
 });
@@ -110,7 +109,7 @@ function signup() {
 
 function signout() {
     firebase.auth().signOut();
-    log.innerHTML = ""
+    document.getElementById("main").innerHTML = "";
 }
 
 
