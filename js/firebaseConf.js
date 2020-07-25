@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         if (customerObject.displayName === null) {
             customerObject.displayName = customerObject.email
+            customerObject.Name = customerObject.email
         }
         document.getElementById("welcome").style.display = "none"
         document.getElementById("user").style.display = "none"
