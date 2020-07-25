@@ -27,6 +27,12 @@
     </script>
 
 
+
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+
+
+
     <script src="js/crypto-js.min.js"></script>
     <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.js"></script>
@@ -93,7 +99,7 @@
 
     <section id="welcome">
         <div class="container">
-            <h3 id="hiUser"></h3>
+
 
             <h1>
                 Welcome to URC Tughlakabad
@@ -123,7 +129,7 @@
 
                 </div>
                 <br>
-                <h3>Login or Signup to continue</h3>
+                <h3>Login with Google</h3>
                 <div id="signInWithGoogle">
                     <div class="loginButtons">
                         <button class="loginButton" id="googleSignin" onclick="googleSignin()"> google </button>
@@ -211,7 +217,7 @@
 
 
 
-    <section id="footer" class="mt-5">
+    <section id="footer" class="mt-5 hide">
         <script>
             function signOut() {
                 var auth2 = gapi.auth2.getAuthInstance();
@@ -225,7 +231,7 @@
                 });
             }
         </script>
-        <div class="container mt-5">
+        <div class="container mt-5 ">
             <!--<div class="col-5">
         <a href="#" onclick="signOut();">Sign out</a>
       </div>-->

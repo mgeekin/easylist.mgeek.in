@@ -13,28 +13,28 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 
-
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        // User is signed in.
+        customerObject.user = { user }
+            // User is signed in.
+        customerObject.Name = user.displayName;
         customerObject.displayName = user.displayName;
-        customerObject.email = user.email;
-        customerObject.imageURL = user.photoURL;
+        customerObject.Email = user.email;
+        customerObject.ImageURL = user.photoURL;
 
         if (customerObject.displayName === null) {
             customerObject.displayName = customerObject.email
         }
-
+        document.getElementById("welcome").style.display = "none"
         document.getElementById("user").style.display = "none"
-        document.getElementById("hiUser").innerHTML = `Hi ${customerObject.displayName}`
+            //document.getElementById("hiUser").innerHTML = `Hi ${customerObject.displayName}`
         document.getElementById("signout").style.display = "initial"
         document.getElementById("welcome").classList.add('shrinkmargin')
 
 
 
-        if (customerObject.imageURL !== null) {
-            document.getElementById("editUser").src = `${customerObject.imageURL}`
-
+        if (customerObject.ImageURL !== null) {
+            document.getElementById("editUser").src = `${customerObject.ImageURL}`
         }
 
         showCustomerForm()
@@ -42,6 +42,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     } else {
         // User is signed out.
         // ...
+        document.getElementById("welcome").style.display = "block"
         document.getElementById("user").style.display = "block"
         document.getElementById("hiUser").innerHTML = ""
         document.getElementById("signout").style.display = "none"
@@ -97,7 +98,7 @@ function signup() {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        log.innerHTML = errorCode + errorMessage
+        log.innerHTML = errorCode + '<br>' + errorMessage
 
         // ...
     });
@@ -182,4 +183,5 @@ function googleSignin() {
         // ...
         log.innerHTML = `${errorCode} <br>${errorMessage}`
     });
+    return user
 }
