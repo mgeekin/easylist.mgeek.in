@@ -23,8 +23,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         customerObject.ImageURL = user.photoURL;
 
         if (customerObject.displayName === null) {
-            customerObject.displayName = customerObject.email
-            customerObject.Name = customerObject.email
+            customerObject.displayName = customerObject.Email
+            customerObject.Name = customerObject.Email
         }
         document.getElementById("welcome").style.display = "none"
         document.getElementById("user").style.display = "none"

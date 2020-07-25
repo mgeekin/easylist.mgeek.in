@@ -516,7 +516,7 @@ function showCustomerForm() {
     var main = document.getElementById('main')
     if (user) {
         main.innerHTML = `<h3 id="
-        hiUser ">Hi ${customerObject.displayName}!</h3>
+        hiUser ">Hi ${customerObject.Name}!</h3>
         <p>Please fill following details to continue</p>
         `
     }
