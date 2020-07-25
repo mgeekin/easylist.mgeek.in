@@ -752,9 +752,9 @@ ${customerTable}</div>
         //        document.getElementById("main").innerHTML += `<p id="downloadPdf"><button  type="button" class="btn btn-primary" onclick="downloadPDF()"> Download PDF (beta)</button></p>
         var main = document.getElementById("main")
         printJS('printJS-form', 'html')
-        main.innerHTML += `<button id="orderStatus" type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success">Send Order (beta)</button>`
-        main.innerHTML += `<button id="print" type="button" class="btn btn-primary" onclick="print()"> Print (beta)</button>`
-        main.innerHTML += `<button id="download"  type ="button" class = "btn btn-primary" onclick = "download()" > Download PDF (beta) </button>`
+        main.innerHTML += `<button id="orderStatus" type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success" disable>Send Order (beta)</button>`
+            //main.innerHTML += `<button id="print" type="button" class="btn btn-primary" onclick="print()"> Print (beta)</button>`
+            //main.innerHTML += `<button id="download"  type ="button" class = "btn btn-primary" onclick = "download()" > Download PDF (beta) </button>`
         var savedData = [customerObject, cartObject]
         var encDataStr = encToString(savedData)
 
@@ -773,47 +773,43 @@ ${customerTable}</div>
 
 
 function emailBody() {
-    var obj = ` < html > < head > < link rel = "stylesheet"
-        href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin = "anonymous" > < /head> <
-            body >
-            <
-            div class = "row" >
-            <
-            h1 > easylist order from: $ { customerObject.Name }, mob: $ { customerObject.Number }, Total: INR $ { cartObject.Total } < /h1> <
-            div class = "container" >
-            <
-            h2 >
-            Customer Details <
-            /h2> <
-            p >
-            <
-            img src = "${customerObject.ImageURL}"
-        alt = "profile" >
-            $ { customerTable } <
-            /p> <
-            /div> <
-            /div>
+    var obj = `<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://easylist.mgeek.in/css/style.css">
+</head>
+<body>
+    <div class="row">
+        <h1> easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}
+        </h1>
+        <div class="container">
+            <h2>
+                Customer Details
+            </h2>
+            <p>
+                <img src="${customerObject.ImageURL}" alt="profile"> ${customerTable}
+            </p>
+        </div>
+    </div>
 
-        <
-        div class = "row" >
-            <
-            div class = "container" >
-            <
-            h2 >
-            Order List <
-            /h2> <
-            p >
-            $ { cartHTML } <
-            /p> <
-            /div> <
-            h2 > Net amount: INR $ { cartObject.Total } < /h2> <
-            /div>
+    <div class="row">
+        <div class="container">
+            <h2>
+                Order List
+            </h2>
+            <p>
+                ${cartHTML}
+            </p>
+        </div>
+        <h2> Net amount: INR ${cartObject.Total}
+        </h2>
+    </div>
+</body>
+</html>`
 
-        <
-        /body> <
-        /html>`
+
+
+
+
     return obj
 }
 
@@ -908,7 +904,8 @@ function savePDF(printableHTML, orderNumber) {
 
 
 function downloadPDFbeta() {
-
+    $("#main").style.color = "black"
+    $("#main").style.background = "grey"
     var HTML_Width = $("#main").width();
     var HTML_Height = $("#main").height();
     var top_left_margin = 15;
@@ -1031,6 +1028,7 @@ function sendEmail() {
         document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
         document.getElementById("orderStatusEmail").classList.add('btn-success')
         document.getElementById("orderStatusEmail").disabled = true
+        newjspdf()
     })
 
     return emailBody
@@ -1096,4 +1094,115 @@ function download(quality = 3) {
     document.getElementById("orderStatusEmail").style.display = "initial"
     document.getElementById("orderStatus").style.display = "initial"
     document.getElementById("print").style.display = "initial"
+}
+
+
+function newjspdf() {
+    //wordking function
+    var pdf = new jsPDF('p', 'pt', 'letter')
+    pdf.canvas.height = 72 * 11;
+    pdf.canvas.width = 72 * 8.5;
+    var x = 30
+    var y = 30
+    var fontsize = 10
+        //pdf.setFont('Roboto')
+        //var HTML = document.getElementById("main").innerHTML;
+    var lineStart = 1
+    var margin = 1
+        //Print Customer details
+    pdf.setFont('courier')
+    pdf.setFontType('bold')
+    var text = 'Customer details';
+
+    pdf.setFont('helvetica');
+    pdf.setFontType('normal')[pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
+
+    [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Name: `, 1);
+    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Name}`, 0);
+
+    [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Rank: `, 1);
+    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Rank}`, 0);
+    //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
+
+    [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Catagory: `, 1);
+    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Catagory}`, 0);
+    //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
+
+    [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Email: `, 1);
+    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Email}`, 0);
+    //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
+
+    [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Whatsapp: `, 1);
+    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Whatsapp}`, 0);
+    //  pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
+
+    [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Address: `, 1);
+    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, fontsize * 2, `${customerObject.Address}`, 0);
+    //    pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
+
+
+
+
+
+
+    //order
+
+    pdf.setFont('courier')
+
+    pdf.setFontType('bold')
+    var text = 'Order';
+    [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
+    pdf.setFont('helvetica');
+    pdf.setFontType('bold');
+    [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Index No: `, 1);
+    [pdf, y] = pdfjsHelper(pdf, x + 60, y, fontsize, margin, `Name: `, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + 400, y, fontsize, margin, `Rate: `, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + 500, y, fontsize, margin, `Quantity: `, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + 600, y, fontsize, margin, `Total: `, 0);
+
+    pdf.setFontType('normal')
+    for (i = 0; i < cartObject.length; i++) {
+        pdf.setFontType('bold');
+        [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `${cartObject[i].Index}`, 1);
+        [pdf, y] = pdfjsHelper(pdf, x + 60, y, fontsize, margin, `${cartObject[i].Name}`, 0);
+        [pdf, y] = pdfjsHelper(pdf, x + 400, y, fontsize, margin, `${cartObject[i].Rate}`, 0);
+        [pdf, y] = pdfjsHelper(pdf, x + 500, y, fontsize, margin, `${cartObject[i].Quantity}`, 0);
+        [pdf, y] = pdfjsHelper(pdf, x + 600, y, fontsize, margin, `${cartObject[i].Total}`, 0);
+    }
+    pdf.setFont('courier')
+    pdf.setFontType('bold')
+    var text = `Net Payable: INR ${cartObject.Total}`;
+    [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
+
+
+
+
+
+
+
+
+
+
+    pdf.output('/order.pdf')
+    pdf.save("easylist.mgeek.in.pdf");
+    return pdf
+}
+
+
+
+
+
+function pdfjsHelper(pdf, x, y, fontsize, margin, text, newline) {
+    //required by newjspdf
+    if (newline === 1) {
+        y += 1.2 * fontsize + margin
+    }
+    pdf.setFontSize(fontsize)
+    pdf.text(x, y, text)
+
+    if (y >= pdf.canvas.height) {
+        pdf.addPage()
+        y = 30
+    }
+    return [pdf, y]
 }
