@@ -23,7 +23,7 @@ var cartHTML = `<div><button type="button" class="btn btn-primary onclick="showC
 var mobile = "9403275606"
 var key = mobile + "fadflkasdfj234lkf98asdf345dsflkj23m407sdf"
 var encDataStr = ""
-    //var emailBody = ""
+//var emailBody = ""
 var cartTable = ""
 var customerTable = ""
 var cartList = `
@@ -151,7 +151,7 @@ var cartListFooter = ``
 
 
 
-document.onreadystatechange = function() {
+document.onreadystatechange = function () {
     if (document.readyState === "complete") {
         main()
         console.log('Ready')
@@ -165,7 +165,7 @@ document.onreadystatechange = function() {
 //
 function main() {
     console.log('main')
-        //showCart()
+    //showCart()
     var key = "85528aslgkjag[23-4slfjk003rjslf049073"
     var D = ""
 
@@ -175,9 +175,9 @@ function main() {
     var itemList = ""
     var order = ""
     var encryptedOrder = ""
-        //var cartTable = document.querySelector("#cart-table")
-        //var cartTableData = cartTable.innerHTML
-        //console.log(cartTableData)
+    //var cartTable = document.querySelector("#cart-table")
+    //var cartTableData = cartTable.innerHTML
+    //console.log(cartTableData)
 
 
 
@@ -191,12 +191,12 @@ function loadgroup(event) {
     console.log('loadgroup')
 
     var obj = window.event.target.id
-        //document.querySelector(`#${obj}`).style.display = "none"
+    //document.querySelector(`#${obj}`).style.display = "none"
     var groupIndex = obj[obj.length - 1]
     console.log(groupIndex)
     if (!G[groupIndex]) {
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = function () {
             if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
                 G[groupIndex] = JSON.parse(this.responseText);
                 var row = objectToRow(G[groupIndex])
@@ -264,7 +264,7 @@ function filterList() {
 function addToCart() {
     console.log('addToCart')
     var clickedItemRow = window.event.target.parentElement.parentElement.id
-        //var cols=clickedItemRow.children.innerText
+    //var cols=clickedItemRow.children.innerText
 
     var rowSelected = document.querySelector(`#${clickedItemRow}`)
     rowSelected.style.display = "none"
@@ -328,14 +328,14 @@ function addToCart() {
         document.getElementById("goToCart").style.display = "none"
     }
     return cartObject
-        // document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
-        //updateCartTotal()
+    // document.getElementById("cart-table").getElementsByTagName("tbody")[0].innerHTML += rowToAdd
+    //updateCartTotal()
 }
 
 function removeFromCart() {
     console.log('removeFromCart')
     var removeRow = window.event.target.parentElement.parentElement.rowIndex
-        //delete cartObject[removeRow]
+    //delete cartObject[removeRow]
     cartObject.splice(removeRow - 1, 1)
     document.getElementById("cart-table").deleteRow(removeRow)
     console.log(cartObject)
@@ -395,7 +395,7 @@ function updateCartTotal() {
     if (cartObject.length > 0) {
         document.getElementById('cartTotal').innerHTML = `Cart Total = INR ${cartTotal} <button type="button" class="btn btn-success" onclick="saveOrderToObject()"> Finalize cart</button>`
         document.getElementById('cart-nav').innerHTML = `Cart (${cartObject.length})`
-            //document.querySelector("#goToCart").innerHTML = `Cart (${cartObject.length}) INR ${cartObject.Total}`
+        //document.querySelector("#goToCart").innerHTML = `Cart (${cartObject.length}) INR ${cartObject.Total}`
     }
 }
 
@@ -440,10 +440,10 @@ function saveOrderToObject() {
     var [cartHTML, cartTotal] = finalOrderOnjectToTable(cartJson)
 
     var main = document.getElementById("main")
-        //main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
+    //main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCustomerForm()">Fill customer info</h2>`
 
     main.innerHTML = `<h2>Cart <button type="button" class="btn btn-success" onclick="showCheckout()">Go to checkout</h2>`
-        //main.append(cartHTML)
+    //main.append(cartHTML)
     main.innerHTML += cartHTML
     var h = document.createElement("h2")
     h.innerText = `Net amount is INR ${cartTotal}`
@@ -753,14 +753,14 @@ ${customerTable}</div>
         var main = document.getElementById("main")
         printJS('printJS-form', 'html')
         main.innerHTML += `<button id="orderStatus" type="button" onclick="sendToGoogleSheet(encDataStr)" class="btn btn-success" disable>Send Order (beta)</button>`
-            //main.innerHTML += `<button id="print" type="button" class="btn btn-primary" onclick="print()"> Print (beta)</button>`
-            //main.innerHTML += `<button id="download"  type ="button" class = "btn btn-primary" onclick = "download()" > Download PDF (beta) </button>`
+        //main.innerHTML += `<button id="print" type="button" class="btn btn-primary" onclick="print()"> Print (beta)</button>`
+        //main.innerHTML += `<button id="download"  type ="button" class = "btn btn-primary" onclick = "download()" > Download PDF (beta) </button>`
         var savedData = [customerObject, cartObject]
         var encDataStr = encToString(savedData)
 
         var printableHTML = document.getElementById("main").innerHTML
         var orderNumber = 0
-            //orderNumber = sendToGoogleSheet(encDataStr)
+        //orderNumber = sendToGoogleSheet(encDataStr)
 
 
 
@@ -818,7 +818,7 @@ function encToString(savedData) {
     var savedDataString = JSON.stringify(savedData)
     var savedDataEncrypted = CryptoJS.AES.encrypt(savedDataString, key)
     encStr = savedDataEncrypted.toString()
-        //at receiver end
+    //at receiver end
     var dec = CryptoJS.AES.decrypt(encStr, key).toString(CryptoJS.enc.Utf8)
     console.log(dec)
     console.log(JSON.parse(dec))
@@ -829,7 +829,7 @@ function encToString(savedData) {
 
 function sendToGoogleSheet(encDataStr) {
     var orderNumber = 1
-        //get google sheet row and append insert order
+    //get google sheet row and append insert order
 
 
     // /https://docs.google.com/spreadsheets/d/1nUh47iT5m7QOkwMJWXDfuHjSNL3t5_Rl4zLWUZxjGYY/edit?usp=drivesdk
@@ -892,20 +892,48 @@ function sendEmail() {
         Password: "Prateek9151404899",
         //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
 
-        To: `easylist.mgeek.in@gmail.com,${customerObject.Email}`, //
+        To: `easylist.mgeek.in@gmail.com`, //
         From: "easylist.mgeek.in@gmail.com",
-        Subject: `easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
-        Body: emailText,
-        /*Attachments: [{
-            name: "order",
-            path: pdfURL
+        Subject: `Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
+        Body: `${emailText} <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+        <a href=${pdfURI}>
+            PDF Downnload
+        </a>
+        <br><br> <br> <br> <br> 
+        If the link don't work copy code below and paste in address bar
+        <br><br> <br> <br> <br> 
+
+       <p>
+       ${pdfURI}
+       </p>`
+       
+       /*,
+        Attachments: [{
+            name: `${customerObject.Name} Order.pdf`,
+            path: pdfURI
         }]
 */
-    }).then(function(message) {
+    }).then(function (message) {
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "easylist.mgeek.in@gmail.com",
+            Password: "Prateek9151404899",
+            //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
+    
+            To: customerObject.Email, //
+            From: "easylist.mgeek.in@gmail.com",
+            Subject: `Your order Total: INR ${cartObject.Total}`,
+            Body: `Thanks for your order. We will communicate when your order is ready for pickup.
+            <br> ${emailText}`
+        }).then(function (message) {
         document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
         document.getElementById("orderStatusEmail").classList.add('btn-success')
         document.getElementById("orderStatusEmail").disabled = true
+        })
     })
+
+
+
 
     return emailBody
 }
@@ -944,11 +972,11 @@ function newjspdf() {
     var y = 30
     var offsetX = 50
     var fontsize = 10
-        //pdf.setFont('Roboto')
-        //var HTML = document.getElementById("main").innerHTML;
+    //pdf.setFont('Roboto')
+    //var HTML = document.getElementById("main").innerHTML;
     var lineStart = 1
     var margin = 1
-        //Print Customer details
+    //Print Customer details
 
     pdf.setFont('helvetica')
     pdf.setFontType('bold')
@@ -962,36 +990,36 @@ function newjspdf() {
     pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Name: `, 1);
     pdf.setFontType('bold');
-    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Name}`, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${ customerObject.Name }`, 0);
 
     pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Rank: `, 1);
     pdf.setFontType('bold');
-    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Rank}`, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${ customerObject.Rank }`, 0);
     //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
     pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Catagory: `, 1);
     pdf.setFontType('bold');
-    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Catagory}`, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${ customerObject.Catagory }`, 0);
     //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
     pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Email: `, 1);
     pdf.setFontType('bold');
-    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Email}`, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${ customerObject.Email }`, 0);
     //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
     pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Whatsapp: `, 1);
     pdf.setFontType('bold');
-    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Whatsapp}`, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${ customerObject.Whatsapp }`, 0);
     //  pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
     pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Address: `, 1);
     pdf.setFontType('bold');
-    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, fontsize * 2, `${customerObject.Address}`, 0);
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, fontsize * 2, `${ customerObject.Address }`, 0);
     //    pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
 
@@ -1021,16 +1049,16 @@ function newjspdf() {
     pdf.setFont('helvetica');
     pdf.setFontType('normal');
     for (i = 0; i < cartObject.length; i++) {
-        [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `${cartObject[i].Index}`, 1);
-        [pdf, y] = pdfjsHelper(pdf, x + 60, y, fontsize, margin, `${cartObject[i].Name}`, 0);
-        [pdf, y] = pdfjsHelper(pdf, x + 400, y, fontsize, margin, `${cartObject[i].Rate}`, 0);
-        [pdf, y] = pdfjsHelper(pdf, x + 500, y, fontsize, margin, `${cartObject[i].Quantity}`, 0);
-        [pdf, y] = pdfjsHelper(pdf, x + 600, y, fontsize, margin, `${cartObject[i].Total}`, 0);
+        [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `${ cartObject[i].Index }`, 1);
+        [pdf, y] = pdfjsHelper(pdf, x + 60, y, fontsize, margin, `${ cartObject[i].Name }`, 0);
+        [pdf, y] = pdfjsHelper(pdf, x + 400, y, fontsize, margin, `${ cartObject[i].Rate }`, 0);
+        [pdf, y] = pdfjsHelper(pdf, x + 500, y, fontsize, margin, `${ cartObject[i].Quantity }`, 0);
+        [pdf, y] = pdfjsHelper(pdf, x + 600, y, fontsize, margin, `${ cartObject[i].Total }`, 0);
     }
     pdf.setFont('helvetica')
     pdf.setFontType('bold')
     pdf.setTextColor(62, 158, 255);
-    var text = `Net Payable: INR ${cartObject.Total}`;
+    var text = `Net Payable: INR ${ cartObject.Total }`;
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
 
 
