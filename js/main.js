@@ -7,7 +7,7 @@ var customerObject = {
     Number: null
 }
 
-
+var pdf, pdfBlob, pdfURL, pdfURI;
 var gInfo = [
     { "group": 1, "label": "Grocery" },
     { "group": 2, "label": "Electrical" },
@@ -696,7 +696,7 @@ function showCheckout() {
 
     if (customerObject.Filled == 1 && cartObject.length > 0) {
         var checkoutHTML = `
-    <button id="orderStatusEmail" type="button" onclick="sendEmail()" class="btn btn-success">Send Email</button></h2>
+    <button id="orderStatusEmail" type="button" onclick="sendEmail()" class="btn btn-success">Send order (by email)</button></h2>
     
     <div class="g-recaptcha"
             data-sitekey="6Le5AbAZAAAAADC7mtnDaBzApK6P8Bzmo9s6Z7-d"
@@ -879,156 +879,32 @@ function sendToGoogleSheet(encDataStr) {
 
 
 
-function savePDF(printableHTML, orderNumber) {
-
-    var pdf = new jsPDF('p', 'pt', 'letter')
-    pdf.canvas.height = 72 * 11;
-    pdf.canvas.width = 72 * 8.5;
-    pdf.setFontSize(12)
-
-    //pdf.fromHTML(document.getElementById("main").innerHTML);
-    pdf.fromHTML(printableHTML)
-
-    pdf.save(`${orderNumber}.pdf`);
-    doc.viewerPreferences({ 'FitWindow': true }, true)
-    pdf.viewerPreferences({
-        'HideWindowUI': true,
-        'PrintArea': 'CropBox',
-        'NumCopies': 10
-    })
-
-}
-
-
-
-
-
-function downloadPDFbeta() {
-    $("#main").style.color = "black"
-    $("#main").style.background = "grey"
-    var HTML_Width = $("#main").width();
-    var HTML_Height = $("#main").height();
-    var top_left_margin = 15;
-    var PDF_Width = HTML_Width + (top_left_margin * 2);
-    var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
-    var canvas_image_width = HTML_Width;
-    var canvas_image_height = HTML_Height;
-
-    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
-
-
-    html2canvas($("#main")[0], { allowTaint: true }).then(function(canvas) {
-        canvas.getContext('2d');
-
-        console.log(canvas.height + "  " + canvas.width);
-
-
-        var imgData = canvas.toDataURL("image/jpeg", 1.0);
-        var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
-        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
-
-
-        for (var i = 1; i <= totalPDFPages; i++) {
-            pdf.addPage(PDF_Width, PDF_Height);
-            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
-        }
-
-        pdf.save("easylist.mgeek.in.pdf");
-    });
-};
-
-/*
-function downloadPDF() {
-  const filename = 'ThisIsYourPDFFilename.pdf';
-
-  html2canvas(document.querySelector('#nodeToRenderAsPDF')).then(canvas => {
-    let pdf = new jsPDF('p', 'mm', 'a4');
-    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
-    pdf.save(filename);
-  });
-}
-
-// Variant
-// This one lets you improve the PDF sharpness by scaling up the HTML node tree to render as an image before getting pasted on the PDF.
-function print(quality = 1) {
-  const filename = 'ThisIsYourPDFFilename.pdf';
-
-  html2canvas(document.querySelector('#nodeToRenderAsPDF'),
-    { scale: quality }
-  ).then(canvas => {
-    let pdf = new jsPDF('p', 'mm', 'a4');
-    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
-    pdf.save("easylist.mgeek.in.pdf");
-  });
-}
-*/
-
-
-
-function downloadPDF() {
-    let doc = new jsPDF('p', 'mm', 'a4')
-    let pdfConf = {
-        pagesplit: false, //Adding page breaks manually using pdf.addPage();
-        background: '#ddd' //White Background.
-    };
-    doc.setProperties({
-        title: 'Order',
-        subject: `from:${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
-        author: 'easylist',
-        keywords: '',
-        creator: 'mgeek.in'
-    });
-    doc.setFont("helvetica");
-    doc.setTextColor(100, 100, 150);
-    doc.setFontSize(10)
-        /*
-doc.text(10, 10, `${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`)
-
-doc.text(10, 20, `${customerTable}`)
-doc.setFontSize(12)
-doc.setTextColor(100, 100, 150);
-doc.text(10, 60, "Order")
-doc.setTextColor(100);
-doc.setFontSize(10)
-doc.text(10, 70, `${cartHTML}`)
- 
-
-*/
-    var emailText = emailBody()
-    doc.setFontSize(10)
-    doc.fromHTML(document.getElementById("main"), 20, 20, {
-        width: 500
-    })
-
-
-
-
-
-    doc.output('/order.pdf')
-    doc.save("easylist.mgeek.in.pdf");
-}
 
 
 
 function sendEmail() {
 
-    var emailText = emailBody()
-
+    var emailText = emailBody();
+    [pdf, pdfBlob, pdfURL, pdfURI] = newjspdf()
     Email.send({
         Host: "smtp.gmail.com",
         Username: "easylist.mgeek.in@gmail.com",
         Password: "Prateek9151404899",
         //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
 
-        To: `easylist.mgeek.in@gmail.com,${customerObject.Email}`,
+        To: `easylist.mgeek.in@gmail.com,${customerObject.Email}`, //
         From: "easylist.mgeek.in@gmail.com",
         Subject: `easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
         Body: emailText,
+        /*Attachments: [{
+            name: "order",
+            path: pdfURL
+        }]
+*/
     }).then(function(message) {
         document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
         document.getElementById("orderStatusEmail").classList.add('btn-success')
         document.getElementById("orderStatusEmail").disabled = true
-        newjspdf()
     })
 
     return emailBody
@@ -1056,45 +932,7 @@ window.addEventListener('scroll', () => {
 
 
 
-function print() {
 
-    document.getElementById("orderStatusEmail").style.display = "none"
-    document.getElementById("orderStatus").style.display = "none"
-
-    document.getElementById("print").style.display = "none"
-    document.getElementById("download").style.display = "none"
-
-
-
-    printJS('main', 'html')
-
-
-
-    document.getElementById("orderStatusEmail").style.display = "initial"
-    document.getElementById("orderStatus").style.display = "initial"
-    document.getElementById("download").style.display = "initial"
-}
-
-
-function download(quality = 3) {
-    const filename = 'easylist.mgeek.in.pdf';
-    document.getElementById("orderStatusEmail").style.display = "none"
-    document.getElementById("orderStatus").style.display = "none"
-    document.getElementById("download").style.display = "none"
-    document.getElementById("print").style.display = "none"
-
-    document.querySelector("#main").style.color = "black"
-    html2canvas(document.querySelector('#main'), { scale: quality }).then(canvas => {
-        let pdf = new jsPDF('p', 'mm', 'a4');
-        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
-        pdf.save(filename);
-    });
-
-    document.querySelector("#main").style.color = "white"
-    document.getElementById("orderStatusEmail").style.display = "initial"
-    document.getElementById("orderStatus").style.display = "initial"
-    document.getElementById("print").style.display = "initial"
-}
 
 
 function newjspdf() {
@@ -1104,6 +942,7 @@ function newjspdf() {
     pdf.canvas.width = 72 * 8.5;
     var x = 30
     var y = 30
+    var offsetX = 50
     var fontsize = 10
         //pdf.setFont('Roboto')
         //var HTML = document.getElementById("main").innerHTML;
@@ -1111,7 +950,7 @@ function newjspdf() {
     var margin = 1
         //Print Customer details
 
-    pdf.setFont('courier')
+    pdf.setFont('helvetica')
     pdf.setFontType('bold')
     var text = 'Customer details';
     pdf.setTextColor(62, 158, 255);
@@ -1119,30 +958,40 @@ function newjspdf() {
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, fontsize * 1.5, text, 1);
 
     pdf.setFont('helvetica');
-    pdf.setFontType('normal');
     pdf.setTextColor(0, 20, 40);
-
+    pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Name: `, 1);
-    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Name}`, 0);
+    pdf.setFontType('bold');
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Name}`, 0);
 
+    pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Rank: `, 1);
-    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Rank}`, 0);
+    pdf.setFontType('bold');
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Rank}`, 0);
     //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
+    pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Catagory: `, 1);
-    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Catagory}`, 0);
+    pdf.setFontType('bold');
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Catagory}`, 0);
     //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
+    pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Email: `, 1);
-    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Email}`, 0);
+    pdf.setFontType('bold');
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Email}`, 0);
     //pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
+    pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Whatsapp: `, 1);
-    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, margin, `${customerObject.Whatsapp}`, 0);
+    pdf.setFontType('bold');
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, margin, `${customerObject.Whatsapp}`, 0);
     //  pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
+    pdf.setFontType('normal');
     [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `Address: `, 1);
-    [pdf, y] = pdfjsHelper(pdf, x + 100, y, fontsize, fontsize * 2, `${customerObject.Address}`, 0);
+    pdf.setFontType('bold');
+    [pdf, y] = pdfjsHelper(pdf, x + offsetX, y, fontsize, fontsize * 2, `${customerObject.Address}`, 0);
     //    pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
 
@@ -1153,7 +1002,7 @@ function newjspdf() {
 
     //order
 
-    pdf.setFont('courier');
+    pdf.setFont('helvetica');
     pdf.setFontType('bold');
     pdf.setTextColor(62, 158, 255);
     var text = 'Order';
@@ -1172,14 +1021,13 @@ function newjspdf() {
     pdf.setFont('helvetica');
     pdf.setFontType('normal');
     for (i = 0; i < cartObject.length; i++) {
-        pdf.setFontType('bold');
         [pdf, y] = pdfjsHelper(pdf, x, y, fontsize, margin, `${cartObject[i].Index}`, 1);
         [pdf, y] = pdfjsHelper(pdf, x + 60, y, fontsize, margin, `${cartObject[i].Name}`, 0);
         [pdf, y] = pdfjsHelper(pdf, x + 400, y, fontsize, margin, `${cartObject[i].Rate}`, 0);
         [pdf, y] = pdfjsHelper(pdf, x + 500, y, fontsize, margin, `${cartObject[i].Quantity}`, 0);
         [pdf, y] = pdfjsHelper(pdf, x + 600, y, fontsize, margin, `${cartObject[i].Total}`, 0);
     }
-    pdf.setFont('courier')
+    pdf.setFont('helvetica')
     pdf.setFontType('bold')
     pdf.setTextColor(62, 158, 255);
     var text = `Net Payable: INR ${cartObject.Total}`;
@@ -1196,9 +1044,18 @@ function newjspdf() {
 
     //    pdf.output('/order.pdf')
     pdf.save("easylist.mgeek.in.pdf");
+    var pdfBlob = pdf.output('blob')
+
+    var pdfURI = pdf.output('datauristring')
+    console.log(pdfURI)
+
+    var pdfURL = URL.createObjectURL(pdfBlob)
+    console.log(pdfURL)
+
     //window.open(pdf.output('bloburl'), '_blank');
     //pdf.output('dataurlnewwindow')
-    return pdf
+
+    return [pdf, pdfBlob, pdfURL, pdfURI]
 }
 
 
@@ -1209,7 +1066,7 @@ function pdfjsHelper(pdf, x, y, fontsize, margin, text, newline) {
     //required by newjspdf
     if (newline === 1) {
         y += 1.2 * fontsize + margin
-        if (y >= pdf.canvas.height - 100) {
+        if (y >= pdf.canvas.height - 50) {
             pdf.addPage()
             y = 30
         }
