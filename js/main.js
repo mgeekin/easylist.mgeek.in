@@ -904,7 +904,7 @@ function sendEmail() {
         If the Downnload PDF button do not work copy the code below and paste in address bar to download PDF
         <br><br> 
 
-       <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:30px;border-radius:20px;">
+       <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:30px;border-radius:20px;font-size:5px">
        ${pdfURI}
        </p>`
        
