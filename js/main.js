@@ -896,14 +896,15 @@ function sendEmail() {
         From: "easylist.mgeek.in@gmail.com",
         Subject: `Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
         Body: `${emailText} <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-        <a href=${pdfURI}>
-            PDF Downnload
+        <button type="button" class="btn btn-primary"><a href=${pdfURI}>
+        Downnload PDF 
         </a>
-        <br><br> <br> <br> <br> 
-        If the link don't work copy code below and paste in address bar
-        <br><br> <br> <br> <br> 
+        </button>
+        <br>
+        If the Downnload PDF button do not work copy the code below and paste in address bar to download PDF
+        <br><br> 
 
-       <p>
+       <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:30px;border-radius:20px;">
        ${pdfURI}
        </p>`
        
