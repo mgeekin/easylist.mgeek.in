@@ -918,7 +918,7 @@ function sendEmail() {
         </ul>
         copy the code below and paste in address bar to download PDF
         <br>
-        <img src="http://easylist.mgeek.in/image/help/Instructions.gif" alt="How to Download PDF" width="100%" />
+        <img src="http://easylist.mgeek.in/image/help/Instructions.gif" alt="How to Download PDF" width="100%; max-width:600px" />
         <br> 
 
        <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:3px; border:2px solid black">
