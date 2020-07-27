@@ -779,8 +779,8 @@ function emailBody() {
 </head>
 <body>
     <div class="row">
-        <h1> easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}
-        </h1>
+        <h2> Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}
+        </h2>
         <div class="container">
             <h2>
                 Customer Details
