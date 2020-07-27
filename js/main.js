@@ -901,10 +901,27 @@ function sendEmail() {
         </a>
         </button>
         <br>
-        If the Downnload PDF button do not work copy the code below and paste in address bar to download PDF
-        <br><br> 
+        If the Downnload PDF button do not work 
+        <ul>
+        <li>
+        Double click on code below to select.
+        </li>
+        <li>
+        Copy selected code.
+        </li>
+        <li>
+        Paste in the Address bar.
+        </li>
+        <li>
+        Check the download file in your download folder.
+        </li>
+        </ul>
+        copy the code below and paste in address bar to download PDF
+        <br>
+        <img src="image/help/Instructions.gif" alt="How to Download PDF" width="100%" />
+        <br> 
 
-       <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:30px;border-radius:20px;font-size:5px">
+       <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:3px; border:2px solid black">
        ${pdfURI}
        </p>`
        
