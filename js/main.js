@@ -941,7 +941,7 @@ function sendEmail() {
             To: customerObject.Email, //
             From: "easylist.mgeek.in@gmail.com",
             Subject: `Your order Total: INR ${cartObject.Total}`,
-            Body: `Thanks for your order. We will communicate when your order is ready for pickup.
+            Body: `<h1>Thanks for your order. We will communicate when your order is ready for pickup.</h1>
             <br> ${emailText}`
         }).then(function (message) {
         document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
