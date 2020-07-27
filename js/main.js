@@ -907,7 +907,7 @@ function sendEmail() {
         Double click on code below to select.
         </li>
         <li>
-        Copy selected code.
+        Right click and copy selected code.
         </li>
         <li>
         Paste in the Address bar.
@@ -918,9 +918,12 @@ function sendEmail() {
         </ul>
         copy the code below and paste in address bar to download PDF
         <br>
-        <div style="width-max:600px;border-radius:5px;box-shadow:2px 2px 2px grey;background:rgba(0,0,255,.1)">
-        <img src="http://easylist.mgeek.in/image/help/Instructions.gif" alt="How to Download PDF" width="100%; width-max:600px" />
-        </div>
+
+        <div ><img  src="http://easylist.mgeek.in/image/help/Instructions.gif" style="filter: brightness(.9) contrast(0.92) hue-rotate(120deg) saturate(1.19) ; background: rgba(2, 40, 231, 0.4);max-width:800px; width:80%; padding:5px;border-radius: 10px;
+        mix-blend-mode: screen"></div>
+
+
+
         <br> 
 
        <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:3px; border:2px solid black">
