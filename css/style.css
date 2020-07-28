@@ -1,13 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Saira+Condensed:wght@300&family=Source+Serif+Pro:ital@0;1&display=swap');
 
-body {
-    font-family: 'Saira Condensed', sans-serif;
-    background : rgb(10, 15, 20);
-    background : linear-gradient(0deg, hsl(234, 61%, 12%) 0%, hsl(234, 69%, 11%) 25%, hsl(235, 63%, 12%) 50%, hsl(233, 69%, 17%) 75%, hsl(234, 66%, 12%) 100%);
-    color      : white;
-    font-size  : 16px;
+@media screen and (min-width:600px) {
+    body {
+        font-family: 'Saira Condensed', sans-serif;
+        background : rgb(10, 15, 20);
+        background : linear-gradient(0deg, hsl(234, 61%, 12%) 0%, hsl(234, 69%, 11%) 25%, hsl(235, 63%, 12%) 50%, hsl(233, 69%, 17%) 75%, hsl(234, 66%, 12%) 100%);
+        color      : white;
+        font-size  : 16px;
+    }
+
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size  : 40px;
+        font-style : heavy;
+        color      : white;
+    }
+
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size  : 30px;
+    }
+
+    h3,
+    h4 {
+        font-family: 'Roboto', sans-serif;
+        font-size  : 25px;
+    }
+
+
 }
 
+@media screen and (max-width:600px){
+    body {
+        font-family: 'Saira Condensed', sans-serif;
+        background : rgb(10, 15, 20);
+        background : linear-gradient(0deg, hsl(234, 61%, 12%) 0%, hsl(234, 69%, 11%) 25%, hsl(235, 63%, 12%) 50%, hsl(233, 69%, 17%) 75%, hsl(234, 66%, 12%) 100%);
+        color      : white;
+        font-size  : 20px;
+    }
+    
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size  : 35px;
+        font-style : heavy;
+        color      : white;
+    }
+    
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size  : 30px;
+    }
+    
+    h3,
+    h4 {
+        font-family: 'Roboto', sans-serif;
+        font-size  : 25px;
+    }
+
+    #item-table{
+        font-size:12px;
+        width:50%;
+    }
+}
 #list {
     margin-top: 20px;
 }
@@ -90,27 +144,10 @@ section {
     min-height: 20vh;
 }
 
-h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size  : 40px;
-    font-style : heavy;
-    color      : white;
-}
-
-h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size  : 30px;
-}
-
-h3,
-h4 {
-    font-family: 'Roboto', sans-serif;
-    font-size  : 25px;
-}
-
 table {
     font-family: 'Roboto', sans-serif;
     font-size  : 14px;
+    
 }
 
 #footer {
@@ -291,7 +328,7 @@ input::placeholder {
 textarea {
     font-size  : 30px;
     color      : hsl(234, 61%, 12%);
-    font-weight: bolder;
+    font-weight: bold;
 
 }
 

@@ -71,7 +71,7 @@ var menuList = `
             <h1>Item list</h1>
             <input type="text" id="searchInput" class="form-control mb-3" onkeyup="filterList()"
               placeholder="Search for items">
-            <table id="item-table" class="table table-hover">
+            <table id="item-table" class="table table-hover col-sm-12">
               <thead>
                 <tr>
                   <th>S. No.</th>
