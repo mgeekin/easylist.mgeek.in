@@ -62,7 +62,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function signin() {
 
-    var log = document.getElementById("log")
+    var log = document.getElementById("logMessage")
     var email = document.getElementById("userEmail").value
     var password = document.getElementById("userPassword").value
 
@@ -71,7 +71,7 @@ function signin() {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        log.innerHTML = errorCode + errorMessage
+        log.innerHTML = errorCode +'<br>'+ errorMessage
             // ...
     });
 

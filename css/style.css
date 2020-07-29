@@ -262,7 +262,16 @@
 
 
 
-
+    #customer-number[type=number] {
+        font-size  : 30px;
+        font-weight: bolder;
+    
+    }
+    #customer-whatsapp[type=number] {
+        font-size  : 30px;
+        font-weight: bolder;
+    
+    }
 
 
 
@@ -470,8 +479,9 @@ table,
 .shrinkmargin,
 
 
-#log {
+#logMessage {
     color: grey;
+    padding:10px
 }
 
 
