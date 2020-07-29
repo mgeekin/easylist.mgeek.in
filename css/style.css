@@ -28,40 +28,325 @@
     }
 
 
+
+    input[type=text] {
+        font-size  : 30px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+
+    }
+
+    input[type=email] {
+        font-size  : 30px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+    }
+
+    input[type=password] {
+        font-size  : 30px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+    }
+
+    input[type=number] {
+        font-size  : 30px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+
+    }
+
+
+
+    #customer-number[type=number] {
+        font-size  : 30px;
+        font-weight: bolder;
+    
+    }
+    #customer-whatsapp[type=number] {
+        font-size  : 30px;
+        font-weight: bolder;
+    
+    }
+    input::placeholder {
+        font-weight: lighter;
+        color      : #ccc;
+        font-size  : 25px;
+        opacity    : .3;
+    }
+
+    textarea {
+        font-size  : 30px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bold;
+
+    }
+
+    textarea::placeholder {
+        font-weight: lighter;
+        color      : #ccc;
+        font-size  : 25px;
+        opacity    : .3;
+    }
+
+
+
+    .loginInput,
+    .loginButton {
+        border-radius: 3px;
+        padding      : 5px;
+        border       : 0px;
+        font-family  : 'Roboto', 'Courier New', Courier, monospace;
+        font-size    : 20px;
+
+
+    }
+
+    .loginInput {
+        text-align      : left;
+        display         : block;
+        width           : 100%;
+        max-width       : 500px;
+        color           : hsl(234, 78%, 20%);
+        background-color: hsl(0, 0%, 65%);
+        margin-bottom   : 20px;
+    }
+
+    .loginInput:hover {
+        background-color: hsl(0, 0%, 98%);
+    }
+
+    .loginButton {
+        width           : 60%;
+        max-width       : 150px;
+        color           : white;
+        background-color: hsl(143, 100%, 29%);
+        margin          : 0;
+        margin-right    : 40px;
+        margin-bottom   : 20px;
+    }
+
+    .loginButton:hover {
+        background-color: hsl(143, 100%, 35%);
+    }
+
+
+
+    #main {
+        margin       : 10px;
+        margin-top   : 50px;
+        min-height   : 80vh;
+        padding      : 20px;
+        margin-bottom: 50px;
+
+    }
+
+
+    #main p {
+        display      : inline-block;
+        border-radius: 4px;
+    }
+
+
+
+    .loginButtons {
+        margin    : 0 auto;
+        text-align: left;
+    }
+
+
+    #welcome {
+        margin-top   : 100px;
+        margin-bottom: 50px;
+    }
+
+    #user {
+        width        : 80vw;
+        display      : block;
+        text-align   : center;
+        padding      : 50px;
+        margin       : 30px auto;
+        border-radius: 4px;
+        display      : none;
+    }
+
+
+    #searchInput {
+        font-size: 20px;
+        padding  : 2px;
+        height   : 1em;
+        margin-top:30px;
+
+    }
+
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:600px) {
     body {
         font-family: 'Saira Condensed', sans-serif;
         background : rgb(10, 15, 20);
         background : linear-gradient(0deg, hsl(234, 61%, 12%) 0%, hsl(234, 69%, 11%) 25%, hsl(235, 63%, 12%) 50%, hsl(233, 69%, 17%) 75%, hsl(234, 66%, 12%) 100%);
         color      : white;
-        font-size  : 20px;
+        font-size  : 12px;
     }
-    
+
     h1 {
         font-family: 'Roboto', sans-serif;
-        font-size  : 35px;
+        font-size  : 25px;
         font-style : heavy;
         color      : white;
+        font-weight: bold;
     }
-    
+
     h2 {
         font-family: 'Roboto', sans-serif;
-        font-size  : 30px;
+        font-size  : 20px;
     }
-    
+
     h3,
     h4 {
         font-family: 'Roboto', sans-serif;
-        font-size  : 25px;
+        font-size  : 15px;
+        font-weight: bold;
     }
 
-    #item-table{
-        font-size:12px;
-        width:50%;
+
+
+
+
+    input[type=text] {
+        font-size  : 15px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+
     }
+
+    input[type=email] {
+        font-size  : 15px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+    }
+
+    input[type=password] {
+        font-size  : 15px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+    }
+
+    input[type=number] {
+        font-size  : 15px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bolder;
+
+    }
+
+    input::placeholder {
+        font-weight: lighter;
+        color      : #ccc;
+        font-size  : 15px;
+        opacity    : .3;
+    }
+
+    textarea {
+        font-size  : 15px;
+        color      : hsl(234, 61%, 12%);
+        font-weight: bold;
+
+    }
+
+    textarea::placeholder {
+        font-weight: lighter;
+        color      : #ccc;
+        font-size  : 15px;
+        opacity    : .3;
+    }
+
+
+
+
+
+
+
+    .loginInput,
+    .loginButton {
+        border-radius: 3px;
+        padding      : 3px;
+        border       : 0px;
+        font-family  : 'Roboto', 'Courier New', Courier, monospace;
+        font-size    : 15px;
+
+    }
+
+    .loginInput {
+        text-align      : left;
+        display         : block;
+        width           : 280px;
+        max-width       : 90vw;
+        color           : hsl(234, 78%, 20%);
+        background-color: hsl(0, 0%, 65%);
+        margin-bottom   : 9px;
+    }
+
+    .loginInput:hover {
+        background-color: hsl(0, 0%, 98%);
+    }
+
+    .loginButton {
+        width           : 40%;
+        max-width       : 120px;
+        color           : white;
+        background-color: hsl(143, 100%, 29%);
+        margin          : 0;
+        margin-right    : 10px;
+        margin-bottom   : 5px;
+    }
+
+    .loginButton:hover {
+        background-color: hsl(143, 100%, 35%);
+    }
+
+    .loginButtons {
+        margin    : 0 auto;
+        text-align: left;
+    }
+
+
+    #main {
+        margin    : 10px;
+        margin-top: 10px;
+        min-height: 80vh;
+        padding   : 20px;
+        width     : 90vw;
+    }
+
+    #main p {
+        display      : inline-block;
+        border-radius: 4px;
+    }
+
+
+    #item-table {
+        font-size: 12px;
+        width    : 50%;
+    }
+
+    #welcome {
+        margin-top   : 20px;
+        margin-bottom: 20px;
+    }
+
+
+    #user {
+        width        : 95vw;
+        display      : block;
+        text-align   : center;
+        padding      : 10px;
+        margin       : 10px auto;
+        border-radius: 4px;
+        display      : none;
+    }
+
 }
+
 #list {
     margin-top: 20px;
 }
@@ -96,17 +381,6 @@
     margin-left: 30px;
 }
 
-#main {
-    margin    : 20px;
-    margin-top: 100px;
-    min-height: 80vh;
-    padding   : 40px;
-}
-
-#main p {
-    display      : inline-block;
-    border-radius: 4px;
-}
 
 .showlistButton {
     box-shadow      : 2px 2px 2px white;
@@ -122,10 +396,7 @@
     box-shadow: 2px 2px 2px hsl(180, 96%, 67%);
 }
 
-#welcome {
-    margin-top   : 100px;
-    margin-bottom: 50px;
-}
+
 
 #goToCart {
     box-shadow      : 2px 2px 2px white;
@@ -147,7 +418,7 @@ section {
 table {
     font-family: 'Roboto', sans-serif;
     font-size  : 14px;
-    
+
 }
 
 #footer {
@@ -166,58 +437,6 @@ table {
     top: 80vh;
 }
 
-.loginInput,
-.loginButton {
-    border-radius: 3px;
-    padding      : 5px;
-    border       : 0px;
-    font-family  : 'Roboto', 'Courier New', Courier, monospace;
-    font-size    : 60x;
-    font-style   : bold;
-}
-
-.loginInput {
-    text-align      : left;
-    display         : block;
-    width           : 100%;
-    max-width       : 400px;
-    color           : hsl(234, 78%, 20%);
-    background-color: hsl(0, 0%, 65%);
-    margin-bottom   : 20px;
-}
-
-.loginInput:hover {
-    background-color: hsl(0, 0%, 98%);
-}
-
-.loginButton {
-    width           : 60%;
-    max-width       : 150px;
-    color           : white;
-    background-color: hsl(143, 100%, 29%);
-    margin          : 0;
-    margin-right    : 40px;
-    margin-bottom   : 20px;
-}
-
-.loginButton:hover {
-    background-color: hsl(143, 100%, 35%);
-}
-
-.loginButtons {
-    margin    : 0 auto;
-    text-align: left;
-}
-
-#user {
-    width        : 80vw;
-    display      : block;
-    text-align   : center;
-    padding      : 50px;
-    margin       : 30px auto;
-    border-radius: 4px;
-    display      : none;
-}
 
 #resetButton {
     width    : 90%;
@@ -249,23 +468,14 @@ table,
 }
 
 .shrinkmargin,
-#main {
-    margin-bottom: 200px;
-    min-height   : 30px;
-    padding      : 10px;
-}
+
 
 #log {
     color: grey;
 }
 
-#googleSignin {
-    background: hsla(150, 30%, 59%, 0.397);
-}
 
-#googleSignin:hover {
-    background: hsla(113, 93%, 34%, 0.692);
-}
+
 
 #editUser {
     max-width    : 40px;
@@ -294,48 +504,10 @@ table,
     margin       : 40px;
 }
 
-
-
-input[type=text] {
-    font-size  : 30px;
-    color      : hsl(234, 61%, 12%);
-    font-weight: bolder;
-
-}
-
-input[type=email] {
-    font-size  : 30px;
-    color      : hsl(234, 61%, 12%);
-    font-weight: bolder;
-
-}
-
 input[type=number] {
-    font-size  : 30px;
-    color      : hsl(234, 61%, 12%);
+    font-size  : 15px;
     font-weight: bolder;
 
 }
 
-input::placeholder {
-    font-weight: lighter;
-    color      : #ccc;
-    font-size  : 25px;
-    opacity    : .3;
 
-}
-
-textarea {
-    font-size  : 30px;
-    color      : hsl(234, 61%, 12%);
-    font-weight: bold;
-
-}
-
-textarea::placeholder {
-    font-weight: lighter;
-    color      : #ccc;
-    font-size  : 25px;
-    opacity    : .3;
-
-}

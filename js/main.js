@@ -574,7 +574,7 @@ function showCart() {
     <td class="filterable-cell">${cartObject[i].Index}</td>
     <td class="filterable-cell">${cartObject[i].Name}</td>
     <td class="filterable-cell">${cartObject[i].Rate}</td>
-    <td class="filterable-cell col-2" id="cart-quantity-${i}"><input type="number" min="1" max="50" value="${cartObject[i].Quantity}" class="form-control-sm col-12 input-sm" placeholder="1" onchange="updateRowTotal(this)"></td>
+    <td class="filterable-cell col-2" id="cart-quantity-${i}"><input type="number" min="1" max="50" value="${cartObject[i].Quantity}" class="form-control-sm col-12 input-sm cart-input" placeholder="1" onchange="updateRowTotal(this)"></td>
     <td class="filterable-cell">${cartObject[i].Total} </td>
     <td class="filterable-cell"><button type="button" class="btn btn-danger btn-sm" onclick="removeFromCart()">
     <span class="glyphicon glyphicon-remove"></span> Remove
