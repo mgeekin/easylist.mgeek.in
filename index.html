@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Easylist (v412) by mgeek.in</title>
+    <title>urctughlakabad.in</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +10,8 @@
 
 
     <!--<meta name="google-signin-scope" content="prateekrajgautam@gmail.com">-->
-    <meta name="google-signin-client_id" content="201216020998-9m7aussf56d4kjkciqmrs01k9tq8l8qr.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="201216020998-9m7aussf56d4kjkciqmrs01k9tq8l8qr.apps.googleusercontent.com">
     <!-- Bootstrap CSS -->
     <link href='https://fonts.googleapis.com/css?family=Trade Winds&family=Advent Pro' rel='stylesheet'>
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,7 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" async type="text/javascript"></script>
     <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lds0K4ZAAAAAOM-h7WV1K-zVkfTnhN0hzBJE-rE"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LevsLsZAAAAAGtcDMmVnWBXTWP-WmMDbL1GEYCp"></script>
     <script>
         function onSubmit(token) {
             document.getElementById("demo-form").submit();
@@ -73,10 +74,11 @@
     <div id="header" class="row container-fluid ">
         <nav class="navbar navbar-expand-lg navbar-light container">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://easylist.mgeek.in">Easylist </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                <a class="navbar-brand" href="http://urctughlakabad.in">urcTughlakabad </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="navbar nav-item" onclick="showList()">Select Items</li>
@@ -107,7 +109,12 @@
             <h2>
                 In view of COVID-19 pandamic, kindly preorder your URC shopping list to help us serve you better
             </h2>
-        </div>
+
+
+
+
+
+
     </section>
 
 
@@ -133,7 +140,8 @@
                 <h3>Login with Google</h3>
                 <div id="signInWithGoogle">
                     <div class="loginButtons">
-                        <button class="loginButton" id="googleSignin" onclick="googleSignin()"> One click to login </button>
+                        <button class="loginButton" id="googleSignin" onclick="googleSignin()"> One click to login
+                        </button>
                     </div>
                 </div>
 
@@ -222,7 +230,7 @@
         <script>
             function signOut() {
                 var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut().then(function() {
+                auth2.signOut().then(function () {
                     customerObject.Nmae = ""
                     customerObject.Email = ""
                     customerObject.ImageURL = ""
@@ -264,8 +272,12 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
     <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>-->
@@ -317,7 +329,7 @@
                 clientId: CLIENT_ID,
                 discoveryDocs: DISCOVERY_DOCS,
                 scope: SCOPES
-            }).then(function() {
+            }).then(function () {
                 // Listen for sign-in state changes.
                 gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -325,7 +337,7 @@
                 updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
                 authorizeButton.onclick = handleAuthClick;
                 signoutButton.onclick = handleSignoutClick;
-            }, function(error) {
+            }, function (error) {
                 appendPre(JSON.stringify(error, null, 2));
             });
         }
@@ -382,7 +394,7 @@ https://docs.google.com/spreadsheets/d/1If8fRluMKtbe_ZBTeRLHfukzVJpO9QkresTS7sD1
                 //spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
                 spreadsheetId: '1If8fRluMKtbe_ZBTeRLHfukzVJpO9QkresTS7sD1qgw',
                 range: 'Class Data!A2:E',
-            }).then(function(response) {
+            }).then(function (response) {
                 var range = response.result;
                 if (range.values.length > 0) {
                     appendPre('Name, Major:');
@@ -394,14 +406,15 @@ https://docs.google.com/spreadsheets/d/1If8fRluMKtbe_ZBTeRLHfukzVJpO9QkresTS7sD1
                 } else {
                     appendPre('No data found.');
                 }
-            }, function(response) {
+            }, function (response) {
                 appendPre('Error: ' + response.result.error.message);
             });
         }
     </script>
 
-    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script>
     <script src="js/main.js"></script>
     <script src="js/firebaseConf.js"></script>
     <script src="js/googleSignin.js"></script>

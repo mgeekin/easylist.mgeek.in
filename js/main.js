@@ -103,7 +103,7 @@ var customerForm = `<div id="customer">
   <input type="number" class="form-control" id="customer-whatsapp" placeholder="Number (Whatsapp)">
 
   <textarea class="form-control" id="customer-address" rows="3" placeholder="Address"></textarea>
-  <div class="row g-recaptcha" data-sitekey="6Lds0K4ZAAAAAOM-h7WV1K-zVkfTnhN0hzBJE-rE"></div>
+  <div class="row g-recaptcha" data-sitekey="6LevsLsZAAAAAGtcDMmVnWBXTWP-WmMDbL1GEYCp"></div>
   <button type="submit" class="btn btn-success mb-2" onclick="saveCustomerInfo()">Save</button>
 
 
@@ -696,6 +696,34 @@ function showCheckout() {
 
     if (customerObject.Filled == 1 && cartObject.length > 0) {
         var checkoutHTML = `
+        <div class="row" style="padding:3px; margin:3px;">
+        Do u want alternate items in case item ordered in unavailable
+
+    </div>
+
+    <div class="row" style="padding:1px; margin:1px;display:inline-block;">
+        <div class="row"> <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                value="Yes" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                Yes
+            </label> 
+        </div>
+    </div>
+<br />
+<div class="row" style="padding:1px; margin:1px;display:inline-block;">
+        <div class="row">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="No">
+            <label class="form-check-label" for="exampleRadios2">
+                No
+            </label>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+
+
     <button id="orderStatusEmail" type="button" onclick="sendEmail()" class="btn btn-success">Send order (by email)</button></h2>
     
     <div class="g-recaptcha"
@@ -883,6 +911,7 @@ function sendToGoogleSheet(encDataStr) {
 
 
 function sendEmail() {
+    if(document.getElementById("exampleRadios1").checked===true){console.log('YES');var choice= "YES"}else{console.log('No');var choice="NO"}
 
     var emailText = emailBody();
     [pdf, pdfBlob, pdfURL, pdfURI] = newjspdf()
@@ -890,12 +919,29 @@ function sendEmail() {
         Host: "smtp.gmail.com",
         Username: "easylist.mgeek.in@gmail.com",
         Password: "Prateek9151404899",
-        //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
+        //Host: "smtp.gmail.com",
+        //Username: "easylist.mgeek.in@gmail.com",
+        //Password: "Prateek9151404899",
 
+        //Host: "nl-sl-box2.e-hostbox.com:465",
+        //Username: "orderreceived@urctughlakabad.in ",
+        //Password: "EqBE*%rA,VFU",
+
+        //Secure online token
+        //SecureToken : "dc123fb8-fe90-404b-9f51-5a68279c77b3",//online
+
+        //secure local token
+        //SecureToken :  "d2dbbae4-33ba-4567-bd29-8be2fad2eecf ",//localserver
+
+        //unsecure server token
+        //SecureToken : "6e0853be-5f7f-457c-81f5-c2c407b584ae",//online
+
+        //unsecure local token
+        //SecureToken : "1a02f1c6-37e1-40ef-b5ed-f8b2875b8588",//localserver
         To: `easylist.mgeek.in@gmail.com`, //
         From: "easylist.mgeek.in@gmail.com",
         Subject: `Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
-        Body: `${emailText} <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+        Body: `${emailText} <br> <div><h2> Alternative items : ${choice}</h2><br> <br> <br> <br> <br> <br> <br> <br> <br> 
         <button type="button" class="btn btn-primary"><a href=${pdfURI}>
         Downnload PDF 
         </a>
@@ -928,26 +974,23 @@ function sendEmail() {
 
        <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:3px; border:2px solid black">
        ${pdfURI}
-       </p>`
-       
-       /*,
-        Attachments: [{
-            name: `${customerObject.Name} Order.pdf`,
-            path: pdfURI
-        }]
-*/
+       </p>
+              
+       `//,
+            //Attachments: [{name: `${customerObject.Name} Order.pdf`,data: pdfURI}]
     }).then(function (message) {
         Email.send({
             Host: "smtp.gmail.com",
             Username: "easylist.mgeek.in@gmail.com",
             Password: "Prateek9151404899",
-            //SecureToken : "5c9a4b70-ea81-4dff-8f39-fc65f60a99a3",
-    
+            //SecureToken : "dc123fb8-fe90-404b-9f51-5a68279c77b3",// for server
+            //SecureToken :  "d2dbbae4-33ba-4567-bd29-8be2fad2eecf ",//localserver
             To: customerObject.Email, //
             From: "easylist.mgeek.in@gmail.com",
             Subject: `Your order Total: INR ${cartObject.Total}`,
             Body: `<h1>Thanks for your order. We will communicate when your order is ready for pickup.</h1>
-            <br> ${emailText}`
+            <br> ${emailText}`//,
+            //Attachments: [{name: `${customerObject.Name} Order.pdf`,data: pdfURI}]
         }).then(function (message) {
         document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
         document.getElementById("orderStatusEmail").classList.add('btn-success')
@@ -1083,6 +1126,9 @@ function newjspdf() {
     pdf.setTextColor(62, 158, 255);
     var text = `Net Payable: INR ${ cartObject.Total }`;
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, text, 1);
+    if(document.getElementById("exampleRadios1").checked===true){console.log('YES');var choice= "YES"}else{console.log('No');var choice="NO"}
+
+    [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, `Alternative items : ${choice}`, 1);
 
 
 
@@ -1097,9 +1143,10 @@ function newjspdf() {
     pdf.save("easylist.mgeek.in.pdf");
     var pdfBlob = pdf.output('blob')
 
-    var pdfURI = pdf.output('datauristring')
+    var pdfURIauto = pdf.output('datauristring')
+    var pdfURI=pdfURIauto.replace("filename=generated",`filename=Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`)
+    console.log(pdfURIauto)
     console.log(pdfURI)
-
     var pdfURL = URL.createObjectURL(pdfBlob)
     console.log(pdfURL)
 
