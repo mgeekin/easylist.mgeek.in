@@ -6,8 +6,7 @@ var customerObject = {
     Email: null,
     Number: null
 }
-var emailObject= {};
-var E = {};
+
 var pdf, pdfBlob, pdfURL, pdfURI;
 var gInfo = [
     { "group": 1, "label": "Grocery" },
@@ -698,7 +697,7 @@ function showCheckout() {
     if (customerObject.Filled == 1 && cartObject.length > 0) {
         var checkoutHTML = `
         <div class="row" style="padding:3px; margin:3px;">
-        Do u want alternate items in case item ordered is unavailable
+        Do u want alternate items in case item ordered in unavailable
 
     </div>
 
@@ -801,7 +800,7 @@ ${customerTable}</div>
 
 
 
-function getEmailBody() {
+function emailBody() {
     var obj = `<head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="http://easylist.mgeek.in/css/style.css">
@@ -912,86 +911,74 @@ function sendToGoogleSheet(encDataStr) {
 
 
 function sendEmail() {
-
-    console.log('sendEmail');
-
-
-    [pdf, pdfBlob, pdfURL, pdfURI] = newjspdf();
-console.log('pdf generated');
     if(document.getElementById("exampleRadios1").checked===true){console.log('YES');var choice= "YES"}else{console.log('No');var choice="NO"}
-    var emailText = getEmailBody();
-    var emailBody = `${emailText} <br> <div><h2> Alternative items : ${choice}</h2><br> <br> <br> <br> <br> <br> <br> <br> <br> 
-    <button type="button" class="btn btn-primary"><a href="${pdfURI}">
-    Downnload PDF 
-    </a>
-    </button>
-    <br>
-    If the Downnload PDF button do not work 
-    <ul>
-    <li>
-    Double click on code below to select.
-    </li>
-    <li>
-    Right click and copy selected code.
-    </li>
-    <li>
-    Paste in the Address bar.
-    </li>
-    <li>
-    Check the download file in your download folder.
-    </li>
-    </ul>
-    copy the code below and paste in address bar to download PDF
-    <br>
-    <div ><img  src="http://easylist.mgeek.in/image/help/Instructions.gif" style="filter: brightness(.9) contrast(0.92) hue-rotate(120deg) saturate(1.19) ; background: rgba(2, 40, 231, 0.4);max-width:800px; width:80%; padding:5px;border-radius: 10px;
-    mix-blend-mode: screen"></div>
-    <br> 
 
-   <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:3px; border:2px solid black">
-   ${pdfURI}
-   </p>
-   `
-
-  
-
-
-    var emailObject={};
-    emailObject.To=customerObject.Email;
-    emailObject.Subject=`Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`;
-    emailObject.Body= emailBody;
-    emailObject.From= `orderConfirmation@urcTughlakabad.in`;
-    emailObject.Bcc=``;
-    //emailObject.Bcc=`easylist.mgeek.in@gmail.com`;
-    emailObject.Cc=`orders@urcTughlakabad.in`;
-    emailObject.ReplyTo=`orders@urcTughlakabad.in`
-    emailObject.AttachmentURI=pdfURI;
- 
-    var E = emailObject;
-    console.log(E);
-        const xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-           document.getElementById("main").innerHTML += '<br />Ready <br />';
-           //document.getElementById("main").innerHTML += xhr.responseText;
-        }
-    };
-    xhr.open("POST", "sendorder.php", true);
-    xhr.setRequestHeader("Content-type", "application/json")
-    xhr.send(JSON.stringify(E));
-
-
-
-//smtp js
-console.log(emailObject);
+    var emailText = emailBody();
+    [pdf, pdfBlob, pdfURL, pdfURI] = newjspdf()
     Email.send({
         Host: "smtp.gmail.com",
         Username: "easylist.mgeek.in@gmail.com",
         Password: "Prateek9151404899",
-        To: emailObject.To, //
+        //Host: "smtp.gmail.com",
+        //Username: "easylist.mgeek.in@gmail.com",
+        //Password: "Prateek9151404899",
+
+        //Host: "nl-sl-box2.e-hostbox.com:465",
+        //Username: "orderreceived@urctughlakabad.in ",
+        //Password: "EqBE*%rA,VFU",
+
+        //Secure online token
+        //SecureToken : "dc123fb8-fe90-404b-9f51-5a68279c77b3",//online
+
+        //secure local token
+        //SecureToken :  "d2dbbae4-33ba-4567-bd29-8be2fad2eecf ",//localserver
+
+        //unsecure server token
+        //SecureToken : "6e0853be-5f7f-457c-81f5-c2c407b584ae",//online
+
+        //unsecure local token
+        //SecureToken : "1a02f1c6-37e1-40ef-b5ed-f8b2875b8588",//localserver
+        To: `easylist.mgeek.in@gmail.com`, //
         From: "easylist.mgeek.in@gmail.com",
-        Subject: emailObject.Subject,
-        Body: emailObject.Body    
-        }).then(function (message) {
+        Subject: `Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`,
+        Body: `${emailText} <br> <div><h2> Alternative items : ${choice}</h2><br> <br> <br> <br> <br> <br> <br> <br> <br> 
+        <button type="button" class="btn btn-primary"><a href=${pdfURI}>
+        Downnload PDF 
+        </a>
+        </button>
+        <br>
+        If the Downnload PDF button do not work 
+        <ul>
+        <li>
+        Double click on code below to select.
+        </li>
+        <li>
+        Right click and copy selected code.
+        </li>
+        <li>
+        Paste in the Address bar.
+        </li>
+        <li>
+        Check the download file in your download folder.
+        </li>
+        </ul>
+        copy the code below and paste in address bar to download PDF
+        <br>
+
+        <div ><img  src="http://easylist.mgeek.in/image/help/Instructions.gif" style="filter: brightness(.9) contrast(0.92) hue-rotate(120deg) saturate(1.19) ; background: rgba(2, 40, 231, 0.4);max-width:800px; width:80%; padding:5px;border-radius: 10px;
+        mix-blend-mode: screen"></div>
+
+
+
+        <br> 
+
+       <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:3px; border:2px solid black">
+       ${pdfURI}
+       </p>
+              
+       `//,
+            //Attachments: [{name: `${customerObject.Name} Order.pdf`,data: pdfURI}]
+    }).then(function (message) {
         Email.send({
             Host: "smtp.gmail.com",
             Username: "easylist.mgeek.in@gmail.com",
@@ -1002,7 +989,7 @@ console.log(emailObject);
             From: "easylist.mgeek.in@gmail.com",
             Subject: `Your order Total: INR ${cartObject.Total}`,
             Body: `<h1>Thanks for your order. We will communicate when your order is ready for pickup.</h1>
-            <br> ${emailText} <br><h1>In case of delay forward this to order@urcTughlakabad.in </h1>`//,
+            <br> ${emailText}`//,
             //Attachments: [{name: `${customerObject.Name} Order.pdf`,data: pdfURI}]
         }).then(function (message) {
         document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
@@ -1014,8 +1001,7 @@ console.log(emailObject);
 
 
 
-
-    return E;
+    return emailBody
 }
 
 
@@ -1044,7 +1030,6 @@ window.addEventListener('scroll', () => {
 
 
 function newjspdf() {
-    console.log('newjspdf');
     //wordking function
     var pdf = new jsPDF('p', 'pt', 'letter')
     pdf.canvas.height = 72 * 11;
@@ -1144,12 +1129,7 @@ function newjspdf() {
     if(document.getElementById("exampleRadios1").checked===true){console.log('YES');var choice= "YES"}else{console.log('No');var choice="NO"}
 
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, `Alternative items : ${choice}`, 1);
-    pdf.setFont('helvetica');
-    pdf.setFontType('normal');
-    pdf.setTextColor(100, 200, 255);
-    [pdf, y] = pdfjsHelper(pdf, x, y, 16, margin * 3, `Email this PDF to orders@urctughlakabad.in`, 1);
-    [pdf, y] = pdfjsHelper(pdf, x, y, 16, margin * 3, `if email confirmation is not received on your email`, 1);
-    [pdf, y] = pdfjsHelper(pdf, x, y, 16, margin * 3, `or in case of delay`, 1);
+
 
 
 

@@ -13,7 +13,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-var user=[];
+
 
 
 var log = document.getElementById("logMessage")
@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("welcome").style.display = "none"
         document.getElementById("user").style.display = "none"
         //document.getElementById("hiUser").innerHTML = `Hi ${customerObject.displayName}`
-        document.getElementById("signout").style.display = "block"
+        document.getElementById("signout").style.display = "initial"
         document.getElementById("welcome").classList.add('shrinkmargin')
         if (customerObject.ImageURL !== null) {
             document.getElementById("editUser").src = customerObject.ImageURL

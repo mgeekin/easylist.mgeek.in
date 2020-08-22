@@ -1,0 +1,84 @@
+email client
+
+URL
+https://nl-sl-box2.e-hostbox.com:2096/
+or 
+http://urctughlakabad.in:2096
+
+Email:
+orderreceived@urctughlakabad.in
+
+PASS:
+3FUJ5^X6YaP9
+
+demo:
+https://i.imgur.com/59ds8x2.gif
+
+security toaken 
+dc123fb8-fe90-404b-9f51-5a68279c77b3
+ec8070ca-c33b-4a30-a6ca-f03e2cccac71
+
+ SecureToken : "dc123fb8-fe90-404b-9f51-5a68279c77b3",
+
+d2dbbae4-33ba-4567-bd29-8be2fad2eecf 
+
+
+Email.send({
+    SecureToken : "dc123fb8-fe90-404b-9f51-5a68279c77b3",
+    To : 'them@website.com',
+    From : "you@isp.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+
+
+
+
+
+
+ Secure SSL/TLS Settings (Recommended)
+Username: 	orderreceived@urctughlakabad.in
+Password: 	Use the email account’s password.
+Incoming Server: 	nl-sl-box2.e-hostbox.com
+
+    IMAP Port: 993 POP3 Port: 995 
+
+Outgoing Server: 	nl-sl-box2.e-hostbox.com
+
+    SMTP Port: 465 
+
+IMAP, POP3, and SMTP require authentication.
+
+
+
+
+
+
+
+ Non-SSL Settings (NOT Recommended)
+Username: 	orderreceived@urctughlakabad.in
+Password: 	Use the email account’s password.
+Incoming Server: 	mail.urctughlakabad.in
+
+    IMAP Port: 143 POP3 Port: 110 
+
+Outgoing Server: 	mail.urctughlakabad.in
+
+    SMTP Port: 587 
+
+IMAP, POP3, and SMTP require authentication.
+
+//Secure online token
+//SecureToken : "dc123fb8-fe90-404b-9f51-5a68279c77b3",//online
+
+//secure local token
+//SecureToken :  "d2dbbae4-33ba-4567-bd29-8be2fad2eecf ",//localserver
+
+//unsecure server token
+//SecureToken : "6e0853be-5f7f-457c-81f5-c2c407b584ae",//online
+
+//unsecure local token
+//SecureToken : "1a02f1c6-37e1-40ef-b5ed-f8b2875b8588",//localserver
+
