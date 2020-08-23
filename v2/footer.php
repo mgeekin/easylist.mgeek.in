@@ -188,9 +188,9 @@ https://docs.google.com/spreadsheets/d/1If8fRluMKtbe_ZBTeRLHfukzVJpO9QkresTS7sD1
         </script>
 
         
-
-    <!--<script src="js/googleSignin.js" async defer></script>-->
-    <script src="js/firebaseConf.js"  defer></script>
+    <script src="js/main.js"></script>
+    <script src="js/firebaseConf.js"></script>
+    <script src="js/googleSignin.js"></script>
 </body>
 
 </html>

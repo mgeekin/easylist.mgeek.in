@@ -1,5 +1,5 @@
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
+// Your web app's Firebase configuration
+var firebaseConfig = {
     apiKey: "AIzaSyBdXPNbVWy8D6Mo-hIMCyoWiaYfNBRiR8Q",
     authDomain: "urctughlakabad-in.firebaseapp.com",
     databaseURL: "https://urctughlakabad-in.firebaseio.com",
@@ -8,11 +8,12 @@
     messagingSenderId: "879180501104",
     appId: "1:879180501104:web:d63659453f061cb86164b5",
     measurementId: "G-XZXZK21143"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-//
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+
 
 
 var log = document.getElementById("logMessage")
@@ -35,7 +36,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("welcome").style.display = "none"
         document.getElementById("user").style.display = "none"
         //document.getElementById("hiUser").innerHTML = `Hi ${customerObject.displayName}`
-        document.getElementById("signout").style.display = "block"
+        document.getElementById("signout").style.display = "initial"
         document.getElementById("welcome").classList.add('shrinkmargin')
         if (customerObject.ImageURL !== null) {
             document.getElementById("editUser").src = customerObject.ImageURL

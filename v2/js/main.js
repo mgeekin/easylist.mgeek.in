@@ -105,12 +105,11 @@ var customerForm = `<div id="customer">
 
   <textarea class="form-control" id="customer-address" rows="3" placeholder="Address"></textarea>
   <div class="row g-recaptcha" data-sitekey="6LevsLsZAAAAAGtcDMmVnWBXTWP-WmMDbL1GEYCp"></div>
-  <button type="submit" class="btn btn-success mb-2" id="savecustomerbutton" onclick="saveCustomerInfo()">Save</button>
+  <button type="submit" class="btn btn-success mb-2" onclick="saveCustomerInfo()">Save</button>
 
 
 
 </form>
-<h3>Order with blank entries will not be processed.</h3>
 </div></div>
 `
 
@@ -541,10 +540,6 @@ function showCustomerForm() {
 
     }
 
-//document.getElementById("savecustomerbutton").disabled = 'true';
-
-
-
 
     //document.getElementById('main').append()
 }
@@ -600,12 +595,6 @@ function showCart() {
 
 
 function saveCustomerInfo() {
-
-    var inputs;
-inputs = document.getElementById("customer-catagory").value.length * document.getElementById("customer-rank").value.length *document.getElementById("customer-number").value.length * document.getElementById("customer-address").value.length
-console.log(inputs)
-if (inputs>0){
-
     //var customerForm = document.getElementById("customer-rank").value
     customerObject.Name = document.getElementById("customer-name").value
     customerObject.Rank = document.getElementById("customer-rank").value
@@ -642,8 +631,6 @@ if (inputs>0){
         document.getElementById('main').innerHTML += ` <button type="button" class="btn btn-danger" onclick="showCustomerForm()">Edit</button>`
     }
     return customerObject
-}
-
 }
 
 function customerJsonToHTML() {
@@ -1117,11 +1104,6 @@ function newjspdf() {
     //    pdf.line(x, y + fontsize / 2, pdf.canvas.width, y + fontsize / 2)
 
 
-    pdf.setFont('helvetica');
-    pdf.setFontType('normal');
-    pdf.setTextColor(120, 200, 255);
-    [pdf, y] = pdfjsHelper(pdf, x, y, 14, margin * 3, `Order with blank entries will not be processed.`, 1);
-    
     //hsl(140,240,149)
     //rgb(62,158,255)
 
@@ -1164,10 +1146,10 @@ function newjspdf() {
     [pdf, y] = pdfjsHelper(pdf, x, y, 20, margin * 3, `Alternative items : ${choice}`, 1);
     pdf.setFont('helvetica');
     pdf.setFontType('normal');
-    pdf.setTextColor(120, 200, 255);
-    [pdf, y] = pdfjsHelper(pdf, x, y, 14, margin * 3, `Email this PDF to orders@urctughlakabad.in`, 1);
-    [pdf, y] = pdfjsHelper(pdf, x, y, 14, margin * 3, `if email confirmation is not received on your email`, 1);
-    [pdf, y] = pdfjsHelper(pdf, x, y, 14, margin * 3, `or in case of delay`, 1);
+    pdf.setTextColor(100, 200, 255);
+    [pdf, y] = pdfjsHelper(pdf, x, y, 16, margin * 3, `Email this PDF to orders@urctughlakabad.in`, 1);
+    [pdf, y] = pdfjsHelper(pdf, x, y, 16, margin * 3, `if email confirmation is not received on your email`, 1);
+    [pdf, y] = pdfjsHelper(pdf, x, y, 16, margin * 3, `or in case of delay`, 1);
 
 
 

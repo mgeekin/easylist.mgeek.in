@@ -40,6 +40,7 @@
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
@@ -186,11 +187,9 @@ https://docs.google.com/spreadsheets/d/1If8fRluMKtbe_ZBTeRLHfukzVJpO9QkresTS7sD1
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
         </script>
-
-        
-
-    <!--<script src="js/googleSignin.js" async defer></script>-->
-    <script src="js/firebaseConf.js"  defer></script>
+    <script src="js/main.js"></script>
+    <script src="js/firebaseConf.js"></script>
+    <script src="js/googleSignin.js"></script>
 </body>
 
 </html>
