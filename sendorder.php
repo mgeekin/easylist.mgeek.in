@@ -22,20 +22,6 @@ $_POST=json_encode(json_decode($str));
 */
 $str_json = file_get_contents('php://input'); //($_POST doesn't work here)
 $email = json_decode($str_json, true); // decoding received JSON to array
-error_log(var_dump($email));
-
-//echo $_POST ;
-
-//$email = json_decode($_POST,TRUE);
-
-echo $email["To"].'<br />';
-error_log($email["To"]);
-echo $email["Subject"].'<br />';
-error_log($email["Subject"]);
-echo $email["Body"].'<br />';
-error_log($email["Body"]);
-
-
 
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
@@ -51,14 +37,11 @@ $to = $email["To"];
 $subject = $email["Subject"];
 $body = $email["Body"];
 
-echo $headers.'<br />';
-error_log($headers);
 
 
-echo 'running mail function';
+
+
 //send mail
  $response = mail($to, $subject, $body, $headers);
- echo 'stopping mail function';
-echo $response .'<br />';
-error_log($response);
+
 ?>

@@ -50,7 +50,7 @@
     </section>
 
 
-    <section id="userSection">
+    <section id="user">
 
         <div id="userLogin">
             <div class="center">
