@@ -23,14 +23,16 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         customerObject.user = { user }
         // User is signed in.
-        customerObject.Name = user.displayName;
-        customerObject.displayName = user.displayName;
         customerObject.Email = user.email;
         customerObject.ImageURL = user.photoURL;
 
-        if (customerObject.displayName === null) {
-            customerObject.displayName = customerObject.Email
-            customerObject.Name = customerObject.Email
+        if (user.name ==null ) {
+            var name =customerObject.Email.split("@")[0].toUpperCase();
+            customerObject.displayName = name
+            customerObject.Name = name;
+        }else{
+            customerObject.Name = user.name;
+            customerObject.displayName = user.displayName;
         }
         document.getElementById("welcome").style.display = "none"
         document.getElementById("user").style.display = "none"
@@ -78,7 +80,7 @@ function signin() {
         log.innerHTML = errorCode + '<br>' + errorMessage
         // ...
     });
-
+    user.name=null;
 }
 
 
