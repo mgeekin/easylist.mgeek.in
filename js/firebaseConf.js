@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             customerObject.Name = customerObject.Email
         }
         document.getElementById("welcome").style.display = "none"
-        document.getElementById("user").style.display = "none"
+        document.getElementById("userSection").style.display = "none"
         //document.getElementById("hiUser").innerHTML = `Hi ${customerObject.displayName}`
         document.getElementById("signout").style.display = "block"
         document.getElementById("welcome").classList.add('shrinkmargin')
@@ -47,7 +47,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // ...
         customerObject = {}
         document.getElementById("welcome").style.display = "block"
-        document.getElementById("user").style.display = "block"
+        document.getElementById("userSection").style.display = "block"
         //        document.getElementById("customer").style.display = "none"
         document.getElementById("main").innerHTML = ""
         document.getElementById("editUser").src = ""
