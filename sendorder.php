@@ -29,19 +29,42 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
 $headers .= 'From:'. $email["From"] . "\r\n";
-$headers .= 'Cc:' . $email["Cc"] . "\r\n";
-$headers .= 'Bcc:' . $email["Bcc"] . "\r\n";
+//$headers .= 'Cc:' . $email["Cc"] . "\r\n";
+//$headers .= 'Bcc:' . $email["Bcc"] . "\r\n";
 $headers .= 'Reply-To:' . $email["ReplyTo"] . "\r\n";
 //Email variables
 $to = $email["To"];
 $subject = $email["Subject"];
 $body = $email["Body"];
+$whatsappButton = $email.["WhatsappButton"];
+
+
+//send mail to Customer
+ $response = mail($to, "Order acknowledgement:" . $subject, "<h2>Thanks for your order. We will communicate when your order is ready for pickup.</h2><br />" . $body . $whatsappButton, $headers);
 
 
 
 
 
-//send mail
- $response = mail($to, $subject, $body, $headers);
+
+
+//new header
+
+// Always set content-type when sending HTML email
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+// More headers
+$headers .= 'From:'. 'orders@urctughlakabad.in' . "\r\n";
+//$headers .= 'Cc:' . $email["Cc"] . "\r\n";
+//$headers .= 'Bcc:' . $email["Bcc"] . "\r\n";
+$headers .= 'Reply-To:' . $email["To"] . "\r\n";
+
+
+
+ //send mail to orders
+ $to = $email["ReplyTo"];
+ $response2 = mail($to, 'New order ' . $subject, $body, $headers);
+
 
 ?>

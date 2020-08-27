@@ -528,7 +528,7 @@ function showCustomerForm() {
 
     if (user) {
         document.getElementById("customer-image").src = `${customerObject.ImageURL}`
-        document.getElementById("customer-name").value = customerObject.Name
+        document.getElementById("customer-name").value = customerObject.Name.split('@')[0];
         document.getElementById("customer-email").value = customerObject.Email
     }
 
@@ -611,6 +611,7 @@ if (inputs>0){
     customerObject.Rank = document.getElementById("customer-rank").value
     customerObject.Number = document.getElementById("customer-number").value
     customerObject.Whatsapp = document.getElementById("customer-whatsapp").value
+    customerObject.WhatsappLink=`https://wa.me/91${customerObject.Whatsapp}?text=*Delivery%20Schedule*%20%0a*_Date:_*%20%0a*_Token%20No.:_*%20%0a`;
     customerObject.Catagory = document.getElementById("customer-catagory").value
     customerObject.Email = document.getElementById("customer-email").value
     customerObject.Address = document.getElementById("customer-address").value
@@ -688,7 +689,7 @@ function customerJsonToHTML() {
         Whatsapp
       </td>
       <td>
-        ${customerObject.Whatsapp}
+        <a href="${customerObject.WhatsappLink}">${customerObject.Whatsapp}</a>
       </td>
     </tr>
         <tr>
@@ -821,7 +822,7 @@ function getEmailBody() {
 </head>
 <body>
     <div class="row">
-        <h2> Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}
+        <h2> From: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}
         </h2>
         <div class="container">
             <h2>
@@ -927,14 +928,37 @@ function sendToGoogleSheet(encDataStr) {
 function sendEmail() {
 
     console.log('sendEmail');
+    
+    emailObject.WhatsappLink=`${customerObject.WhatsappLink}%20%0a*Total:${cartObject.Total}*`;        
+    emailObject.WhatsappButton = `<br /> <button style="border-radius:5px;padding:7px;color:white;background-color:#1EBEA5"> <a href="${emailObject.WhatsappLink}"> Click here to reply customer via whatsapp </a></button>
+    <br />
+    <a href="${emailObject.WhatsappLink}"> Click here to reply customer via whatsapp </a>
+    `;
+
+
 
 
     [pdf, pdfBlob, pdfURL, pdfURI] = newjspdf();
 console.log('pdf generated');
     if(document.getElementById("exampleRadios1").checked===true){console.log('YES');var choice= "YES"}else{console.log('No');var choice="NO"}
     var emailText = getEmailBody();
-    var emailBody = `${emailText} <br> <div><h2> Alternative items : ${choice}</h2><br> <br> <br> <br> <br> <br> <br> <br> <br> 
-    <button type="button" class="btn btn-primary"><a href="${pdfURI}">
+    var emailBody = `${emailText} <br />
+    <span style="color:red;">The prices of items and total will be scrutinized at the time of delivery. Try to place a fresh order in case of any discrepancy"</span>
+    <div><h2> Alternative items : ${choice}</h2>
+    <br />  <br />
+    
+    copy the code below and paste in address bar to download PDF
+
+
+   <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:1px; border:2px solid black">
+   ${pdfURI}
+   </p>
+
+   <br />
+   `
+
+  /*
+  <button type="button" class="btn btn-primary"><a href="${pdfURI}">
     Downnload PDF 
     </a>
     </button>
@@ -954,24 +978,17 @@ console.log('pdf generated');
     Check the download file in your download folder.
     </li>
     </ul>
-    copy the code below and paste in address bar to download PDF
-    <br>
+        <br>
     <div ><img  src="http://easylist.mgeek.in/image/help/Instructions.gif" style="filter: brightness(.9) contrast(0.92) hue-rotate(120deg) saturate(1.19) ; background: rgba(2, 40, 231, 0.4);max-width:800px; width:80%; padding:5px;border-radius: 10px;
     mix-blend-mode: screen"></div>
     <br> 
-
-   <p style="background-color:grey;color:hsl(234, 78%, 20%);padding:40px;border-radius:20px;font-size:3px; border:2px solid black">
-   ${pdfURI}
-   </p>
-   `
-
-  
+  */ 
 
 
-    var emailObject={};
+    
     emailObject.To=customerObject.Email;
     emailObject.Subject=`Easylist order from: ${customerObject.Name}, mob: ${customerObject.Number}, Total: INR ${cartObject.Total}`;
-    emailObject.Body= emailBody;
+    emailObject.Body= `${emailBody} <br /> <a href="${emailObject.WhatsappLink}"> Reply via whatsapp </a>`;
     emailObject.From= `orderConfirmation@urcTughlakabad.in`;
     emailObject.Bcc=``;
     //emailObject.Bcc=`easylist.mgeek.in@gmail.com`;
@@ -992,10 +1009,15 @@ console.log('pdf generated');
     xhr.setRequestHeader("Content-type", "application/json")
     xhr.send(JSON.stringify(E));
 
-
+    document.getElementById("orderStatusEmail").innerHTML = "mail sent successfully"
+    document.getElementById("orderStatusEmail").classList.add('btn-success')
+    document.getElementById("orderStatusEmail").disabled = true
 
 //smtp js
-console.log(emailObject);
+//console.log(emailObject);
+
+//SMTPJS mailer
+/*
     Email.send({
         Host: "smtp.gmail.com",
         Username: "easylist.mgeek.in@gmail.com",
@@ -1023,7 +1045,7 @@ console.log(emailObject);
         document.getElementById("orderStatusEmail").disabled = true
         })
     })
-
+*/
 
 
 
@@ -1169,6 +1191,12 @@ function newjspdf() {
     [pdf, y] = pdfjsHelper(pdf, x, y, 14, margin * 3, `if email confirmation is not received on your email`, 1);
     [pdf, y] = pdfjsHelper(pdf, x, y, 14, margin * 3, `or in case of delay`, 1);
 
+    pdf.setFont('helvetica');
+    pdf.setFontType('normal');
+    pdf.setTextColor(150, 0, 0);
+    [pdf, y] = pdfjsHelper(pdf, x, y, 8, margin * 3, `The prices of items and total will be scrutinized at the time of delivery. Try to place a fresh order in case of any discrepancy`, 1);
+
+    
 
 
 
