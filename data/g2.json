@@ -1,1652 +1,1337 @@
 [
- {
-   "IndexNo": 8033,
-   "Name": "Room Freshner Prrm Sandal 125",
-   "Rate": 73.48
- },
- {
-   "IndexNo": 13029,
-   "Name": "Room Vanesa W/Garden 300 Ml",
-   "Rate": 72.95
- },
- {
-   "IndexNo": 13031,
-   "Name": "Wondermist Air Freshner 100 Gm",
-   "Rate": 20.61
- },
- {
-   "IndexNo": 13037,
-   "Name": "P&G Ambipur Caraqua ATC3 7Ml",
-   "Rate": 156.42
- },
- {
-   "IndexNo": 13038,
-   "Name": "P&G Ambipur Car Refill",
-   "Rate": 107.86
- },
- {
-   "IndexNo": 13039,
-   "Name": "Rroom Freshner air Rose 275 Ml",
-   "Rate": 70.04
- },
- {
-   "IndexNo": 13046,
-   "Name": "Air Freshner Odonil Gel 75 Gm Mix Prfm",
-   "Rate": 47.02
- },
- {
-   "IndexNo": 13048,
-   "Name": "Air Freshner Vijohn  Soul 125 Gm",
-   "Rate": 79.7
- },
- {
-   "IndexNo": 13051,
-   "Name": "Godrej Car Freh Gel Assort45G",
-   "Rate": 237.97
- },
- {
-   "IndexNo": 13059,
-   "Name": "Agarbatti Diwali Mangal 40 Gm",
-   "Rate": 18.15
- },
- {
-   "IndexNo": 13066,
-   "Name": "Sangam Rose Agarbatti 100 Stick",
-   "Rate": 49.14
- },
- {
-   "IndexNo": 13067,
-   "Name": "Sangam P.Dhoop Cones 30 Cones",
-   "Rate": 24.74
- },
- {
-   "IndexNo": 13069,
-   "Name": "Dhoop Haridarshan Alouk 20 Stk",
-   "Rate": 8.05
- },
- {
-   "IndexNo": 13072,
-   "Name": "Agarbatti Basant Ke Phool",
-   "Rate": 8.77
- },
- {
-   "IndexNo": 13075,
-   "Name": "Agarbatti Sai Jyoti ",
-   "Rate": 12.45
- },
- {
-   "IndexNo": 13076,
-   "Name": "Agarbatti Sai Adore",
-   "Rate": 15.94
- },
- {
-   "IndexNo": 13078,
-   "Name": "Agarbatti Sangam Sandalwood Hexa",
-   "Rate": 14.48
- },
- {
-   "IndexNo": 13079,
-   "Name": "Agarbatti Shiv Gulab",
-   "Rate": 9.83
- },
- {
-   "IndexNo": 13094,
-   "Name": "Agarbatti Onam Sandal",
-   "Rate": 35.55
- },
- {
-   "IndexNo": 13100,
-   "Name": "Agarbatti Morning Glory Rct 105 Gm RS60",
-   "Rate": 41.69
- },
- {
-   "IndexNo": 13109,
-   "Name": "Agarbatti Glory 30 Gms",
-   "Rate": 11.08
- },
- {
-   "IndexNo": 13110,
-   "Name": "Agarbatti Charmis",
-   "Rate": 11.08
- },
- {
-   "IndexNo": 13115,
-   "Name": "Agarbatti Haridarshan 20 s",
-   "Rate": 11.36
- },
- {
-   "IndexNo": 13119,
-   "Name": "Agarbatti ES Sandal 100 Gm",
-   "Rate": 34.63
- },
- {
-   "IndexNo": 13120,
-   "Name": "Agarbatti Dhoop 4 in 1 16 Sticks",
-   "Rate": 13.69
- },
- {
-   "IndexNo": 13122,
-   "Name": "Dhoop Haridarshan DLX 16 Stx",
-   "Rate": 10.64
- },
- {
-   "IndexNo": 13123,
-   "Name": "Gugal Haridarshan Dhoop 16 Stic",
-   "Rate": 10.64
- },
- {
-   "IndexNo": 13132,
-   "Name": "Agarbatti Onam 3 Frg 100 St",
-   "Rate": 39.48
- },
- {
-   "IndexNo": 13144,
-   "Name": "Dhoop Bhajan Mahindra 4 in 1",
-   "Rate": 33.1
- },
- {
-   "IndexNo": 13145,
-   "Name": "Dhoop Mahindra",
-   "Rate": 51.98
- },
- {
-   "IndexNo": 13154,
-   "Name": "Agarbatti Sandalwood Tulsi 20 S",
-   "Rate": 9.29
- },
- {
-   "IndexNo": 13157,
-   "Name": "Agarbatti Mansa Devi 20 Stick",
-   "Rate": 16.31
- },
- {
-   "IndexNo": 13163,
-   "Name": "Agarbatti Aditya Pranam 95 Gm",
-   "Rate": 37.6
- },
- {
-   "IndexNo": 13164,
-   "Name": "Agarbatti Sandalwood 30 Gm",
-   "Rate": 13.67
- },
- {
-   "IndexNo": 13181,
-   "Name": "PRESSURE COOKER BAJAJ INER LID PCX3",
-   "Rate": 724.38
- },
- {
-   "IndexNo": 13186,
-   "Name": "PRESSURE COOKER HAWKINS 3 L",
-   "Rate": 1743.8
- },
- {
-   "IndexNo": 13189,
-   "Name": "PRESSURE COOKER SUPER FLAME 3L",
-   "Rate": 826.72
- },
- {
-   "IndexNo": 13203,
-   "Name": "PRESSURE COOKER HANDI BAJAJ 3L",
-   "Rate": 1009.01
- },
- {
-   "IndexNo": 13204,
-   "Name": "PRESSURE COOKER HANDI BAJAJ 5L",
-   "Rate": 1539.73
- },
- {
-   "IndexNo": 14008,
-   "Name": "PRESSURE COOKER SUNFLAME 3L ",
-   "Rate": 718.41
- },
- {
-   "IndexNo": 14009,
-   "Name": "PRESSURE COOKER SUNFLAME  5L ",
-   "Rate": 936.94
- },
- {
-   "IndexNo": 14010,
-   "Name": "PRESSURE COOKER SUNFLAME  5 L OUTER LID",
-   "Rate": 1091.99
- },
- {
-   "IndexNo": 14016,
-   "Name": "PRESSURE COOKER USHA INNER LID 2L",
-   "Rate": 689.96
- },
- {
-   "IndexNo": 14018,
-   "Name": "PRESSURE COOKER USHA INNER LID 4L",
-   "Rate": 1064.47
- },
- {
-   "IndexNo": 14021,
-   "Name": "PRESSURE COOKER HAWKINS 3.5L HANDI",
-   "Rate": 1304.06
- },
- {
-   "IndexNo": 14022,
-   "Name": "PRESSURE COOKER PRESTIGE 3L OUTER LID",
-   "Rate": 1400.93
- },
- {
-   "IndexNo": 14025,
-   "Name": "Nirlon Steel Lemon Squeejer W/Ope",
-   "Rate": 135.57
- },
- {
-   "IndexNo": 14030,
-   "Name": "ROTIMAKER SUNFLAME ",
-   "Rate": 1496.45
- },
- {
-   "IndexNo": 14031,
-   "Name": "ROTI MAKER RICO ",
-   "Rate": 1653.76
- },
- {
-   "IndexNo": 14036,
-   "Name": "PRESSURE COOKER 5L SUNFLAME HANDI ",
-   "Rate": 944.62
- },
- {
-   "IndexNo": 14037,
-   "Name": "PRESSURE COOKER PRESTIGE 2L COLOUR",
-   "Rate": 1046.3
- },
- {
-   "IndexNo": 14038,
-   "Name": "PRESSURE COOKER PRESTIGE 3L COLOUR",
-   "Rate": 1174.54
- },
- {
-   "IndexNo": 14051,
-   "Name": "PRESSURE COOKER HAWKINS 5L STEEL",
-   "Rate": 2314.37
- },
- {
-   "IndexNo": 14059,
-   "Name": "PRESSURE COOKER CANTURA 5L",
-   "Rate": 1242.97
- },
- {
-   "IndexNo": 14060,
-   "Name": "PRESSURE COOKER HAWKINS FUTURA 3L BLACK",
-   "Rate": 2079.16
- },
- {
-   "IndexNo": 14061,
-   "Name": "PRESSURE COOKER FUTURA HAWKINS 5L BLACK",
-   "Rate": 2550.28
- },
- {
-   "IndexNo": 14068,
-   "Name": "P/C HAWKING 6.5 LTR",
-   "Rate": 1248.92
- },
- {
-   "IndexNo": 14086,
-   "Name": "ELECTRIC RICE COOKER PANACONIC SRY",
-   "Rate": 2081.67
- },
- {
-   "IndexNo": 14097,
-   "Name": "PRESSURE COOKER PRESTIGE 5 L HANDI",
-   "Rate": 1392.76
- },
- {
-   "IndexNo": 14098,
-   "Name": "PRESSURE COOKER PRESTIGE 3L OUTER LID",
-   "Rate": 994.51
- },
- {
-   "IndexNo": 14099,
-   "Name": "PRESSURE COOKER PRESTIGE 5L OUTER LID",
-   "Rate": 1354.11
- },
- {
-   "IndexNo": 14108,
-   "Name": "PRSSURE COOKER PRESTIGE 5L NAKSHATRA RE (COLOUR) ",
-   "Rate": 1554.2
- },
- {
-   "IndexNo": 14109,
-   "Name": "PRSSURE COOKER PRESTIGE 2L NAKSHATRA SW (COLOUR)",
-   "Rate": 1145.22
- },
- {
-   "IndexNo": 14110,
-   "Name": "PRSSURE COOKER PESTIGE 3L NAKSHTRA SW",
-   "Rate": 1341.42
- },
- {
-   "IndexNo": 14112,
-   "Name": "PRESSURE COOKER PRESTIGE 5 LTR  BLK",
-   "Rate": 1761.67
- },
- {
-   "IndexNo": 14115,
-   "Name": "RICE COOKER RICCO ELECTRIC ",
-   "Rate": 1675.42
- },
- {
-   "IndexNo": 14119,
-   "Name": "RICE COOKER PANASONIC",
-   "Rate": 1401.75
- },
- {
-   "IndexNo": 14125,
-   "Name": "Stainless Steel Idli Stand 4Pl*4 Cup",
-   "Rate": 355.87
- },
- {
-   "IndexNo": 14966,
-   "Name": "Cello Relish Luch Pack",
-   "Rate": 488.5
- },
- {
-   "IndexNo": 14970,
-   "Name": "Tiffin Carr 3 Magma Carry Hot S/",
-   "Rate": 512.74
- },
- {
-   "IndexNo": 14971,
-   "Name": "Tiffin Magma Hot 4 S/S Insulat",
-   "Rate": 621.34
- },
- {
-   "IndexNo": 14971,
-   "Name": "TIFFIN MAGMA HOT 4 STAINLES STEEL INSUL",
-   "Rate": 621.34
- },
- {
-   "IndexNo": 14972,
-   "Name": "Magma Muffins Elgnt 1 L S/S Hotp",
-   "Rate": 270.27
- },
- {
-   "IndexNo": 14973,
-   "Name": "Magma Hotpearl S/S Hotpot 3 Pcs",
-   "Rate": 1552.89
- },
- {
-   "IndexNo": 14974,
-   "Name": "Magma Muffin Elegant S/S Hot  P",
-   "Rate": 1123.84
- },
- {
-   "IndexNo": 14974,
-   "Name": "CAS ROLL MAGMA MUFFIN ELEGANT S/STEEL 5000 ML",
-   "Rate": 1123.84
- },
- {
-   "IndexNo": 14975,
-   "Name": "Cass Magma Hot Pearl",
-   "Rate": 321.9
- },
- {
-   "IndexNo": 14975,
-   "Name": "CAS ROLL MAGMA HOT PEARL 1000 ML",
-   "Rate": 321.9
- },
- {
-   "IndexNo": 14978,
-   "Name": "Magma Muffins Elegant 3500",
-   "Rate": 700.35
- },
- {
-   "IndexNo": 14979,
-   "Name": "Cas Magma Muffins 2500 Ml",
-   "Rate": 437.03
- },
- {
-   "IndexNo": 14988,
-   "Name": "Cello Lunchpack 4 Container",
-   "Rate": 424.62
- },
- {
-   "IndexNo": 15006,
-   "Name": "WONDERCHEIF SET CASEROL WITH LID 03PCS SET",
-   "Rate": 2104.2
- },
- {
-   "IndexNo": 15014,
-   "Name": "Tiffin Farmaland 4 Star",
-   "Rate": 354.28
- },
- {
-   "IndexNo": 15015,
-   "Name": "TIFFIN HOT CAKE T4 BHARAT S/STEEL",
-   "Rate": 624.31
- },
- {
-   "IndexNo": 15016,
-   "Name": "TIFFIN BAHRAT T-5 S/STEEL",
-   "Rate": 770.58
- },
- {
-   "IndexNo": 15019,
-   "Name": "GIFT SET BHARAT HON&HOT 3 PCS CASROLL",
-   "Rate": 604.53
- },
- {
-   "IndexNo": 15049,
-   "Name": "V/F CELLO S/S 500 DOUB WALL",
-   "Rate": 375.2
- },
- {
-   "IndexNo": 15050,
-   "Name": "V/F CELLO S/S  1 LTR DOUB WALL",
-   "Rate": 570.77
- },
- {
-   "IndexNo": 15128,
-   "Name": "Casroll Glamour S/S 1500 Ml",
-   "Rate": 295.77
- },
- {
-   "IndexNo": 15129,
-   "Name": "Casroll Glamour S/S 2500 Ml",
-   "Rate": 415.1
- },
- {
-   "IndexNo": 15130,
-   "Name": "CAS ROLL GLAMOUR S/STEEL 03 PCS",
-   "Rate": 907.2
- },
- {
-   "IndexNo": 17013,
-   "Name": "BOROSIL GLASS CUT WORK 340 ML",
-   "Rate": 294.97
- },
- {
-   "IndexNo": 17015,
-   "Name": "BOROSIL GLASS VISION LARGE",
-   "Rate": 236.26
- },
- {
-   "IndexNo": 17016,
-   "Name": "BOROSIL GLASS VISION MEDIUM",
-   "Rate": 211.49
- },
- {
-   "IndexNo": 17017,
-   "Name": "BOROSIL GLASS VISION SQUAR",
-   "Rate": 197.4
- },
- {
-   "IndexNo": 17030,
-   "Name": "BOROSIL STORE RECTANGE BOWL 640 ML",
-   "Rate": 256.73
- },
- {
-   "IndexNo": 17032,
-   "Name": "BOROSIL STORE SQUARE BOWL 320 ML",
-   "Rate": 179.75
- },
- {
-   "IndexNo": 17033,
-   "Name": "BOROSIL KIP STORE SQUARE BOWL 520 M",
-   "Rate": 225.21
- },
- {
-   "IndexNo": 17038,
-   "Name": "BOROSIL ROUND 400ML KLIP STORE BOWL",
-   "Rate": 192.53
- },
- {
-   "IndexNo": 17049,
-   "Name": "BOROSIL KLIP STORE BOWL 620 ML",
-   "Rate": 240.3
- },
- {
-   "IndexNo": 18021,
-   "Name": "INDUCTION COOKER RICCO",
-   "Rate": 1956.31
- },
- {
-   "IndexNo": 18022,
-   "Name": "INDUCTION PRESTIGE COOKTOP 1.0",
-   "Rate": 2177.69
- },
- {
-   "IndexNo": 18023,
-   "Name": "INDUCTION PRESTIGE COOKTOP 2.0",
-   "Rate": 3065.75
- },
- {
-   "IndexNo": 18029,
-   "Name": "INDUCTION SUNFLAME SFIC 02",
-   "Rate": 2546.13
- },
- {
-   "IndexNo": 18031,
-   "Name": "INDUCTION CKR SUMMER COOL",
-   "Rate": 2421.09
- },
- {
-   "IndexNo": 18033,
-   "Name": "IND CKR PHILIPS HD4928",
-   "Rate": 3202.29
- },
- {
-   "IndexNo": 18045,
-   "Name": "CAS ROLL  BHARAT TROPICANA 2500",
-   "Rate": 372.69
- },
- {
-   "IndexNo": 18046,
-   "Name": "CAS ROLL TROPICANA 2000ML",
-   "Rate": 278.73
- },
- {
-   "IndexNo": 18051,
-   "Name": "CAS ROLL FLORA S/STEEL GLAMOR 1000",
-   "Rate": 272.73
- },
- {
-   "IndexNo": 18052,
-   "Name": "CAS ROLL S/STEEL GLAMOR 3500",
-   "Rate": 638.42
- },
- {
-   "IndexNo": 18057,
-   "Name": "CAS ROLL S/S 750 ML MAGMA MUFFIN",
-   "Rate": 1362.23
- },
- {
-   "IndexNo": 18086,
-   "Name": "TAWA FLAT HAWKINS FUTURA",
-   "Rate": 882.83
- },
- {
-   "IndexNo": 18106,
-   "Name": "TAWA GLAMOR B/HARD ANODISED 2",
-   "Rate": 481.57
- },
- {
-   "IndexNo": 18110,
-   "Name": "NIRLEP ASPA N/STICK 04 PCS GIFT SET",
-   "Rate": 981.66
- },
- {
-   "IndexNo": 18141,
-   "Name": "GAS STOVE PRESTIGE GLASS TOP  2 BURNER",
-   "Rate": 3765.25
- },
- {
-   "IndexNo": 18147,
-   "Name": "GAS STOVE SUNFLAME AUTO IGNITION SPECT 02 BURNER",
-   "Rate": 1962.6
- },
- {
-   "IndexNo": 18158,
-   "Name": "GAS STOVE SUPER FLAME GLASS TOP 2 BURNER",
-   "Rate": 2526.13
- },
- {
-   "IndexNo": 18183,
-   "Name": "GAS STOVE SUNFLAME STEEL 3 BNR",
-   "Rate": 2192.47
- },
- {
-   "IndexNo": 18184,
-   "Name": "GAS STOVE SUNFLAME GLASS TOP 3 BNR",
-   "Rate": 3944.64
- },
- {
-   "IndexNo": 18190,
-   "Name": "GAS STOVE SUNFLAME SUPER STAR STEEL 2 BNR",
-   "Rate": 1417.59
- },
- {
-   "IndexNo": 18195,
-   "Name": "Elec Gas Lighter Scegl 102",
-   "Rate": 86.92
- },
- {
-   "IndexNo": 18198,
-   "Name": "Elect Gas Lighter Lkmplr 105",
-   "Rate": 100.17
- },
- {
-   "IndexNo": 18199,
-   "Name": "GAS STOVE SUNFLAME REGENT GLASS TOP 2BNR ",
-   "Rate": 2251.13
- },
- {
-   "IndexNo": 18200,
-   "Name": "Gas Lighter Vimal",
-   "Rate": 91.23
- },
- {
-   "IndexNo": 18205,
-   "Name": "Gaslighter Suraj S/Steel Body",
-   "Rate": 69.83
- },
- {
-   "IndexNo": 18212,
-   "Name": "GAS STOVE SUPER FLAME GLASS TOP 4 BNR",
-   "Rate": 4764.29
- },
- {
-   "IndexNo": 18214,
-   "Name": "GAS STOVE PRESTIGE GLASS TOP  4 BURNER",
-   "Rate": 4595.57
- },
- {
-   "IndexNo": 18215,
-   "Name": "GAS STOVE PRESTIGE GLASS TOP 3 BRNR",
-   "Rate": 3917.32
- },
- {
-   "IndexNo": 18216,
-   "Name": "GAS STOVE INALSA COOKTOP 2 BURNER",
-   "Rate": 1597.23
- },
- {
-   "IndexNo": 18231,
-   "Name": "GAS STOVE INALSA GLASS TOP 3 BURNER",
-   "Rate": 3863.87
- },
- {
-   "IndexNo": 18239,
-   "Name": "GAS STOVE GLEN GLASS TOP 2 BURNER",
-   "Rate": 2448.6
- },
- {
-   "IndexNo": 18262,
-   "Name": "FRYPAN FUTURA HAWKINS",
-   "Rate": 524.36
- },
- {
-   "IndexNo": 18268,
-   "Name": "TAWA CONCAVE HAWKINS FUTURA",
-   "Rate": 562.82
- },
- {
-   "IndexNo": 18269,
-   "Name": "KADAI HAWKINS FUTURA",
-   "Rate": 1247.64
- },
- {
-   "IndexNo": 18270,
-   "Name": "STEEM POT GLIDE HAWKINS FUTURA",
-   "Rate": 1047.77
- },
- {
-   "IndexNo": 18274,
-   "Name": "KADAI NIRLON INDUCTION NR 48444",
-   "Rate": 877.44
- },
- {
-   "IndexNo": 18275,
-   "Name": "PRESTIGE NON STICK 03 P SET INDUCTION BASE",
-   "Rate": 2116.81
- },
- {
-   "IndexNo": 18277,
-   "Name": "INDUCTION KADAI 240 MM",
-   "Rate": 554.48
- },
- {
-   "IndexNo": 18285,
-   "Name": "TAWA DOSA HAWKINS 28 CM",
-   "Rate": 820.04
- },
- {
-   "IndexNo": 18290,
-   "Name": "SAUSPAN GLAMOR ANODISED",
-   "Rate": 382.76
- },
- {
-   "IndexNo": 18291,
-   "Name": "Glamor Har Anodised Vaghakia",
-   "Rate": 178.9
- },
- {
-   "IndexNo": 18291,
-   "Name": "GLAMOR HARD ANODISED 11",
-   "Rate": 178.9
- },
- {
-   "IndexNo": 18297,
-   "Name": "NIRLON COOKWARE SET 3 PCS",
-   "Rate": 2186.47
- },
- {
-   "IndexNo": 18298,
-   "Name": "TAWA DOSA SUN FLAME NONSTICK 250 MM",
-   "Rate": 454
- },
- {
-   "IndexNo": 18299,
-   "Name": "SAUSPAN HARD 1.75 LTR INDUCTION BASE",
-   "Rate": 579.2
- },
- {
-   "IndexNo": 18300,
-   "Name": "TAWA SUN FLAME HARD ANODISED 250 MM",
-   "Rate": 506.69
- },
- {
-   "IndexNo": 18304,
-   "Name": "MAGNUM PAN HARD ANODISED ",
-   "Rate": 625.86
- },
- {
-   "IndexNo": 18305,
-   "Name": "KADAI PRESTIGE GRANITE 240 MM",
-   "Rate": 1008.54
- },
- {
-   "IndexNo": 18306,
-   "Name": "WONDERCHEF SET FRY PAN TAWA",
-   "Rate": 1462.88
- },
- {
-   "IndexNo": 18321,
-   "Name": "Gas Trolley Lpq Easyroll",
-   "Rate": 194.53
- },
- {
-   "IndexNo": 18322,
-   "Name": "CHOPPER INALSA EASY CHOP",
-   "Rate": 935.78
- },
- {
-   "IndexNo": 18360,
-   "Name": "WONDERCHEF SET FRYPAN WOK TAWA",
-   "Rate": 1959.97
- },
- {
-   "IndexNo": 18395,
-   "Name": "FRYPAN SUNFLAME HARD ANODISED 240 MM",
-   "Rate": 471.86
- },
- {
-   "IndexNo": 18396,
-   "Name": "SUNFLAME KADAI DEEP 3.10 LTR",
-   "Rate": 809.09
- },
- {
-   "IndexNo": 18397,
-   "Name": "SUNFLAME INDUCTION C/WARE SET",
-   "Rate": 1475.96
- },
- {
-   "IndexNo": 18416,
-   "Name": "Suraj B S/St Coconut S/D Vacu",
-   "Rate": 156.64
- },
- {
-   "IndexNo": 18422,
-   "Name": "Kitchen Press Suraj S/Steel",
-   "Rate": 277.89
- },
- {
-   "IndexNo": 18429,
-   "Name": "Suraj Brand 6 in 1 Vegetable S",
-   "Rate": 119.84
- },
- {
-   "IndexNo": 18476,
-   "Name": "Knife 10",
-   "Rate": 47.47
- },
- {
-   "IndexNo": 18487,
-   "Name": "SAREGAMA CARVAAN MUSIC PLAYER",
-   "Rate": 4871.94
- },
- {
-   "IndexNo": 18492,
-   "Name": "Toyo S/S Atta Channi Grain",
-   "Rate": 347
- },
- {
-   "IndexNo": 18494,
-   "Name": "Toyo S/S Veg & Coco Chip",
-   "Rate": 157.74
- },
- {
-   "IndexNo": 18496,
-   "Name": "Vimal S/S Knife 3 Pcs",
-   "Rate": 131.82
- },
- {
-   "IndexNo": 18510,
-   "Name": "HAVELS LED ADORE 7W LAMPS",
-   "Rate": 80.67
- },
- {
-   "IndexNo": 18526,
-   "Name": "LED SYSKA 22 WATT 6500K",
-   "Rate": 676.21
- },
- {
-   "IndexNo": 18564,
-   "Name": "Aluminium Foil Alfa Yellow",
-   "Rate": 45.54
- },
- {
-   "IndexNo": 18565,
-   "Name": "Alumunium Foil 9 Mtr",
-   "Rate": 38.45
- },
- {
-   "IndexNo": 18569,
-   "Name": "Sealnfresh Alumunium Foil 300*",
-   "Rate": 42.51
- },
- {
-   "IndexNo": 18574,
-   "Name": "Pam Alumunium Foil 9 Mtr",
-   "Rate": 47.09
- },
- {
-   "IndexNo": 18575,
-   "Name": "Pam Alumunium Foil 21 Mtr",
-   "Rate": 108.69
- },
- {
-   "IndexNo": 18577,
-   "Name": "Alumuniumfoilqutkwrap 25 Mtr",
-   "Rate": 138.85
- },
- {
-   "IndexNo": 18581,
-   "Name": "Kushal C/Wrap Foil 18 Mtr",
-   "Rate": 104.81
- },
- {
-   "IndexNo": 18582,
-   "Name": "Kusal Wrap Foil 18M Alumunium",
-   "Rate": 100.08
- },
- {
-   "IndexNo": 20910,
-   "Name": "CEILING FAN HAVELS FUSION BEIGE BROWN",
-   "Rate": 1975.37
- },
- {
-   "IndexNo": 20911,
-   "Name": "CEILING FAN HAVELS NICOLA BRONZE 48 (in)",
-   "Rate": 2062.43
- },
- {
-   "IndexNo": 20912,
-   "Name": "CEILING FAN HAVELS MET PEARL IVORY SS3",
-   "Rate": 1656.29
- },
- {
-   "IndexNo": 20913,
-   "Name": "CEILING FAN SURYA 1200 MM WHITE",
-   "Rate": 1070.33
- },
- {
-   "IndexNo": 20940,
-   "Name": "CEILING FAN RICCO 1200 MM",
-   "Rate": 1508.77
- },
- {
-   "IndexNo": 20941,
-   "Name": "CEILING FAN RICCO ORIC 1200 MM",
-   "Rate": 1642.24
- },
- {
-   "IndexNo": 20942,
-   "Name": "CEILING FAN INALSA 48 (in)",
-   "Rate": 1328.99
- },
- {
-   "IndexNo": 20958,
-   "Name": "CEILING FAN SUNFLAME 48 (in)",
-   "Rate": 1313.52
- },
- {
-   "IndexNo": 20959,
-   "Name": "CEILING FAN SUNFLAME 56 (in)",
-   "Rate": 1412.03
- },
- {
-   "IndexNo": 20960,
-   "Name": "CEILING FAN SUNFLAME SWIFT 48 (in)",
-   "Rate": 1412.03
- },
- {
-   "IndexNo": 20961,
-   "Name": "SINGER LED FAN REMOTE",
-   "Rate": 3254.21
- },
- {
-   "IndexNo": 20978,
-   "Name": "CEILING FAN BAJAJ SUPER BROWN 48 (in)",
-   "Rate": 1375.54
- },
- {
-   "IndexNo": 20994,
-   "Name": "CEILING FAN CROMPTON AURA 1400 MM IVORY",
-   "Rate": 1412.21
- },
- {
-   "IndexNo": 20996,
-   "Name": "CEILING FAN SURYA BREEZO 1200 MM",
-   "Rate": 1283.09
- },
- {
-   "IndexNo": 21043,
-   "Name": "PERDESTRAL FAN CROMTON GREAVES",
-   "Rate": 1535.86
- },
- {
-   "IndexNo": 21045,
-   "Name": "TABLE FAN ORIENT DLX SUPREME 400MM",
-   "Rate": 1238.95
- },
- {
-   "IndexNo": 21062,
-   "Name": "VENTILATION FAN 150 MM",
-   "Rate": 944.15
- },
- {
-   "IndexNo": 21065,
-   "Name": "T/FAN BAJAJ 16",
-   "Rate": 1485.86
- },
- {
-   "IndexNo": 21070,
-   "Name": "PADESTRAL FAN SUMMERCOOK FARRATA",
-   "Rate": 2363.21
- },
- {
-   "IndexNo": 21071,
-   "Name": "EXHAUST FAN SUMMERCOOL 225 MM",
-   "Rate": 987.29
- },
- {
-   "IndexNo": 21072,
-   "Name": "SUPERFLAME EXHAUST FAN 200 MM",
-   "Rate": 1070.94
- },
- {
-   "IndexNo": 21076,
-   "Name": "CEILING FAN ORIENT IVORY 1200 MM",
-   "Rate": 1295.56
- },
- {
-   "IndexNo": 21097,
-   "Name": "WALL FAN BAJAJ",
-   "Rate": 1413.67
- },
- {
-   "IndexNo": 21104,
-   "Name": "JUICER MIXER GRINDER SUNFLAME",
-   "Rate": 2923.22
- },
- {
-   "IndexNo": 21117,
-   "Name": "JUICER MIXER GRINDER PHILIPS HL",
-   "Rate": 2756.99
- },
- {
-   "IndexNo": 21120,
-   "Name": "GOPI GRINDER & LIQUIDIZER SM",
-   "Rate": 1878.61
- },
- {
-   "IndexNo": 21122,
-   "Name": "JUICER MIXER GRINDER BAJAJ JARS",
-   "Rate": 2588.31
- },
- {
-   "IndexNo": 21125,
-   "Name": "HAND BLENDER RICCOO C/A & JUICER",
-   "Rate": 1216.62
- },
- {
-   "IndexNo": 21126,
-   "Name": "MIXER GRINDER RICCO 650 W 828",
-   "Rate": 3079.37
- },
- {
-   "IndexNo": 21134,
-   "Name": "JUICER MIXER GRINDER RICCOO CRYSTAL",
-   "Rate": 3062.7
- },
- {
-   "IndexNo": 21135,
-   "Name": "MIXER GRINDER PHILIPS 3 JAR HL7750/1",
-   "Rate": 3013.92
- },
- {
-   "IndexNo": 21139,
-   "Name": "FOOD PROCESSER INALSA TURBO",
-   "Rate": 3996.51
- },
- {
-   "IndexNo": 21140,
-   "Name": "MIXER GRINDER ICON",
-   "Rate": 3245.34
- },
- {
-   "IndexNo": 21142,
-   "Name": "JUICER MIXER GRINDER INALSA DX PULLOUT",
-   "Rate": 2732
- },
- {
-   "IndexNo": 21150,
-   "Name": "JUICER MIXER GRINDER GOPI",
-   "Rate": 2146.52
- },
- {
-   "IndexNo": 21153,
-   "Name": "FOOD PROCESSOR SINGER 3 JAR",
-   "Rate": 4923.32
- },
- {
-   "IndexNo": 21154,
-   "Name": "MIXER GRINDER FUPERFLAME MARVEL 3JAR",
-   "Rate": 2233.88
- },
- {
-   "IndexNo": 21155,
-   "Name": "MIXER GRINDER RICCO 123",
-   "Rate": 2862.04
- },
- {
-   "IndexNo": 21156,
-   "Name": "FOOD PROCESSOR RICCO FP 504",
-   "Rate": 5854.91
- },
- {
-   "IndexNo": 21164,
-   "Name": "MIXER GRINDER BAJAJ GX 21",
-   "Rate": 2476.2
- },
- {
-   "IndexNo": 21171,
-   "Name": "MIXER GRINDER MORPHY RICHARD MARVEL",
-   "Rate": 3560.96
- },
- {
-   "IndexNo": 21176,
-   "Name": "MIXER GRINDER SINGER 3JAR 43N",
-   "Rate": 2912.72
- },
- {
-   "IndexNo": 21190,
-   "Name": "HAND BLENDER INALSA DX",
-   "Rate": 1078.61
- },
- {
-   "IndexNo": 21193,
-   "Name": "MIXER GRINDER PANASONIC 3JAR",
-   "Rate": 3328.41
- },
- {
-   "IndexNo": 21196,
-   "Name": "IRON RICCO LIGHT WEIGHT A1",
-   "Rate": 497.93
- },
- {
-   "IndexNo": 21200,
-   "Name": "IRON STEAM BAJAJ",
-   "Rate": 1424.84
- },
- {
-   "IndexNo": 21202,
-   "Name": "IRON BAJAJ LIGHT WEIGHT GLIDER",
-   "Rate": 422.35
- },
- {
-   "IndexNo": 21204,
-   "Name": "IRON SUPER FLAME LIGHT WEIGHT",
-   "Rate": 470.72
- },
- {
-   "IndexNo": 21205,
-   "Name": "IRON SUNFLAME LIGHT WEIGHT",
-   "Rate": 532.82
- },
- {
-   "IndexNo": 21212,
-   "Name": "IRON STEAM INALSA JEWEL",
-   "Rate": 742.98
- },
- {
-   "IndexNo": 21228,
-   "Name": "IRON TOSIBA LIGHT WEIGHT",
-   "Rate": 490.63
- },
- {
-   "IndexNo": 21242,
-   "Name": "IRON PHILIPS LIGHT WEIGHT TEFLON 1182",
-   "Rate": 591.45
- },
- {
-   "IndexNo": 21243,
-   "Name": "IRON STEAM PHILIPS",
-   "Rate": 950.97
- },
- {
-   "IndexNo": 21248,
-   "Name": "IRON STEAM SUNFLAME  -305",
-   "Rate": 841.16
- },
- {
-   "IndexNo": 21250,
-   "Name": "IRON BAJAJ DHX9",
-   "Rate": 843.62
- },
- {
-   "IndexNo": 21254,
-   "Name": "IRON DRY SINGER DX-79N",
-   "Rate": 503.77
- },
- {
-   "IndexNo": 21259,
-   "Name": "JUICER MIXER GRINDER PANASONIC MXAC400",
-   "Rate": 3846.13
- },
- {
-   "IndexNo": 21262,
-   "Name": "JUICER MIXER SINGER 2JAR JM 35N",
-   "Rate": 2644.76
- },
- {
-   "IndexNo": 21271,
-   "Name": "ELECTRIC KETTEL PHILIPS HD4680",
-   "Rate": 1542.78
- },
- {
-   "IndexNo": 21272,
-   "Name": "ELECTRIC KETTEL MURPHY 0.5 LTR",
-   "Rate": 1094.5
- },
- {
-   "IndexNo": 21274,
-   "Name": "ELECTRIC KETTTEL INALSA TRAVEL",
-   "Rate": 1024.07
- },
- {
-   "IndexNo": 21292,
-   "Name": "OTG SUNFLAME 16 LTR",
-   "Rate": 3502.36
- },
- {
-   "IndexNo": 21298,
-   "Name": "OTG MURPHY 28 LTR",
-   "Rate": 4874.47
- },
- {
-   "IndexNo": 21317,
-   "Name": "ELECTRIC KETTEL REGAL",
-   "Rate": 1007.74
- },
- {
-   "IndexNo": 21323,
-   "Name": "JUICER PHILIPS STANDAL HL7705",
-   "Rate": 3329.08
- },
- {
-   "IndexNo": 21332,
-   "Name": "IRON SUNFLAME HAVY WEIGHT HAVY DUTY",
-   "Rate": 634.16
- },
- {
-   "IndexNo": 21368,
-   "Name": "BAJAJ SANDWICH TOASTER",
-   "Rate": 894.62
- },
- {
-   "IndexNo": 21374,
-   "Name": "POPUP TOASTER SUPERFLAME",
-   "Rate": 879.82
- },
- {
-   "IndexNo": 21383,
-   "Name": "SANDWICH TOASTER MORPHY 2 SLICE",
-   "Rate": 1134.06
- },
- {
-   "IndexNo": 21403,
-   "Name": "SANDWICH TOASTER TOSHIBA",
-   "Rate": 715.96
- },
- {
-   "IndexNo": 21404,
-   "Name": "SANDWITCH TOASTER SUPER FLAME",
-   "Rate": 809.51
- },
- {
-   "IndexNo": 21407,
-   "Name": "SANDWITCH MAKER GRILL STEEL PGMFS",
-   "Rate": 817.34
- },
- {
-   "IndexNo": 21419,
-   "Name": "SANDWICH TOASTER SNAX",
-   "Rate": 866.6
- },
- {
-   "IndexNo": 21420,
-   "Name": "SANDWICH & GRILL MURPHY",
-   "Rate": 2285.52
- },
- {
-   "IndexNo": 21423,
-   "Name": "TOASTER MURPHY RICHARD 800 WATT POPUP",
-   "Rate": 1071.14
- },
- {
-   "IndexNo": 21427,
-   "Name": "SANDWICH TOAST GRILL SF 105",
-   "Rate": 761.73
- },
- {
-   "IndexNo": 21428,
-   "Name": "SANDWICH & GRILL TOASTER SUNFLAME ",
-   "Rate": 743.21
- },
- {
-   "IndexNo": 21454,
-   "Name": "ELECTRIC KETTLE PRESTIGE 1 LTR",
-   "Rate": 1021.85
- },
- {
-   "IndexNo": 21477,
-   "Name": "LED SURYA 0.5 W ROYAL",
-   "Rate": 81.14
- },
- {
-   "IndexNo": 21532,
-   "Name": "INSTANT WATER HEATER SUMMERCOOL 3000 WT",
-   "Rate": 2257.72
- },
- {
-   "IndexNo": 21543,
-   "Name": "Mach Goodnight EMD Challenger",
-   "Rate": 49.92
- },
- {
-   "IndexNo": 21577,
-   "Name": "All Out Insecti Machine Comby",
-   "Rate": 52.95
- },
- {
-   "IndexNo": 21602,
-   "Name": "Coil Godrej No 1 LOW Smoke",
-   "Rate": 20.46
- },
- {
-   "IndexNo": 21607,
-   "Name": "Maxored Giant Mosq Coil 12Hr",
-   "Rate": 19.74
- },
- {
-   "IndexNo": 21609,
-   "Name": "Maxo Grade Combi +Glob Mach 6",
-   "Rate": 50.64
- },
- {
-   "IndexNo": 21614,
-   "Name": "Mortein Lowsmoke 12hr coil",
-   "Rate": 24.15
- },
- {
-   "IndexNo": 21615,
-   "Name": "Goodknight Adv Fastcard 10",
-   "Rate": 7.39
- },
- {
-   "IndexNo": 21618,
-   "Name": "Odomos Spray Mosquito",
-   "Rate": 49.27
- },
- {
-   "IndexNo": 21702,
-   "Name": "HAIR DRYER MORPHY RICH HD-031",
-   "Rate": 978.88
- },
- {
-   "IndexNo": 21725,
-   "Name": "IMMERSION HEATER SUMMERCOOL",
-   "Rate": 334.36
- },
- {
-   "IndexNo": 24000,
-   "Name": "EMERGENCY LIGHT INALSA SUNNY",
-   "Rate": 1177.87
- },
- {
-   "IndexNo": 24004,
-   "Name": "EMEGENCY  LIGHT RICCO EL 707",
-   "Rate": 1225.76
- },
- {
-   "IndexNo": 24008,
-   "Name": "EMERGENCY LIGHT RICCO LALTERN EL906",
-   "Rate": 1233.2
- },
- {
-   "IndexNo": 24016,
-   "Name": "EMERGENCY LIGHT BAJAJ",
-   "Rate": 816.67
- },
- {
-   "IndexNo": 24030,
-   "Name": "EMERGENCY LIGHT RICCO SOLAR",
-   "Rate": 1426.37
- },
- {
-   "IndexNo": 24194,
-   "Name": "GEEP DYNA LED PLS TORCH+3BTTY",
-   "Rate": 104.07
- },
- {
-   "IndexNo": 25008,
-   "Name": "SEWING MACHINE SINGER 15ND89",
-   "Rate": 3420.27
- },
- {
-   "IndexNo": 25011,
-   "Name": "FASHION MAKER SINGER",
-   "Rate": 5109.72
- },
- {
-   "IndexNo": 25028,
-   "Name": "SEWING MACHINE POOJA TAILOR WITH COVER",
-   "Rate": 3366.98
- },
- {
-   "IndexNo": 25030,
-   "Name": "SEWING MACHINE POOJA ",
-   "Rate": 3456.08
- },
- {
-   "IndexNo": 26216,
-   "Name": "Suraj Kitchen Sausepakad S/S",
-   "Rate": 75.77
- },
- {
-   "IndexNo": 26301,
-   "Name": "Toyo Tea Steel",
-   "Rate": 32.45
- },
- {
-   "IndexNo": 26375,
-   "Name": "KADAI GLAMOR B/HARD ANODISED",
-   "Rate": 382
- },
- {
-   "IndexNo": 26376,
-   "Name": "KADAI GLAMOR BRAND HARD DX505",
-   "Rate": 564.32
- },
- {
-   "IndexNo": 26377,
-   "Name": "KADAI-16 GLAMOR B/HARD ANODISED",
-   "Rate": 782.55
- },
- {
-   "IndexNo": 27008,
-   "Name": "Napathball Trishul 500 Gm",
-   "Rate": 139.37
- },
- {
-   "IndexNo": 27014,
-   "Name": "Air Purifier Oroma Round",
-   "Rate": 24.95
- },
- {
-   "IndexNo": 27020,
-   "Name": "Toilet Cleaner Wonder Clean 700",
-   "Rate": 42.48
- },
- {
-   "IndexNo": 27021,
-   "Name": "Action Toilet Clean 500 Ml",
-   "Rate": 33.95
- },
- {
-   "IndexNo": 27065,
-   "Name": "Harpic Power Cleaner 500 Ml",
-   "Rate": 49.59
- },
- {
-   "IndexNo": 27094,
-   "Name": "Toilet Cleaner Sanifresh Liquid 500 Ml",
-   "Rate": 32.72
- },
- {
-   "IndexNo": 27101,
-   "Name": "Bath Room Cleaner Lizol 500 Ml",
-   "Rate": 55.89
- },
- {
-   "IndexNo": 27108,
-   "Name": "Napthelene Balls 500 gm Pkt",
-   "Rate": 113.84
- },
- {
-   "IndexNo": 27130,
-   "Name": "Harpic Toilet Cleaner 500 Ml",
-   "Rate": 50.96
- },
- {
-   "IndexNo": 27137,
-   "Name": "Oroma Napth Ball 200 Gm",
-   "Rate": 54.84
- },
- {
-   "IndexNo": 27138,
-   "Name": "Oroma Napth Ball 500 Gm",
-   "Rate": 117.58
- },
- {
-   "IndexNo": 27140,
-   "Name": "Phenyln Wonder Clean 1 LTR",
-   "Rate": 89.09
- },
- {
-   "IndexNo": 27141,
-   "Name": "Toilet Clean Wonder 500 Ml",
-   "Rate": 36.29
- },
- {
-   "IndexNo": 27142,
-   "Name": "Napth Ball Wonder Clean 500 Gm",
-   "Rate": 109.89
- },
- {
-   "IndexNo": 27144,
-   "Name": "Wonder Clean Napthball 1 Kg",
-   "Rate": 196.39
- },
- {
-   "IndexNo": 27146,
-   "Name": "Phenyle Wonder Clean 1 Ltr",
-   "Rate": 49.32
- },
- {
-   "IndexNo": 27158,
-   "Name": "Goodnight Refill 35Ml",
-   "Rate": 35.74
- },
- {
-   "IndexNo": 27168,
-   "Name": "Lizol Disinfactant Pine 975 Ml",
-   "Rate": 121.33
- },
- {
-   "IndexNo": 27169,
-   "Name": "Liol Disinfactant Lavender 975",
-   "Rate": 121.33
- },
- {
-   "IndexNo": 27175,
-   "Name": "All Out Insectide Refill 60N",
-   "Rate": 53.28
- },
- {
-   "IndexNo": 27179,
-   "Name": "Mortein Rat Kill 100 Gm",
-   "Rate": 30.56
- },
- {
-   "IndexNo": 27180,
-   "Name": "Insect Mortein Spray 425 Ml",
-   "Rate": 109.39
- },
- {
-   "IndexNo": 27188,
-   "Name": "Mortein Spray Cockroach",
-   "Rate": 120.17
- },
- {
-   "IndexNo": 27197,
-   "Name": "Insecticide Hit Cik 320 Ml",
-   "Rate": 82.19
- },
- {
-   "IndexNo": 27198,
-   "Name": "Baygon Crawling Insect Killer",
-   "Rate": 98.18
- },
- {
-   "IndexNo": 27199,
-   "Name": "All Out Spray Insect Killer",
-   "Rate": 98.18
- },
- {
-   "IndexNo": 27205,
-   "Name": "Mortien Liq Riffil 60 Night",
-   "Rate": 48.31
- },
- {
-   "IndexNo": 27206,
-   "Name": "A/O Insecticide Riffil 90 Night",
-   "Rate": 42.69
- },
- {
-   "IndexNo": 27219,
-   "Name": "LED USHA 9 WATT",
-   "Rate": 90.55
- },
- {
-   "IndexNo": 27258,
-   "Name": "BAJAJ LED GLOW 648 LR 48 LED RC",
-   "Rate": 1557.07
- },
- {
-   "IndexNo": 27299,
-   "Name": "Wonder Clean Prfm Rose Phenyle",
-   "Rate": 39.77
- },
- {
-   "IndexNo": 27310,
-   "Name": "Phenol Valther Blk 1 Ltr",
-   "Rate": 108.68
- },
- {
-   "IndexNo": 27311,
-   "Name": "Viteflo Disingectant Floor Cleaner",
-   "Rate": 84.53
- },
- {
-   "IndexNo": 27359,
-   "Name": "Mirror Tiger Spl Glass",
-   "Rate": 23.82
- },
- {
-   "IndexNo": 27408,
-   "Name": "WATER PURIFIER EUREKA FORBES",
-   "Rate": 1497.99
- },
- {
-   "IndexNo": 27477,
-   "Name": "Hangar Maharani For Sarees",
-   "Rate": 21.55
- },
- {
-   "IndexNo": 27479,
-   "Name": "Cloth Clips 10 Pcs",
-   "Rate": 46.38
- },
- {
-   "IndexNo": 27483,
-   "Name": "Hanger Fancy Length 408 mm",
-   "Rate": 30.57
- },
- {
-   "IndexNo": 27491,
-   "Name": "Daily Care Gemini 24 Clip F/Hng",
-   "Rate": 89.8
- },
- {
-   "IndexNo": 28010,
-   "Name": "Cherry Polish Instant Shine Black",
-   "Rate": 48.28
- },
- {
-   "IndexNo": 28015,
-   "Name": "Polish Cherry Blossom Black",
-   "Rate": 35.48
- },
- {
-   "IndexNo": 28016,
-   "Name": "Boot Polish Cherry Blossom D/Tan",
-   "Rate": 34.81
- },
- {
-   "IndexNo": 28017,
-   "Name": "Polish Cherry Blossom White 120 Ml",
-   "Rate": 30.18
- },
- {
-   "IndexNo": 28044,
-   "Name": "Pitambari Shinning Powder 100 gm",
-   "Rate": 19.48
- },
- {
-   "IndexNo": 28078,
-   "Name": "VACCUM CLEANER INALSA DUST CLEAN",
-   "Rate": 1980.99
- },
- {
-   "IndexNo": 28079,
-   "Name": "Pitambari Roopei 30 ML (Silver)",
-   "Rate": 25.49
- },
- {
-   "IndexNo": 29032,
-   "Name": "CEILING FAN SUPERFLAME SWIFT 48 (in)",
-   "Rate": 1161.55
- },
- {
-   "IndexNo": 29033,
-   "Name": "CEILING FAN SUNFLAME ORMATE 48 (in)",
-   "Rate": 1623.52
- },
- {
-   "IndexNo": 29034,
-   "Name": "CEILING FAN HAVELS 1200 MM BROWN",
-   "Rate": 1471.07
- },
- {
-   "IndexNo": 29035,
-   "Name": "EXHAUST FAN HAVELLS 200MM ",
-   "Rate": 992.09
- },
- {
-   "IndexNo": 29036,
-   "Name": "WALL FAN HAVELLS 400 MM",
-   "Rate": 1557.12
- },
- {
-   "IndexNo": 29039,
-   "Name": "HAVELLS VENT FAN 230MM DSP",
-   "Rate": 899.93
- }
+  {
+    "IndexNo": "5023",
+    "Name": "Wonder Clean Scrub Pad 5Pack",
+    "Rate": "36.71"
+  },
+  {
+    "IndexNo": "8033",
+    "Name": "Room Freshner Prrm Sandal 125",
+    "Rate": "73.48"
+  },
+  {
+    "IndexNo": "13031",
+    "Name": "Wondermist Air Freshner 100 Gm",
+    "Rate": "20.61"
+  },
+  {
+    "IndexNo": "13038",
+    "Name": "P&G Ambipur Car Refill",
+    "Rate": "107.86"
+  },
+  {
+    "IndexNo": "13046",
+    "Name": "odonil Gel 75gm Mix Prfm ",
+    "Rate": "47.02"
+  },
+  {
+    "IndexNo": "13048",
+    "Name": "Air Freshner Vijohn  Soul 125 Gm",
+    "Rate": "79.70"
+  },
+  {
+    "IndexNo": "13051",
+    "Name": "Godrej Car Freh Gel Assort45G",
+    "Rate": "237.97"
+  },
+  {
+    "IndexNo": "13059",
+    "Name": "Agarbatti Diwali Mangal 40 Gm",
+    "Rate": "18.15"
+  },
+  {
+    "IndexNo": "13066",
+    "Name": "Sangam Rose Agarbatti 100 Stick",
+    "Rate": "49.14"
+  },
+  {
+    "IndexNo": "13067",
+    "Name": "Sangam P.Dhoop Cones 30 Cones",
+    "Rate": "24.74"
+  },
+  {
+    "IndexNo": "13069",
+    "Name": "Dhoop Haridarshan Alouk 20 Stk",
+    "Rate": "8.05"
+  },
+  {
+    "IndexNo": "13072",
+    "Name": "Agarbatti Basant Ke Phool",
+    "Rate": "8.77"
+  },
+  {
+    "IndexNo": "13075",
+    "Name": "Agarbatti Sai Jyoti ",
+    "Rate": "12.45"
+  },
+  {
+    "IndexNo": "13078",
+    "Name": "Agarbatti Sangam Sandalwood Hexa",
+    "Rate": "14.48"
+  },
+  {
+    "IndexNo": "13079",
+    "Name": "Agarbatti Shiv Gulab",
+    "Rate": "9.83"
+  },
+  {
+    "IndexNo": "13094",
+    "Name": "Agarbatti Onam Sandal",
+    "Rate": "35.55"
+  },
+  {
+    "IndexNo": "13100",
+    "Name": "Agarbatti Morning Glory Rct 105 Gm RS60",
+    "Rate": "41.69"
+  },
+  {
+    "IndexNo": "13109",
+    "Name": "Agarbatti Glory 30 Gms",
+    "Rate": "11.08"
+  },
+  {
+    "IndexNo": "13110",
+    "Name": "Agarbatti Charmis",
+    "Rate": "11.08"
+  },
+  {
+    "IndexNo": "13115",
+    "Name": "Agarbatti Haridarshan 20 s",
+    "Rate": "11.36"
+  },
+  {
+    "IndexNo": "13119",
+    "Name": "Agarbatti ES Sandal 100 Gm",
+    "Rate": "34.63"
+  },
+  {
+    "IndexNo": "13120",
+    "Name": "Agarbatti Dhoop 4 in 1 16 Sticks",
+    "Rate": "13.69"
+  },
+  {
+    "IndexNo": "13122",
+    "Name": "Dhoop Haridarshan DLX 16 Stx",
+    "Rate": "10.64"
+  },
+  {
+    "IndexNo": "13145",
+    "Name": "Dhoop Mahindra",
+    "Rate": "51.98"
+  },
+  {
+    "IndexNo": "13154",
+    "Name": "Agarbatti Sandalwood Tulsi 20 S",
+    "Rate": "9.29"
+  },
+  {
+    "IndexNo": "13157",
+    "Name": "Agarbatti Mansa Devi 20 Stick",
+    "Rate": "16.31"
+  },
+  {
+    "IndexNo": "13180",
+    "Name": "P/CKR Bajaj Pcx 35 Innerlid ",
+    "Rate": "1167.29"
+  },
+  {
+    "IndexNo": "13186",
+    "Name": "PRESSURE COOKER HAWKINS 3 L",
+    "Rate": "1743.80"
+  },
+  {
+    "IndexNo": "13189",
+    "Name": "PRESSURE COOKER SUPER FLAME 3L",
+    "Rate": "826.72"
+  },
+  {
+    "IndexNo": "13204",
+    "Name": "PRESSURE COOKER HANDI BAJAJ 5L",
+    "Rate": "1539.73"
+  },
+  {
+    "IndexNo": "14008",
+    "Name": "COOKER SUNFLAME 3 LTR INN LID ",
+    "Rate": "718.41"
+  },
+  {
+    "IndexNo": "14009",
+    "Name": "PRESSURE COOKER SUNFLAME  5L ",
+    "Rate": "936.94"
+  },
+  {
+    "IndexNo": "14010",
+    "Name": "PRESSURE COOKER SUNFLAME  5 L OUTER LID",
+    "Rate": "1091.99"
+  },
+  {
+    "IndexNo": "14016",
+    "Name": "PRESSURE COOKER USHA INNER LID 2L",
+    "Rate": "689.96"
+  },
+  {
+    "IndexNo": "14018",
+    "Name": "PRESSURE COOKER USHA INNER LID 4L",
+    "Rate": "1064.47"
+  },
+  {
+    "IndexNo": "14022",
+    "Name": "PRESSURE COOKER PRESTIGE 3L OUTER LID",
+    "Rate": "1400.93"
+  },
+  {
+    "IndexNo": "14025",
+    "Name": "Nirlon Steel Lemon Squeejer W/Ope",
+    "Rate": "135.57"
+  },
+  {
+    "IndexNo": "14031",
+    "Name": "ROTI MAKER RICO ",
+    "Rate": "1653.76"
+  },
+  {
+    "IndexNo": "14036",
+    "Name": "PRESSURE COOKER 5L SUNFLAME HANDI ",
+    "Rate": "944.62"
+  },
+  {
+    "IndexNo": "14038",
+    "Name": "PRESSURE COOKER PRESTIGE 3L COLOUR",
+    "Rate": "1174.54"
+  },
+  {
+    "IndexNo": "14060",
+    "Name": "PRESSURE COOKER HAWKINS FUTURA 3L BLACK",
+    "Rate": "2079.16"
+  },
+  {
+    "IndexNo": "14061",
+    "Name": "PRESSURE COOKER FUTURA HAWKINS 5L BLACK",
+    "Rate": "2550.28"
+  },
+  {
+    "IndexNo": "14068",
+    "Name": "P/C Hawkins 6.5ltr W/O",
+    "Rate": "1248.92"
+  },
+  {
+    "IndexNo": "14097",
+    "Name": "PRESSURE COOKER PRESTIGE 5 L HANDI",
+    "Rate": "1392.76"
+  },
+  {
+    "IndexNo": "14098",
+    "Name": "PRESSURE COOKER PRESTIGE 3L OUTER LID",
+    "Rate": "994.51"
+  },
+  {
+    "IndexNo": "14099",
+    "Name": "PRESSURE COOKER PRESTIGE 5L OUTER LID",
+    "Rate": "1354.11"
+  },
+  {
+    "IndexNo": "14100",
+    "Name": "CKR HANDI PRESTIGE PRESSURE 3 ",
+    "Rate": "1017.67"
+  },
+  {
+    "IndexNo": "14109",
+    "Name": "PRSSURE COOKER PRESTIGE 2L NAKSHATRA SW (COLOUR)",
+    "Rate": "1145.22"
+  },
+  {
+    "IndexNo": "14110",
+    "Name": "PRSSURE COOKER PESTIGE 3L NAKSHTRA SW",
+    "Rate": "1341.42"
+  },
+  {
+    "IndexNo": "14112",
+    "Name": "PRESSURE COOKER PRESTIGE 5 LTR  BLK",
+    "Rate": "1761.67"
+  },
+  {
+    "IndexNo": "14115",
+    "Name": "RICE COOKER RICCO ELECTRIC ",
+    "Rate": "1675.42"
+  },
+  {
+    "IndexNo": "14966",
+    "Name": "Cello Relish Luch Pack",
+    "Rate": "488.50"
+  },
+  {
+    "IndexNo": "14970",
+    "Name": "Tiffin Carr 3 Magma Carry Hot S/",
+    "Rate": "512.74"
+  },
+  {
+    "IndexNo": "14971",
+    "Name": "TIFFIN MAGMA HOT 4 STAINLES STEEL INSUL",
+    "Rate": "621.34"
+  },
+  {
+    "IndexNo": "14972",
+    "Name": "Magma Muffins Elgnt 1 L S/S Hotp",
+    "Rate": "270.27"
+  },
+  {
+    "IndexNo": "14973",
+    "Name": "Magma Hotpearl S/S Hotpot 3 Pcs",
+    "Rate": "1552.89"
+  },
+  {
+    "IndexNo": "14974",
+    "Name": "Magma Muffin Elegant S/S Hot  P",
+    "Rate": "1123.84"
+  },
+  {
+    "IndexNo": "14975",
+    "Name": "Cass Magma Hot Pearl",
+    "Rate": "321.90"
+  },
+  {
+    "IndexNo": "14978",
+    "Name": "Magma Muffins Elegant 3500",
+    "Rate": "700.35"
+  },
+  {
+    "IndexNo": "14979",
+    "Name": "Cas Magma Muffins 2500 Ml",
+    "Rate": "437.03"
+  },
+  {
+    "IndexNo": "14988",
+    "Name": "Cello Lunchpack 4 Container",
+    "Rate": "424.62"
+  },
+  {
+    "IndexNo": "15006",
+    "Name": "WONDERCHEIF SET CASEROL WITH LID 03PCS SET",
+    "Rate": "2104.20"
+  },
+  {
+    "IndexNo": "15014",
+    "Name": "Tiffin Farmaland 4 Star",
+    "Rate": "354.28"
+  },
+  {
+    "IndexNo": "15015",
+    "Name": "TIFFIN HOT CAKE T4 BHARAT S/STEEL",
+    "Rate": "624.31"
+  },
+  {
+    "IndexNo": "15016",
+    "Name": "TIFFIN BAHRAT T-5 S/STEEL",
+    "Rate": "770.58"
+  },
+  {
+    "IndexNo": "15019",
+    "Name": "GIFT SET BHARAT HON&HOT 3 PCS CASROLL",
+    "Rate": "604.53"
+  },
+  {
+    "IndexNo": "15128",
+    "Name": "Casroll Glamour S/S 1500 Ml",
+    "Rate": "295.77"
+  },
+  {
+    "IndexNo": "15129",
+    "Name": "Casroll Glamour S/S 2500 Ml",
+    "Rate": "415.10"
+  },
+  {
+    "IndexNo": "17013",
+    "Name": "BOROSIL GLASS CUT WORK 340 ML",
+    "Rate": "294.97"
+  },
+  {
+    "IndexNo": "17017",
+    "Name": "BOROSIL GLASS VISION SQUAR",
+    "Rate": "197.40"
+  },
+  {
+    "IndexNo": "17032",
+    "Name": "BOROSIL STORE SQUARE BOWL 320 ML",
+    "Rate": "179.75"
+  },
+  {
+    "IndexNo": "17033",
+    "Name": "BOROSIL KIP STORE SQUARE BOWL 520 M",
+    "Rate": "225.21"
+  },
+  {
+    "IndexNo": "17038",
+    "Name": "BOROSIL ROUND400ML KLIP STOR",
+    "Rate": "192.53"
+  },
+  {
+    "IndexNo": "17049",
+    "Name": "BOROSIL KLIP STORE BOWL 620 ML",
+    "Rate": "240.30"
+  },
+  {
+    "IndexNo": "18021",
+    "Name": "INDUCTION COOKER RICCO",
+    "Rate": "1956.31"
+  },
+  {
+    "IndexNo": "18022",
+    "Name": "INDUCTION PRESTIGE COOKTOP 1.0",
+    "Rate": "2177.69"
+  },
+  {
+    "IndexNo": "18023",
+    "Name": "INDUCTION PRESTIGE COOKTOP 2.0",
+    "Rate": "3065.75"
+  },
+  {
+    "IndexNo": "18029",
+    "Name": "INDUCTION SUNFLAME SFIC 02",
+    "Rate": "2546.13"
+  },
+  {
+    "IndexNo": "18031",
+    "Name": "INDUCTION CKR SUMMER COOL",
+    "Rate": "2421.09"
+  },
+  {
+    "IndexNo": "18033",
+    "Name": "IND CKR PHILIPS HD4928",
+    "Rate": "3202.29"
+  },
+  {
+    "IndexNo": "18045",
+    "Name": "CAS ROLL  BHARAT TROPICANA 2500",
+    "Rate": "372.69"
+  },
+  {
+    "IndexNo": "18046",
+    "Name": "CAS ROLL TROPICANA 2000ML",
+    "Rate": "278.73"
+  },
+  {
+    "IndexNo": "18051",
+    "Name": "CAS ROLL FLORA S/STEEL GLAMOR 1000",
+    "Rate": "272.73"
+  },
+  {
+    "IndexNo": "18052",
+    "Name": "CAS ROLL S/STEEL GLAMOR 3500",
+    "Rate": "638.42"
+  },
+  {
+    "IndexNo": "18057",
+    "Name": "CAS ROLL S/S 750 ML MAGMA MUFFIN",
+    "Rate": "1362.23"
+  },
+  {
+    "IndexNo": "18106",
+    "Name": "TAWA GLAMOR B/HARD ANODISED 2",
+    "Rate": "481.57"
+  },
+  {
+    "IndexNo": "18110",
+    "Name": "NIRLEP ASPA N/STICK 04 PCS GIFT SET",
+    "Rate": "981.66"
+  },
+  {
+    "IndexNo": "18141",
+    "Name": "GAS STOVE PRESTIGE GLASS TOP  2 BURNER",
+    "Rate": "3765.25"
+  },
+  {
+    "IndexNo": "18147",
+    "Name": "GAS STOVE SUNFLAME AUTO IGNITION SPECT 02 BURNER",
+    "Rate": "1962.60"
+  },
+  {
+    "IndexNo": "18183",
+    "Name": "GAS STOVE SUNFLAME STEEL 3 BNR",
+    "Rate": "2192.47"
+  },
+  {
+    "IndexNo": "18184",
+    "Name": "GAS STOVE SUNFLAME GLASS TOP 3 BNR",
+    "Rate": "3944.64"
+  },
+  {
+    "IndexNo": "18190",
+    "Name": "GAS STOVE SUNFLAME SUPER STAR STEEL 2 BNR",
+    "Rate": "1417.59"
+  },
+  {
+    "IndexNo": "18195",
+    "Name": "Elec Gas Lighter Scegl 102",
+    "Rate": "86.92"
+  },
+  {
+    "IndexNo": "18198",
+    "Name": "Elect Gas Lighter Lkmplr 105",
+    "Rate": "100.17"
+  },
+  {
+    "IndexNo": "18199",
+    "Name": "GAS STOVE SUNFLAME REGENT GLASS TOP 2BNR ",
+    "Rate": "2251.13"
+  },
+  {
+    "IndexNo": "18200",
+    "Name": "Gas Lighter Vimal",
+    "Rate": "91.23"
+  },
+  {
+    "IndexNo": "18205",
+    "Name": "Gaslighter Suraj S/Steel Body",
+    "Rate": "69.83"
+  },
+  {
+    "IndexNo": "18215",
+    "Name": "G /S G/T PRESTIGE 3 BURNER",
+    "Rate": "3917.32"
+  },
+  {
+    "IndexNo": "18216",
+    "Name": "GAS STOVE INALSA COOKTOP 2 BURNER",
+    "Rate": "1597.23"
+  },
+  {
+    "IndexNo": "18217",
+    "Name": "G/STV SUNFLAME 4BURNER G/TOP",
+    "Rate": "5020.52"
+  },
+  {
+    "IndexNo": "18231",
+    "Name": "GAS STOVE INALSA GLASS TOP 3 BURNER",
+    "Rate": "3863.87"
+  },
+  {
+    "IndexNo": "18262",
+    "Name": "FRYPAN FUTURA HAWKINS",
+    "Rate": "524.36"
+  },
+  {
+    "IndexNo": "18268",
+    "Name": "TAWA CONCAVE HAWKINS FUTURA",
+    "Rate": "562.82"
+  },
+  {
+    "IndexNo": "18269",
+    "Name": "KADAI HAWKINS FUTURA",
+    "Rate": "1247.64"
+  },
+  {
+    "IndexNo": "18270",
+    "Name": "STEEM POT GLIDE HAWKINS FUTURA",
+    "Rate": "1047.77"
+  },
+  {
+    "IndexNo": "18274",
+    "Name": "KADAI NIRLON INDUCTION NR 48444",
+    "Rate": "877.44"
+  },
+  {
+    "IndexNo": "18275",
+    "Name": "PRESTIGE NON STICK 03 P SET INDUCTION BASE",
+    "Rate": "2116.81"
+  },
+  {
+    "IndexNo": "18290",
+    "Name": "SAUSPAN GLAMOR ANODISED",
+    "Rate": "382.76"
+  },
+  {
+    "IndexNo": "18291",
+    "Name": "Glamor Har Anodised Vaghakia",
+    "Rate": "178.90"
+  },
+  {
+    "IndexNo": "18297",
+    "Name": "NIRLON COOKWARE SET 3 PCS",
+    "Rate": "2186.47"
+  },
+  {
+    "IndexNo": "18298",
+    "Name": "TAWA DOSA SUN FLAME NONSTICK 250 MM",
+    "Rate": "454.00"
+  },
+  {
+    "IndexNo": "18299",
+    "Name": "SAUSPAN HARD 1.75 LTR INDUCTION BASE",
+    "Rate": "579.20"
+  },
+  {
+    "IndexNo": "18300",
+    "Name": "TAWA SUN FLAME HARD ANODISED 250 MM",
+    "Rate": "506.69"
+  },
+  {
+    "IndexNo": "18304",
+    "Name": "MAGNUM PAN HARD ANODISED ",
+    "Rate": "625.86"
+  },
+  {
+    "IndexNo": "18305",
+    "Name": "KADAI PRESTIGE GRANITE 240 MM",
+    "Rate": "1008.54"
+  },
+  {
+    "IndexNo": "18306",
+    "Name": "WONDERCHEF SET FRY PAN TAWA",
+    "Rate": "1462.88"
+  },
+  {
+    "IndexNo": "18321",
+    "Name": "Gas Trolley Lpq Easyroll",
+    "Rate": "194.53"
+  },
+  {
+    "IndexNo": "18322",
+    "Name": "CHOPPER INALSA EASY CHOP",
+    "Rate": "935.78"
+  },
+  {
+    "IndexNo": "18360",
+    "Name": "WONDERCHEF SET FRYPAN WOK TAWA",
+    "Rate": "1959.97"
+  },
+  {
+    "IndexNo": "18395",
+    "Name": "FRYPAN SUNFLAME HARD ANODISED 240 MM",
+    "Rate": "471.86"
+  },
+  {
+    "IndexNo": "18396",
+    "Name": "SUNFLAME KADAI DEEP 3.10 LTR",
+    "Rate": "809.09"
+  },
+  {
+    "IndexNo": "18397",
+    "Name": "SUNFLAME INDUCTION C/WARE SET",
+    "Rate": "1475.96"
+  },
+  {
+    "IndexNo": "18416",
+    "Name": "Suraj B S/St Coconut S/D Vacu",
+    "Rate": "156.64"
+  },
+  {
+    "IndexNo": "18422",
+    "Name": "Kitchen Press Suraj S/Steel",
+    "Rate": "277.89"
+  },
+  {
+    "IndexNo": "18429",
+    "Name": "Suraj Brand 6 in 1 Vegetable S",
+    "Rate": "119.84"
+  },
+  {
+    "IndexNo": "18476",
+    "Name": "Knife 10",
+    "Rate": "47.47"
+  },
+  {
+    "IndexNo": "18487",
+    "Name": "SAREGAMA CARVAAN MUSIC PLAYER",
+    "Rate": "4871.94"
+  },
+  {
+    "IndexNo": "18492",
+    "Name": "Toyo S/S Atta Channi Grain",
+    "Rate": "347.00"
+  },
+  {
+    "IndexNo": "18494",
+    "Name": "Toyo S/S Veg & Coco Chip",
+    "Rate": "157.74"
+  },
+  {
+    "IndexNo": "18496",
+    "Name": "Vimal S/S Knife 3 Pcs",
+    "Rate": "131.82"
+  },
+  {
+    "IndexNo": "18510",
+    "Name": "HAVELS LED ADORE 7W LAMPS",
+    "Rate": "80.67"
+  },
+  {
+    "IndexNo": "18526",
+    "Name": "LED SYSKA 22 WATT 6500K",
+    "Rate": "676.21"
+  },
+  {
+    "IndexNo": "18564",
+    "Name": "Aluminium Foil Alfa Yellow",
+    "Rate": "45.54"
+  },
+  {
+    "IndexNo": "18565",
+    "Name": "Alumunium Foil 9 Mtr",
+    "Rate": "38.45"
+  },
+  {
+    "IndexNo": "18569",
+    "Name": "Sealnfresh Alumunium Foil 300*",
+    "Rate": "42.51"
+  },
+  {
+    "IndexNo": "18574",
+    "Name": "Pam Alumunium Foil 9 Mtr",
+    "Rate": "47.09"
+  },
+  {
+    "IndexNo": "18575",
+    "Name": "Pam Alumunium Foil 21 Mtr",
+    "Rate": "108.69"
+  },
+  {
+    "IndexNo": "18577",
+    "Name": "Alumuniumfoilqutkwrap 25 Mtr",
+    "Rate": "138.85"
+  },
+  {
+    "IndexNo": "18581",
+    "Name": "Kushal C/Wrap Foil 18 Mtr",
+    "Rate": "104.81"
+  },
+  {
+    "IndexNo": "18582",
+    "Name": "Kusal Wrap Foil 18M Alumunium",
+    "Rate": "100.08"
+  },
+  {
+    "IndexNo": "20910",
+    "Name": "CEILING FAN HAVELS FUSION BEIGE BROWN",
+    "Rate": "1975.37"
+  },
+  {
+    "IndexNo": "20912",
+    "Name": "C/F HAVELS MET PEARL IVORY SS3",
+    "Rate": "1656.29"
+  },
+  {
+    "IndexNo": "20938",
+    "Name": "C/FAN BAJAJ  48CRAPEGOLD DX",
+    "Rate": "1700.39"
+  },
+  {
+    "IndexNo": "20940",
+    "Name": "CEILING FAN RICCO 1200 MM",
+    "Rate": "1508.77"
+  },
+  {
+    "IndexNo": "20941",
+    "Name": "CEILING FAN RICCO ORIC 1200 MM",
+    "Rate": "1642.24"
+  },
+  {
+    "IndexNo": "20958",
+    "Name": "CEILING FAN SUNFLAME 48''",
+    "Rate": "1313.52"
+  },
+  {
+    "IndexNo": "20959",
+    "Name": "CEILING FAN SUNFLAME 56''",
+    "Rate": "1412.03"
+  },
+  {
+    "IndexNo": "20961",
+    "Name": "SINGER LED FAN REMOTE",
+    "Rate": "3254.21"
+  },
+  {
+    "IndexNo": "20978",
+    "Name": "C/FAN BAJAJ SUPAR  BROWN 48",
+    "Rate": "1375.54"
+  },
+  {
+    "IndexNo": "21043",
+    "Name": "PEDESTRAL FAN CROMTON GREAVES",
+    "Rate": "1535.86"
+  },
+  {
+    "IndexNo": "21045",
+    "Name": "TABLE FAN ORIENT DLX SUPREME 400MM",
+    "Rate": "1238.95"
+  },
+  {
+    "IndexNo": "21062",
+    "Name": "VENTILATION FAN 150 MM",
+    "Rate": "944.15"
+  },
+  {
+    "IndexNo": "21072",
+    "Name": "SUPERFLAME EXHAUST FAN 200 MM",
+    "Rate": "1070.94"
+  },
+  {
+    "IndexNo": "21104",
+    "Name": "JUICER MIXER GRINDER SUNFLAME",
+    "Rate": "2923.22"
+  },
+  {
+    "IndexNo": "21117",
+    "Name": "JMG PHILIPS HL",
+    "Rate": "2756.99"
+  },
+  {
+    "IndexNo": "21120",
+    "Name": "GOPI GRINDER & LIQUIDIZER SM",
+    "Rate": "1878.61"
+  },
+  {
+    "IndexNo": "21126",
+    "Name": "MIXER GRINDER RICCO 650 W 828",
+    "Rate": "3079.37"
+  },
+  {
+    "IndexNo": "21134",
+    "Name": "JUICER MIXER GRINDER RICCOO CRYSTAL",
+    "Rate": "3062.70"
+  },
+  {
+    "IndexNo": "21135",
+    "Name": "MIXER GRINDER PHILIPS 3 JAR HL7750/1",
+    "Rate": "3013.92"
+  },
+  {
+    "IndexNo": "21140",
+    "Name": "MIXER GRINDER ICON",
+    "Rate": "3245.34"
+  },
+  {
+    "IndexNo": "21150",
+    "Name": "JUICER MIXER GRINDER GOPI",
+    "Rate": "2146.52"
+  },
+  {
+    "IndexNo": "21153",
+    "Name": "FOOD PROCESSOR SINGER 3 JAR",
+    "Rate": "4923.32"
+  },
+  {
+    "IndexNo": "21154",
+    "Name": "MIXER GRINDER FUPERFLAME MARVEL 3JAR",
+    "Rate": "2233.88"
+  },
+  {
+    "IndexNo": "21155",
+    "Name": "MIXER GRINDER RICCO 123",
+    "Rate": "2862.04"
+  },
+  {
+    "IndexNo": "21156",
+    "Name": "FOOD PROCESSOR RICCO FP 504",
+    "Rate": "5854.91"
+  },
+  {
+    "IndexNo": "21171",
+    "Name": "MG Morphy Richard Marval",
+    "Rate": "3560.96"
+  },
+  {
+    "IndexNo": "21176",
+    "Name": "MIXER GRINDER SINGER 3JAR 43N",
+    "Rate": "2912.72"
+  },
+  {
+    "IndexNo": "21188",
+    "Name": "JMG MURPHYRICHARDS 500 WATT",
+    "Rate": "3294.44"
+  },
+  {
+    "IndexNo": "21190",
+    "Name": "HAND BLENDER INALSA DX",
+    "Rate": "1078.61"
+  },
+  {
+    "IndexNo": "21193",
+    "Name": "MIXER GRINDER PANASONIC 3JAR",
+    "Rate": "3328.41"
+  },
+  {
+    "IndexNo": "21196",
+    "Name": "IRON RICCO LIGHT WEIGHT A1",
+    "Rate": "497.93"
+  },
+  {
+    "IndexNo": "21198",
+    "Name": "IRON MORPHY RICH STEAM",
+    "Rate": "1471.34"
+  },
+  {
+    "IndexNo": "21200",
+    "Name": "STEAM IRON BAJAJ",
+    "Rate": "1424.84"
+  },
+  {
+    "IndexNo": "21202",
+    "Name": "IRON BAJAJ LIGHT WEIGHT GLIDER",
+    "Rate": "422.35"
+  },
+  {
+    "IndexNo": "21204",
+    "Name": "IRON SUPER FLAME LIGHT WEIGHT",
+    "Rate": "470.72"
+  },
+  {
+    "IndexNo": "21205",
+    "Name": "IRON SUNFLAME LIGHT WEIGHT",
+    "Rate": "532.82"
+  },
+  {
+    "IndexNo": "21212",
+    "Name": "IRON STEAM INALSA JEWEL",
+    "Rate": "742.98"
+  },
+  {
+    "IndexNo": "21228",
+    "Name": "IRON TOSIBA LIGHT WEIGHT",
+    "Rate": "490.63"
+  },
+  {
+    "IndexNo": "21232",
+    "Name": "IRON H/WT SUNFLAME H/ DUTY ",
+    "Rate": "634.16"
+  },
+  {
+    "IndexNo": "21243",
+    "Name": "IRON STEAM PHILIPS",
+    "Rate": "950.97"
+  },
+  {
+    "IndexNo": "21248",
+    "Name": "IRON STEAM SUNFLAME  -305",
+    "Rate": "841.16"
+  },
+  {
+    "IndexNo": "21254",
+    "Name": "IRON DRY SINGER DX-79N",
+    "Rate": "503.77"
+  },
+  {
+    "IndexNo": "21259",
+    "Name": "JUICER MIXER GRINDER PANASONIC MXAC400",
+    "Rate": "3846.13"
+  },
+  {
+    "IndexNo": "21262",
+    "Name": "JUICER MIXER SINGER 2JAR JM 35N",
+    "Rate": "2644.76"
+  },
+  {
+    "IndexNo": "21272",
+    "Name": "ELECTRIC KETTEL MURPHY 0.5 LTR",
+    "Rate": "1094.50"
+  },
+  {
+    "IndexNo": "21274",
+    "Name": "ELECTRIC KETTTEL INALSA TRAVEL",
+    "Rate": "1024.07"
+  },
+  {
+    "IndexNo": "21292",
+    "Name": "OTG SUNFLAME 16 LTR",
+    "Rate": "3502.36"
+  },
+  {
+    "IndexNo": "21298",
+    "Name": "OTG MURPHY 28 LTR",
+    "Rate": "4874.47"
+  },
+  {
+    "IndexNo": "21323",
+    "Name": "JUICER PHILIPS STANDAL HL7705",
+    "Rate": "3329.08"
+  },
+  {
+    "IndexNo": "21374",
+    "Name": "POPUP TOASTER SUPERFLAME",
+    "Rate": "879.82"
+  },
+  {
+    "IndexNo": "21383",
+    "Name": "SANDWICH TOASTER MORPHY 2 SLICE",
+    "Rate": "1134.06"
+  },
+  {
+    "IndexNo": "21403",
+    "Name": "SANDWICH TOASTER TOSHIBA",
+    "Rate": "715.96"
+  },
+  {
+    "IndexNo": "21404",
+    "Name": "SANDWITCH TOASTER SUPER FLAME",
+    "Rate": "809.51"
+  },
+  {
+    "IndexNo": "21407",
+    "Name": "SANDWITCH MAKER GRILL STEEL PGMFS",
+    "Rate": "817.34"
+  },
+  {
+    "IndexNo": "21419",
+    "Name": "SANDWICH TOASTER SNAX",
+    "Rate": "866.60"
+  },
+  {
+    "IndexNo": "21420",
+    "Name": "SANDWICH & GRILL MURPHY",
+    "Rate": "2285.52"
+  },
+  {
+    "IndexNo": "21427",
+    "Name": "SANDWICH TOAST GRILL SF 105",
+    "Rate": "761.73"
+  },
+  {
+    "IndexNo": "21428",
+    "Name": "SANDWICH & GRILL TOASTER SUNFLAME ",
+    "Rate": "743.21"
+  },
+  {
+    "IndexNo": "21532",
+    "Name": "INSTANT WATER HEATER SUMMERCOOL 3000 WT",
+    "Rate": "2257.72"
+  },
+  {
+    "IndexNo": "21543",
+    "Name": "Mach Goodnight EMD Challenger",
+    "Rate": "49.92"
+  },
+  {
+    "IndexNo": "21558",
+    "Name": "GOODNIGHT Refill 35Ml",
+    "Rate": "35.74"
+  },
+  {
+    "IndexNo": "21575",
+    "Name": "All out insecticide refill 60n",
+    "Rate": "53.28"
+  },
+  {
+    "IndexNo": "21577",
+    "Name": "All Out Insecti Machine Comby",
+    "Rate": "52.95"
+  },
+  {
+    "IndexNo": "21602",
+    "Name": "Coil Godrej No 1 LOW Smoke",
+    "Rate": "20.46"
+  },
+  {
+    "IndexNo": "21607",
+    "Name": "Maxored Giant Mosq Coil 12Hr",
+    "Rate": "19.74"
+  },
+  {
+    "IndexNo": "21725",
+    "Name": "IMMERSION HEATER SUMMERCOOL",
+    "Rate": "334.36"
+  },
+  {
+    "IndexNo": "24000",
+    "Name": "EMERGENCY LIGHT INALSA SUNNY",
+    "Rate": "1177.87"
+  },
+  {
+    "IndexNo": "24004",
+    "Name": "EMEGENCY  LIGHT RICCO EL 707",
+    "Rate": "1225.76"
+  },
+  {
+    "IndexNo": "24008",
+    "Name": "EMERGENCY LIGHT RICCO LALTERN EL906",
+    "Rate": "1233.20"
+  },
+  {
+    "IndexNo": "24030",
+    "Name": "EMERGENCY LIGHT RICCO SOLAR",
+    "Rate": "1426.37"
+  },
+  {
+    "IndexNo": "24194",
+    "Name": "GEEP DYNA LED PLS TORCH+3BTTY",
+    "Rate": "104.07"
+  },
+  {
+    "IndexNo": "25008",
+    "Name": "SEWING MACHINE SINGER 15ND89",
+    "Rate": "3420.27"
+  },
+  {
+    "IndexNo": "25028",
+    "Name": "SEWING MACHINE POOJA TAILOR WITH COVER",
+    "Rate": "3366.98"
+  },
+  {
+    "IndexNo": "25030",
+    "Name": "SEWING MACHINE POOJA ",
+    "Rate": "3456.08"
+  },
+  {
+    "IndexNo": "26216",
+    "Name": "Suraj Kitchen Sausepakad S/S",
+    "Rate": "75.77"
+  },
+  {
+    "IndexNo": "26301",
+    "Name": "Toyo Tea Steel",
+    "Rate": "32.45"
+  },
+  {
+    "IndexNo": "26375",
+    "Name": "KADAI GLAMOR B/HARD ANODISED",
+    "Rate": "382.00"
+  },
+  {
+    "IndexNo": "26376",
+    "Name": "KADAI GLAMOR BRAND HARD DX505",
+    "Rate": "564.32"
+  },
+  {
+    "IndexNo": "26377",
+    "Name": "KADAI-16 GLAMOR B/HARD ANODISED",
+    "Rate": "782.55"
+  },
+  {
+    "IndexNo": "27008",
+    "Name": "Napathball Trishul 500 Gm",
+    "Rate": "139.37"
+  },
+  {
+    "IndexNo": "27014",
+    "Name": "Air Purifier Oroma Round",
+    "Rate": "24.95"
+  },
+  {
+    "IndexNo": "27020",
+    "Name": "Toilet Cleaner Wonder Clean 700",
+    "Rate": "42.48"
+  },
+  {
+    "IndexNo": "27021",
+    "Name": "Action Toilet Clean 500 Ml",
+    "Rate": "33.95"
+  },
+  {
+    "IndexNo": "27029",
+    "Name": "Wonder Clean Dish Wash 1 ltr",
+    "Rate": "79.66"
+  },
+  {
+    "IndexNo": "27044",
+    "Name": "Dish Wash Clean 600ML",
+    "Rate": "52.52"
+  },
+  {
+    "IndexNo": "27045",
+    "Name": "Dish Wash LIQ 2000ML",
+    "Rate": "149.80"
+  },
+  {
+    "IndexNo": "27065",
+    "Name": "Harpic Power bhathroom Cleaner 500 Ml",
+    "Rate": "49.59"
+  },
+  {
+    "IndexNo": "27094",
+    "Name": "Toilet Cleaner Sanifresh Liquid 500 Ml",
+    "Rate": "32.72"
+  },
+  {
+    "IndexNo": "27101",
+    "Name": "Bath Room Cleaner Lizol 500 Ml",
+    "Rate": "55.89"
+  },
+  {
+    "IndexNo": "27108",
+    "Name": "Napthelene Balls 500 gm Pkt",
+    "Rate": "113.84"
+  },
+  {
+    "IndexNo": "27130",
+    "Name": "Harpic Toilet Cleaner 500 Ml",
+    "Rate": "50.96"
+  },
+  {
+    "IndexNo": "27138",
+    "Name": "Oroma Napth Ball 500 Gm",
+    "Rate": "117.58"
+  },
+  {
+    "IndexNo": "27140",
+    "Name": "Phenyln Wonder Clean 1 LTR",
+    "Rate": "89.09"
+  },
+  {
+    "IndexNo": "27141",
+    "Name": "Toilet Clean Wonder 500 Ml",
+    "Rate": "36.29"
+  },
+  {
+    "IndexNo": "27142",
+    "Name": "Napth Ball Wonder Clean 500 Gm",
+    "Rate": "109.89"
+  },
+  {
+    "IndexNo": "27144",
+    "Name": "Wonder Clean Napthball 1 Kg",
+    "Rate": "196.39"
+  },
+  {
+    "IndexNo": "27146",
+    "Name": "Phenyle Wonder Clean 1 Ltr",
+    "Rate": "49.32"
+  },
+  {
+    "IndexNo": "27153",
+    "Name": "Wonder Clean Dish Wash Bar 380",
+    "Rate": "18.76"
+  },
+  {
+    "IndexNo": "27162",
+    "Name": "ODONIL STICK REFILL 100GMS",
+    "Rate": "27.53"
+  },
+  {
+    "IndexNo": "27169",
+    "Name": "Liol Disinfactant Lavender 975",
+    "Rate": "121.33"
+  },
+  {
+    "IndexNo": "27179",
+    "Name": "Mortein Rat Kill 100 Gm",
+    "Rate": "30.56"
+  },
+  {
+    "IndexNo": "27198",
+    "Name": "Baygon Crawling Insect Killer",
+    "Rate": "98.18"
+  },
+  {
+    "IndexNo": "27199",
+    "Name": "All Out Spray Insect Killer",
+    "Rate": "98.18"
+  },
+  {
+    "IndexNo": "27206",
+    "Name": "A/O Insecticide Riffil 90 Night",
+    "Rate": "42.69"
+  },
+  {
+    "IndexNo": "27258",
+    "Name": "BAJAJ LED GLOW 648 LR 48 LED RC",
+    "Rate": "1557.07"
+  },
+  {
+    "IndexNo": "27299",
+    "Name": "Wonder Clean Prfm Rose Phenyle",
+    "Rate": "39.77"
+  },
+  {
+    "IndexNo": "27310",
+    "Name": "Phenol Valther Blk 1 Ltr",
+    "Rate": "108.68"
+  },
+  {
+    "IndexNo": "27311",
+    "Name": "Viteflo Disingectant Floor Cleaner",
+    "Rate": "84.53"
+  },
+  {
+    "IndexNo": "27359",
+    "Name": "Mirror Tiger Spl Glass",
+    "Rate": "23.82"
+  },
+  {
+    "IndexNo": "27408",
+    "Name": "WATER PURIFIER EUREKA FORBES",
+    "Rate": "1497.99"
+  },
+  {
+    "IndexNo": "27477",
+    "Name": "Hangar Maharani For Sarees",
+    "Rate": "21.55"
+  },
+  {
+    "IndexNo": "27479",
+    "Name": "Cloth Clips 10 Pcs",
+    "Rate": "46.38"
+  },
+  {
+    "IndexNo": "27483",
+    "Name": "Hanger Fancy Length 408 mm",
+    "Rate": "30.57"
+  },
+  {
+    "IndexNo": "27492",
+    "Name": "Hanger Dualcolor 5 PCS Newsiti",
+    "Rate": "217.34"
+  },
+  {
+    "IndexNo": "28010",
+    "Name": "Cherry Polish Instant Shine Black",
+    "Rate": "48.28"
+  },
+  {
+    "IndexNo": "28015",
+    "Name": "Polish Cherry Blossom Black",
+    "Rate": "35.48"
+  },
+  {
+    "IndexNo": "28016",
+    "Name": "Boot Polish Cherry Blossom D/Tan",
+    "Rate": "34.81"
+  },
+  {
+    "IndexNo": "28017",
+    "Name": "Polish Cherry Blossom White 120 Ml",
+    "Rate": "30.18"
+  },
+  {
+    "IndexNo": "28078",
+    "Name": "VACCUM CLEANER INALSA DUST CLEAN",
+    "Rate": "1980.99"
+  },
+  {
+    "IndexNo": "28079",
+    "Name": "Pitambari Roopei 30 ML (Silver)",
+    "Rate": "25.49"
+  },
+  {
+    "IndexNo": "28080",
+    "Name": "FORBES EASY CLEAN",
+    "Rate": "1727.84"
+  },
+  {
+    "IndexNo": "28086",
+    "Name": "FORBES NANO STRENCY 10000TR",
+    "Rate": "2320.57"
+  },
+  {
+    "IndexNo": "29033",
+    "Name": "CEILING FAN SUNFLAME ORMATE 48''",
+    "Rate": "1623.52"
+  },
+  {
+    "IndexNo": "29034",
+    "Name": "C/F VEL HAVELLS1200MM BROWN",
+    "Rate": "1471.07"
+  },
+  {
+    "IndexNo": "29035",
+    "Name": "EXHAUST FAN HAVELLS 200MM",
+    "Rate": "992.09"
+  },
+  {
+    "IndexNo": "29036",
+    "Name": "WALL FAN HAVELLS 400 MM",
+    "Rate": "1557.12"
+  },
+  {
+    "IndexNo": "29039",
+    "Name": "HAVELLS VENT FAN 230MM DSP",
+    "Rate": "899.93"
+  }
 ]
